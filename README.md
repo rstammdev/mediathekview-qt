@@ -1,16 +1,23 @@
+<!--
+SPDX-FileComment: Project Homepage: https://github.com/rstammdev/mediathekview-qt
+SPDX-FileCopyrightText: 2025 Ralf Stamm
+SPDX-License-Identifier: GPL-3.0-only
+-->
 
-<img src="res/icons/apps/16/mediathekview-qt.svg" alt="MediathekView-Qt" width="64" height="64" style="float: left;">
 
-# MediathekView-Qt
-
-Managing the online multimedia libraries of public broadcasters
+<table>
+  <tr>
+    <td valign="middle"><img src="res/icons/apps/16/mediathekview-qt.svg" alt="MediathekView-Qt" width="72" height="72"></td>
+    <td valign="middle" style="padding-left:16px;"><h1>MediathekView-Qt</h1><p>Frontend tool for the MediathekView database</p></td>
+  </tr>
+</table>
 
 
 ## About
 
 [MediathekView](https://mediathekview.de "Visit MediathekView's homepage") is a free open-source software designed to manage the online multimedia libraries of several German public broadcasters as well as an Austrian, a Swiss and a Franco-German public broadcaster.
 
-[MediathekView-Qt](https://rstammdev.github.io/mediathekview-qt "Visit MediathekView-Qt's homepage") is a free open-source frontend tool for this MediathekView database written in C++ using the Qt framework.
+[MediathekView-Qt](https://rstammdev.github.io/mediathekview-qt "Visit project's homepage") is a free open-source frontend tool for this MediathekView database written in C++ using the Qt framework.
 
 Copyright &copy; 2025 [Ralf Stamm](https://rstammdev.github.io "Visit organization's homepage").
 
