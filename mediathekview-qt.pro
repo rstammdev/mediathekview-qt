@@ -24,6 +24,9 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp
 
+RESOURCES += \
+    res/icons.qrc
+
 TRANSLATIONS += \
     i18n/mediathekview-qt_en_001.ts
 
