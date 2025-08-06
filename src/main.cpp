@@ -5,6 +5,7 @@
  */
 
 #include <QApplication>
+#include <QCommandLineParser>
 #include <QDebug>
 #include <QLocale>
 #include <QTranslator>
@@ -35,6 +36,12 @@ int main(int argc, char* argv[])
             break;
         }
     }
+
+    QCommandLineParser parser;
+    parser.setApplicationDescription(QCoreApplication::translate("main", "%1 - Frontend tool for the MediathekView database").arg(app.applicationName()));
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.process(app);
 
     MainWindow window;
     window.show();
