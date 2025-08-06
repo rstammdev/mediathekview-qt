@@ -6,6 +6,8 @@
 
 #include <QApplication>
 #include <QDebug>
+#include <QLocale>
+#include <QTranslator>
 
 #include "mainwindow.h"
 
@@ -21,6 +23,18 @@ int main(int argc, char* argv[])
     app.setApplicationVersion("0.1.0"_L1);
     app.setApplicationDisplayName("MediathekView-Qt"_L1);
     app.setDesktopFileName("io.github.rstamm.mediathekview_qt"_L1);
+
+    QTranslator translator;
+    QStringList uiLanguages;
+    uiLanguages << QLocale::system().uiLanguages();
+    uiLanguages << "en_001"_L1;
+    for (const QString& locale : std::as_const(uiLanguages)) {
+        const QString baseName = "mediathekview-qt_"_L1 + QLocale(locale).name();
+        if (translator.load(":/i18n/"_L1 + baseName)) {
+            app.installTranslator(&translator);
+            break;
+        }
+    }
 
     MainWindow window;
     window.show();

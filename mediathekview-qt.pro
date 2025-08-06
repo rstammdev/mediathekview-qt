@@ -12,6 +12,8 @@ TARGET = mediathekview-qt
 QT += core gui widgets
 
 CONFIG += c++23
+CONFIG += lrelease
+CONFIG += embed_translations
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
@@ -21,6 +23,9 @@ HEADERS += \
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp
+
+TRANSLATIONS += \
+    i18n/mediathekview-qt_en_001.ts
 
 DISTFILES += \
     README.md
