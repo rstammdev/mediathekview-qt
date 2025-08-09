@@ -58,4 +58,7 @@ void MainWindow::saveSettings()
     const QByteArray geometry = saveGeometry();
     settings.setValue("Application/Geometry"_L1, geometry);
 
+    const QByteArray state = saveState();
+    settings.setValue("Application/State"_L1, state);
+
 }
