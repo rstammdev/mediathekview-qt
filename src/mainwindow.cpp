@@ -19,3 +19,11 @@ MainWindow::MainWindow(QWidget* parent)
 }
 
 MainWindow::~MainWindow() {}
+
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+
+    event->accept();
+
+}
