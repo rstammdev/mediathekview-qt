@@ -21,6 +21,9 @@ public:
 
 protected:
     void closeEvent(QCloseEvent* event) override;
+
+private:
+    void loadSettings();
 };
 
 #endif // MAINWINDOW_H
