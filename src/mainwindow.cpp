@@ -32,11 +32,24 @@ void MainWindow::setupUi()
 {
     // File menu & toolbar
 
+    QAction* actionQuit = addAction(tr("&Quit"));
+    actionQuit->setObjectName("actionQuit"_L1);
+    actionQuit->setIcon(QIcon::fromTheme("application-exit"_L1, QIcon(":/icons/actions/16/application-exit"_L1)));
+    actionQuit->setIconText(tr("Quit"));
+    actionQuit->setShortcut(QKeySequence::Quit);
+    actionQuit->setStatusTip(tr("Quit the application"));
+    actionQuit->setToolTip(tr("Quit the application."));
+    actionQuit->setMenuRole(QAction::QuitRole);
+
     QMenu* menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->setObjectName("menuFile"_L1);
+    menuFile->addAction(actionQuit);
 
     QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
     toolbarFile->setObjectName("toolbarFile"_L1);
+    toolbarFile->addAction(actionQuit);
+
+    connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
 }
 

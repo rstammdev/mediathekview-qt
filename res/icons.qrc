@@ -4,6 +4,9 @@
     SPDX-FileCopyrightText: 2025 Ralf Stamm
     SPDX-License-Identifier: GPL-3.0-or-later
     -->
+    <qresource prefix="/icons/actions/16">
+        <file alias="application-exit">icons/actions/16/application-exit.svg</file>
+    </qresource>
     <qresource prefix="/icons/apps/16">
         <file alias="mediathekview-qt">icons/apps/16/mediathekview-qt.svg</file>
     </qresource>
