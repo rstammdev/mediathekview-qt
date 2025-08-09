@@ -28,6 +28,7 @@ MainWindow::~MainWindow() {}
 void MainWindow::closeEvent(QCloseEvent *event)
 {
 
+    saveSettings();
     event->accept();
 
 }
@@ -42,5 +43,15 @@ void MainWindow::loadSettings()
         restoreGeometry(geometry);
     else
         resize(1280, 720);
+
+}
+
+
+void MainWindow::saveSettings()
+{
+    QSettings settings;
+
+    const QByteArray geometry = saveGeometry();
+    settings.setValue("Application/Geometry"_L1, geometry);
 
 }

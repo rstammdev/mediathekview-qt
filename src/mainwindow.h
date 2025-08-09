@@ -24,6 +24,7 @@ protected:
 
 private:
     void loadSettings();
+    void saveSettings();
 };
 
 #endif // MAINWINDOW_H
