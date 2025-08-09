@@ -8,6 +8,7 @@
 
 #include <QMenuBar>
 #include <QSettings>
+#include <QToolBar>
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -29,10 +30,13 @@ MainWindow::~MainWindow() {}
 
 void MainWindow::setupUi()
 {
-    // File menu
+    // File menu & toolbar
 
     QMenu* menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->setObjectName("menuFile"_L1);
+
+    QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
+    toolbarFile->setObjectName("toolbarFile"_L1);
 
 }
 
