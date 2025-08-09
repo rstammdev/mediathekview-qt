@@ -44,6 +44,10 @@ void MainWindow::loadSettings()
     else
         resize(1280, 720);
 
+    const QByteArray state = settings.value("Application/State"_L1).toByteArray();
+    if (!state.isEmpty())
+        restoreState(state);
+
 }
 
 
