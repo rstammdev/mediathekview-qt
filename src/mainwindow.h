@@ -30,6 +30,7 @@ private:
     void setupUi();
 
     QAction* m_actionFullScreen;
+    QAction* m_actionShowMenubar;
 
     void updateActionFullScreen();
 

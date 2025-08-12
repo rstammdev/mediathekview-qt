@@ -62,15 +62,30 @@ void MainWindow::setupUi()
     m_actionFullScreen->setToolTip(tr("Display the window in full screen."));
     m_actionFullScreen->setCheckable(true);
 
+    m_actionShowMenubar = addAction(tr("Show &Menubar"));
+    m_actionShowMenubar->setObjectName("actionShowMenubar"_L1);
+    m_actionShowMenubar->setIcon(QIcon::fromTheme("show-menu"_L1, QIcon(":/icons/actions/16/show-menu"_L1)));
+    m_actionShowMenubar->setIconText(tr("Menubar"));
+    m_actionShowMenubar->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_M));
+    m_actionShowMenubar->setStatusTip(tr("Show the menubar"));
+    m_actionShowMenubar->setToolTip(tr("Show the menubar."));
+    m_actionShowMenubar->setCheckable(true);
+    m_actionShowMenubar->setChecked(true);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
     menuSettings->addAction(m_actionFullScreen);
+    menuSettings->addSeparator();
+    menuSettings->addAction(m_actionShowMenubar);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
     toolbarSettings->addAction(m_actionFullScreen);
+    toolbarSettings->addSeparator();
+    toolbarSettings->addAction(m_actionShowMenubar);
 
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
+    connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
 
 }
 
