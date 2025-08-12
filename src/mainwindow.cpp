@@ -130,6 +130,9 @@ void MainWindow::loadSettings()
     if (!state.isEmpty())
         restoreState(state);
 
+    const bool menubar = settings.value("Application/Menubar"_L1, true).toBool();
+    m_actionShowMenubar->setChecked(menubar);
+
 }
 
 
@@ -142,6 +145,9 @@ void MainWindow::saveSettings()
 
     const QByteArray state = saveState();
     settings.setValue("Application/State"_L1, state);
+
+    const bool menubar = m_actionShowMenubar->isChecked();
+    settings.setValue("Application/Menubar"_L1, menubar);
 
 }
 
