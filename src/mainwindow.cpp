@@ -133,6 +133,12 @@ void MainWindow::setupUi()
     menuSettings->addAction(actionConfigurePanels);
     menuSettings->addAction(actionConfigureToolbars);
 
+    QToolButton* buttonConfigureToolbars = new QToolButton;
+    buttonConfigureToolbars->setObjectName("buttonConfigureToolbars"_L1);
+    buttonConfigureToolbars->setDefaultAction(actionConfigureToolbars);
+    buttonConfigureToolbars->setMenu(menuShowToolbars);
+    buttonConfigureToolbars->setPopupMode(QToolButton::MenuButtonPopup);
+
     QToolButton* buttonConfigurePanels = new QToolButton;
     buttonConfigurePanels->setObjectName("buttonConfigurePanels"_L1);
     buttonConfigurePanels->setDefaultAction(actionConfigurePanels);
@@ -144,6 +150,7 @@ void MainWindow::setupUi()
     toolbarSettings->addAction(m_actionFullScreen);
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(m_actionShowMenubar);
+    toolbarSettings->addWidget(buttonConfigureToolbars);
     toolbarSettings->addWidget(buttonConfigurePanels);
     toolbarSettings->addAction(m_actionShowStatusbar);
     toolbarSettings->addSeparator();
