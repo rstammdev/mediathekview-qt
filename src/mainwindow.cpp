@@ -51,6 +51,11 @@ void MainWindow::setupUi()
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    // Settings menu
+
+    QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
+    menuSettings->setObjectName("menuSettings"_L1);
+
 }
 
 
