@@ -8,6 +8,7 @@
         <file alias="application-exit">icons/actions/16/application-exit.svg</file>
         <file alias="configure">icons/actions/16/configure.svg</file>
         <file alias="configure-shortcuts">icons/devices/16/input-keyboard.svg</file>
+        <file alias="configure-toolbars">icons/actions/16/configure.svg</file>
         <file alias="language-chooser">icons/actions/16/translate.svg</file>
         <file alias="show-menu">icons/actions/16/show-menu.svg</file>
         <file alias="view-fullscreen">icons/actions/16/view-fullscreen.svg</file>

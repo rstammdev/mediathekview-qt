@@ -105,6 +105,13 @@ void MainWindow::setupUi()
     actionConfigurePanels->setStatusTip(tr("Configure which items should appear in the panels"));
     actionConfigurePanels->setToolTip(tr("Configure which items should appear in the panels."));
 
+    QAction* actionConfigureToolbars = addAction(tr("Configure &Toolbars..."));
+    actionConfigureToolbars->setObjectName("actionConfigureToolbars"_L1);
+    actionConfigureToolbars->setIcon(QIcon::fromTheme("configure-toolbars"_L1, QIcon(":/icons/actions/16/configure-toolbars"_L1)));
+    actionConfigureToolbars->setIconText(tr("Toolbars"));
+    actionConfigureToolbars->setStatusTip(tr("Configure which items should appear in the toolbars"));
+    actionConfigureToolbars->setToolTip(tr("Configure which items should appear in the toolbars."));
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
 
@@ -124,6 +131,7 @@ void MainWindow::setupUi()
     menuSettings->addAction(actionConfigureLanguage);
     menuSettings->addAction(actionConfigureKeyboardShortcuts);
     menuSettings->addAction(actionConfigurePanels);
+    menuSettings->addAction(actionConfigureToolbars);
 
     QToolButton* buttonConfigurePanels = new QToolButton;
     buttonConfigurePanels->setObjectName("buttonConfigurePanels"_L1);
@@ -148,6 +156,7 @@ void MainWindow::setupUi()
     connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::triggerConfigureLanguageDialog);
     connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::triggerConfigureShortcutsDialog);
     connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::triggerConfigurePanelsDialog);
+    connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
 
     // Show Toolbars menu
 
@@ -248,6 +257,12 @@ void MainWindow::triggerConfigureShortcutsDialog()
 
 
 void MainWindow::triggerConfigurePanelsDialog()
+{
+
+}
+
+
+void MainWindow::triggerConfigureToolbarsDialog()
 {
 
 }
