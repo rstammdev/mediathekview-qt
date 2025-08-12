@@ -146,6 +146,8 @@ void MainWindow::loadSettings()
     const bool menubar = settings.value("Application/Menubar"_L1, true).toBool();
     m_actionShowMenubar->setChecked(menubar);
 
+    const bool statusbar = settings.value("Application/Statusbar"_L1, true).toBool();
+    m_actionShowStatusbar->setChecked(statusbar);
 }
 
 
@@ -162,6 +164,8 @@ void MainWindow::saveSettings()
     const bool menubar = m_actionShowMenubar->isChecked();
     settings.setValue("Application/Menubar"_L1, menubar);
 
+    const bool statusbar = m_actionShowStatusbar->isChecked();
+    settings.setValue("Application/Statusbar"_L1, statusbar);
 }
 
 
