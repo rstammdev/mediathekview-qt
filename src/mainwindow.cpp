@@ -53,11 +53,24 @@ void MainWindow::setupUi()
 
     // Settings menu & toolbar
 
+    m_actionFullScreen = addAction(tr("F&ull Screen Mode"));
+    m_actionFullScreen->setObjectName("actionFullScreen"_L1);
+    m_actionFullScreen->setIcon(QIcon::fromTheme("view-fullscreen"_L1, QIcon(":/icons/actions/16/view-fullscreen"_L1)));
+    m_actionFullScreen->setIconText(tr("Full Screen"));
+    m_actionFullScreen->setShortcuts(QList<QKeySequence>() << QKeySequence(Qt::Key_F11) << QKeySequence::FullScreen);
+    m_actionFullScreen->setStatusTip(tr("Display the window in full screen"));
+    m_actionFullScreen->setToolTip(tr("Display the window in full screen."));
+    m_actionFullScreen->setCheckable(true);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
+    menuSettings->addAction(m_actionFullScreen);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
+    toolbarSettings->addAction(m_actionFullScreen);
+
+    connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
 
 }
 
@@ -97,5 +110,11 @@ void MainWindow::saveSettings()
 
     const QByteArray state = saveState();
     settings.setValue("Application/State"_L1, state);
+
+}
+
+
+void MainWindow::toggleFullScreen(bool checked)
+{
 
 }

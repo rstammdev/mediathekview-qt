@@ -7,6 +7,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QAction>
 #include <QCloseEvent>
 #include <QMainWindow>
 
@@ -22,8 +23,13 @@ public:
 protected:
     void closeEvent(QCloseEvent* event) override;
 
+private slots:
+    void toggleFullScreen(bool checked);
+
 private:
     void setupUi();
+
+    QAction* m_actionFullScreen;
 
     void loadSettings();
     void saveSettings();
