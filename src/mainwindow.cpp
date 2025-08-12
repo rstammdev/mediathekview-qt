@@ -51,10 +51,13 @@ void MainWindow::setupUi()
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
-    // Settings menu
+    // Settings menu & toolbar
 
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
+
+    QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
+    toolbarSettings->setObjectName("toolbarSettings"_L1);
 
 }
 
