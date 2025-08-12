@@ -8,6 +8,7 @@
 
 #include <QMenuBar>
 #include <QSettings>
+#include <QStatusBar>
 #include <QToolBar>
 
 using namespace Qt::Literals::StringLiterals;
@@ -72,20 +73,32 @@ void MainWindow::setupUi()
     m_actionShowMenubar->setCheckable(true);
     m_actionShowMenubar->setChecked(true);
 
+    m_actionShowStatusbar = addAction(tr("Show St&atusbar"));
+    m_actionShowStatusbar->setObjectName("actionShowStatusbar"_L1);
+    m_actionShowStatusbar->setIcon(QIcon::fromTheme("show-menu"_L1, QIcon(":/icons/actions/16/show-menu"_L1)));
+    m_actionShowStatusbar->setIconText(tr("Statusbar"));
+    m_actionShowStatusbar->setStatusTip(tr("Show the statusbar"));
+    m_actionShowStatusbar->setToolTip(tr("Show the statusbar."));
+    m_actionShowStatusbar->setCheckable(true);
+    m_actionShowStatusbar->setChecked(true);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
     menuSettings->addAction(m_actionFullScreen);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
+    menuSettings->addAction(m_actionShowStatusbar);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
     toolbarSettings->addAction(m_actionFullScreen);
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(m_actionShowMenubar);
+    toolbarSettings->addAction(m_actionShowStatusbar);
 
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
+    connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
 
 }
 

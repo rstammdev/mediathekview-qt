@@ -31,6 +31,7 @@ private:
 
     QAction* m_actionFullScreen;
     QAction* m_actionShowMenubar;
+    QAction* m_actionShowStatusbar;
 
     void updateActionFullScreen();
 
