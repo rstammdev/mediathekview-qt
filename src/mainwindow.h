@@ -25,6 +25,7 @@ protected:
 
 private slots:
     void toggleFullScreen(bool checked);
+    void triggerConfigureLanguageDialog();
 
 private:
     void setupUi();

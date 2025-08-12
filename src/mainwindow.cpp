@@ -82,12 +82,21 @@ void MainWindow::setupUi()
     m_actionShowStatusbar->setCheckable(true);
     m_actionShowStatusbar->setChecked(true);
 
+    QAction* actionConfigureLanguage = addAction(tr("Configure &Language..."));
+    actionConfigureLanguage->setObjectName("actionConfigureLanguage"_L1);
+    actionConfigureLanguage->setIcon(QIcon::fromTheme("language-chooser"_L1, QIcon(":/icons/actions/16/language-chooser"_L1)));
+    actionConfigureLanguage->setIconText(tr("Language"));
+    actionConfigureLanguage->setStatusTip(tr("Configure the application's language"));
+    actionConfigureLanguage->setToolTip(tr("Configure the application's language."));
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
     menuSettings->addAction(m_actionFullScreen);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
     menuSettings->addAction(m_actionShowStatusbar);
+    menuSettings->addSeparator();
+    menuSettings->addAction(actionConfigureLanguage);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
@@ -95,10 +104,13 @@ void MainWindow::setupUi()
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(m_actionShowMenubar);
     toolbarSettings->addAction(m_actionShowStatusbar);
+    toolbarSettings->addSeparator();
+    toolbarSettings->addAction(actionConfigureLanguage);
 
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
+    connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::triggerConfigureLanguageDialog);
 
 }
 
@@ -173,4 +185,10 @@ void MainWindow::toggleFullScreen(bool checked)
 {
 
     updateActionFullScreen();
+}
+
+
+void MainWindow::triggerConfigureLanguageDialog()
+{
+
 }
