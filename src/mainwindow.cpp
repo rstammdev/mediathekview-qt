@@ -97,6 +97,13 @@ void MainWindow::setupUi()
     actionConfigureKeyboardShortcuts->setStatusTip(tr("Configure the application's keyboard shortcut assignments"));
     actionConfigureKeyboardShortcuts->setToolTip(tr("Configure the application's keyboard shortcut assignments."));
 
+    QAction* actionConfigurePanels = addAction(tr("Configure &Panels..."));
+    actionConfigurePanels->setObjectName("actionConfigurePanels"_L1);
+    actionConfigurePanels->setIcon(QIcon::fromTheme("configure"_L1, QIcon(":/icons/actions/16/configure"_L1)));
+    actionConfigurePanels->setIconText(tr("Panels"));
+    actionConfigurePanels->setStatusTip(tr("Configure which items should appear in the panels"));
+    actionConfigurePanels->setToolTip(tr("Configure which items should appear in the panels."));
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
 
@@ -111,6 +118,7 @@ void MainWindow::setupUi()
     menuSettings->addSeparator();
     menuSettings->addAction(actionConfigureLanguage);
     menuSettings->addAction(actionConfigureKeyboardShortcuts);
+    menuSettings->addAction(actionConfigurePanels);
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
@@ -127,6 +135,7 @@ void MainWindow::setupUi()
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
     connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::triggerConfigureLanguageDialog);
     connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::triggerConfigureShortcutsDialog);
+    connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::triggerConfigurePanelsDialog);
 
     // Show Panels menu
 
@@ -215,6 +224,12 @@ void MainWindow::triggerConfigureLanguageDialog()
 
 
 void MainWindow::triggerConfigureShortcutsDialog()
+{
+
+}
+
+
+void MainWindow::triggerConfigurePanelsDialog()
 {
 
 }
