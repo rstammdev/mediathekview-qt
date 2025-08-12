@@ -99,9 +99,14 @@ void MainWindow::setupUi()
 
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
+
+    QMenu* menuShowPanels = new QMenu(tr("Panels Shown"), menuSettings);
+    menuShowPanels->setObjectName("menuShowPanels"_L1);
+
     menuSettings->addAction(m_actionFullScreen);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
+    menuSettings->addMenu(menuShowPanels);
     menuSettings->addAction(m_actionShowStatusbar);
     menuSettings->addSeparator();
     menuSettings->addAction(actionConfigureLanguage);
@@ -122,6 +127,10 @@ void MainWindow::setupUi()
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
     connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::triggerConfigureLanguageDialog);
     connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::triggerConfigureShortcutsDialog);
+
+    // Show Panels menu
+
+    menuShowPanels->addSection(tr("Panels"));
 
 }
 
