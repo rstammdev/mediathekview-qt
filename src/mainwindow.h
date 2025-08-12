@@ -31,6 +31,8 @@ private:
 
     QAction* m_actionFullScreen;
 
+    void updateActionFullScreen();
+
     void loadSettings();
     void saveSettings();
 };

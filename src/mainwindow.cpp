@@ -75,6 +75,23 @@ void MainWindow::setupUi()
 }
 
 
+void MainWindow::updateActionFullScreen()
+{
+    if (m_actionFullScreen->isChecked()) {
+        m_actionFullScreen->setText(tr("Exit F&ull Screen Mode"));
+        m_actionFullScreen->setIcon(QIcon::fromTheme("view-restore"_L1, QIcon(":/icons/actions/16/view-restore"_L1)));
+        m_actionFullScreen->setStatusTip(tr("Exit the full screen mode"));
+        m_actionFullScreen->setToolTip(tr("Exit the full screen mode."));
+    }
+    else {
+        m_actionFullScreen->setText(tr("F&ull Screen Mode"));
+        m_actionFullScreen->setIcon(QIcon::fromTheme("view-fullscreen"_L1, QIcon(":/icons/actions/16/view-fullscreen"_L1)));
+        m_actionFullScreen->setStatusTip(tr("Display the window in full screen"));
+        m_actionFullScreen->setToolTip(tr("Display the window in full screen."));
+    }
+}
+
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
 
@@ -117,4 +134,5 @@ void MainWindow::saveSettings()
 void MainWindow::toggleFullScreen(bool checked)
 {
 
+    updateActionFullScreen();
 }
