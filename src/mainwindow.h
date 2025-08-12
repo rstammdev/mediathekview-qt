@@ -29,6 +29,7 @@ private slots:
     void triggerConfigureShortcutsDialog();
     void triggerConfigurePanelsDialog();
     void triggerConfigureToolbarsDialog();
+    void triggerConfigureDialog();
 
 private:
     void setupUi();

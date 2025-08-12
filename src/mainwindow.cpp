@@ -112,6 +112,14 @@ void MainWindow::setupUi()
     actionConfigureToolbars->setStatusTip(tr("Configure which items should appear in the toolbars"));
     actionConfigureToolbars->setToolTip(tr("Configure which items should appear in the toolbars."));
 
+    QAction* actionConfigure = addAction(tr("&Configure..."));
+    actionConfigure->setObjectName("actionConfigure"_L1);
+    actionConfigure->setIcon(QIcon::fromTheme("configure"_L1, QIcon(":/icons/actions/16/configure"_L1)));
+    actionConfigure->setShortcut(QKeySequence::Preferences);
+    actionConfigure->setStatusTip(tr("Configure various aspects of this application"));
+    actionConfigure->setToolTip(tr("Configure various aspects of this application."));
+    actionConfigure->setMenuRole(QAction::PreferencesRole);
+
     QMenu* menuSettings = menuBar()->addMenu(tr("&Settings"));
     menuSettings->setObjectName("menuSettings"_L1);
 
@@ -132,6 +140,7 @@ void MainWindow::setupUi()
     menuSettings->addAction(actionConfigureKeyboardShortcuts);
     menuSettings->addAction(actionConfigurePanels);
     menuSettings->addAction(actionConfigureToolbars);
+    menuSettings->addAction(actionConfigure);
 
     QToolButton* buttonConfigureToolbars = new QToolButton;
     buttonConfigureToolbars->setObjectName("buttonConfigureToolbars"_L1);
@@ -156,6 +165,7 @@ void MainWindow::setupUi()
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(actionConfigureLanguage);
     toolbarSettings->addAction(actionConfigureKeyboardShortcuts);
+    toolbarSettings->addAction(actionConfigure);
 
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
@@ -164,6 +174,7 @@ void MainWindow::setupUi()
     connect(actionConfigureKeyboardShortcuts, &QAction::triggered, this, &MainWindow::triggerConfigureShortcutsDialog);
     connect(actionConfigurePanels, &QAction::triggered, this, &MainWindow::triggerConfigurePanelsDialog);
     connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
+    connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
 
     // Show Toolbars menu
 
@@ -270,6 +281,12 @@ void MainWindow::triggerConfigurePanelsDialog()
 
 
 void MainWindow::triggerConfigureToolbarsDialog()
+{
+
+}
+
+
+void MainWindow::triggerConfigureDialog()
 {
 
 }
