@@ -5,12 +5,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 -->
 
 
-<table>
-  <tr>
-    <td valign="middle"><img src="res/icons/apps/16/mediathekview-qt.svg" alt="MediathekView-Qt" width="72" height="72"></td>
-    <td valign="middle" style="padding-left:16px;"><h1>MediathekView-Qt</h1><p>Frontend tool for the MediathekView database</p></td>
-  </tr>
-</table>
+<h1 align="center">MediathekView-Qt</h1>
+<p align="center">Frontend tool for the MediathekView database</p>
 
 
 ## About
