@@ -1,11 +1,14 @@
 /**
  * SPDX-FileComment: Project Homepage: https://github.com/rstammdev/mediathekview-qt
+ *
  * SPDX-FileCopyrightText: 2025 Ralf Stamm
+ *
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
 #include "mainwindow.h"
 
+#include <QMenu>
 #include <QMenuBar>
 #include <QSettings>
 #include <QStatusBar>
@@ -206,7 +209,7 @@ void MainWindow::updateActionFullScreen()
 }
 
 
-void MainWindow::closeEvent(QCloseEvent *event)
+void MainWindow::closeEvent(QCloseEvent* event)
 {
 
     saveSettings();
@@ -259,6 +262,7 @@ void MainWindow::toggleFullScreen(bool checked)
 {
 
     updateActionFullScreen();
+
 }
 
 
