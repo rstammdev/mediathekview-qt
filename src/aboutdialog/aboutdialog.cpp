@@ -10,16 +10,27 @@
 
 #include <QApplication>
 #include <QDialogButtonBox>
+#include <QTabWidget>
 #include <QVBoxLayout>
+
+#include "aboutpage.h"
 
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog{parent}
 {
 
+    QTabWidget* tabBox = new QTabWidget;
+
+    const QList<AboutPage*> pages{};
+
+    for (const auto page : pages)
+        tabBox->addTab(page, page->pageTitle());
+
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
 
     QVBoxLayout* layout = new QVBoxLayout;
+    layout->addWidget(tabBox);
     layout->addWidget(buttonBox);
     setLayout(layout);
 
