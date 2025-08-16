@@ -46,4 +46,14 @@ public:
     ~AboutPageAuthors() = default;
 };
 
+
+class AboutPageCredits : public AboutPage
+{
+    Q_OBJECT
+
+public:
+    explicit AboutPageCredits(QWidget* parent = nullptr);
+    ~AboutPageCredits() = default;
+};
+
 #endif // ABOUTPAGECONTENTS_H

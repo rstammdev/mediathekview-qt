@@ -27,6 +27,7 @@ AboutDialog::AboutDialog(QWidget* parent)
         new AboutPageGeneral,
         new AboutPageComponents,
         new AboutPageAuthors,
+        new AboutPageCredits,
     };
 
     for (const auto page : pages)
