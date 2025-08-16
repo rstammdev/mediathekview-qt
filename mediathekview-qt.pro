@@ -20,9 +20,11 @@ CONFIG += embed_translations
 DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \
+    src/aboutdialog/aboutdialog.h \
     src/mainwindow.h
 
 SOURCES += \
+    src/aboutdialog/aboutdialog.cpp \
     src/main.cpp \
     src/mainwindow.cpp
 

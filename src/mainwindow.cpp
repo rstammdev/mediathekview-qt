@@ -16,6 +16,8 @@
 #include <QToolBar>
 #include <QToolButton>
 
+#include "aboutdialog/aboutdialog.h"
+
 using namespace Qt::Literals::StringLiterals;
 
 
@@ -337,5 +339,6 @@ void MainWindow::triggerComponentsDialog()
 
 void MainWindow::triggerAboutDialog()
 {
-
+    AboutDialog dialog(this);
+    dialog.exec();
 }
