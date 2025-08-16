@@ -179,6 +179,11 @@ void MainWindow::setupUi()
     connect(actionConfigureToolbars, &QAction::triggered, this, &MainWindow::triggerConfigureToolbarsDialog);
     connect(actionConfigure, &QAction::triggered, this, &MainWindow::triggerConfigureDialog);
 
+    // Help menu
+
+    QMenu* menuHelp = menuBar()->addMenu(tr("&Help"));
+    menuHelp->setObjectName("menuHelp"_L1);
+
     // Show Toolbars menu
 
     menuShowToolbars->addSection(tr("Toolbars"));
