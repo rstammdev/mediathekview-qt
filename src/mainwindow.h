@@ -34,6 +34,7 @@ private slots:
     void triggerConfigureDialog();
 
     void triggerComponentsDialog();
+    void triggerAboutDialog();
 
 private:
     void setupUi();

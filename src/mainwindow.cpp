@@ -8,6 +8,7 @@
 
 #include "mainwindow.h"
 
+#include <QApplication>
 #include <QMenu>
 #include <QMenuBar>
 #include <QSettings>
@@ -188,15 +189,27 @@ void MainWindow::setupUi()
     actionCopyComponents->setStatusTip(tr("Copy application components to clipboard"));
     actionCopyComponents->setToolTip(tr("Copy application components to clipboard."));
 
+    QAction* actionAbout = addAction(tr("&About %1").arg(QApplication::applicationName()));
+    actionAbout->setObjectName("actionAbout"_L1);
+    actionAbout->setIcon(QIcon::fromTheme("mediathekview-qt"_L1, QIcon(":/icons/apps/16/mediathekview-qt"_L1)));
+    actionAbout->setIconText(tr("About"));
+    actionAbout->setStatusTip(tr("Brief description of this application"));
+    actionAbout->setToolTip(tr("Brief description of this application."));
+    actionAbout->setMenuRole(QAction::AboutRole);
+
     QMenu* menuHelp = menuBar()->addMenu(tr("&Help"));
     menuHelp->setObjectName("menuHelp"_L1);
     menuHelp->addAction(actionCopyComponents);
+    menuHelp->addSeparator();
+    menuHelp->addAction(actionAbout);
 
     QToolBar* toolbarHelp = addToolBar(tr("Help Toolbar"));
     toolbarHelp->setObjectName("toolbarHelp"_L1);
     toolbarHelp->addAction(actionCopyComponents);
+    toolbarHelp->addAction(actionAbout);
 
     connect(actionCopyComponents, &QAction::triggered, this, &MainWindow::triggerComponentsDialog);
+    connect(actionAbout, &QAction::triggered, this, &MainWindow::triggerAboutDialog);
 
     // Show Toolbars menu
 
@@ -317,6 +330,12 @@ void MainWindow::triggerConfigureDialog()
 
 
 void MainWindow::triggerComponentsDialog()
+{
+
+}
+
+
+void MainWindow::triggerAboutDialog()
 {
 
 }
