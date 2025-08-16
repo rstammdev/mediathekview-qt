@@ -11,6 +11,19 @@
 
 AboutPage::AboutPage(QWidget* parent)
     : QWidget{parent}
-{
+{}
 
+
+QString AboutPage::pageTitle() const
+{
+    return m_pageTitle;
+}
+
+void AboutPage::setPageTitle(const QString& title)
+{
+    if (title == m_pageTitle)
+        return;
+
+    m_pageTitle = title;
+    emit pageTitleChanged(title);
 }
