@@ -14,6 +14,7 @@
 #include <QVBoxLayout>
 
 #include "aboutpage.h"
+#include "aboutpagecontents.h"
 
 
 AboutDialog::AboutDialog(QWidget* parent)
@@ -22,7 +23,9 @@ AboutDialog::AboutDialog(QWidget* parent)
 
     QTabWidget* tabBox = new QTabWidget;
 
-    const QList<AboutPage*> pages{};
+    const QList<AboutPage*> pages{
+        new AboutPageGeneral,
+    };
 
     for (const auto page : pages)
         tabBox->addTab(page, page->pageTitle());
