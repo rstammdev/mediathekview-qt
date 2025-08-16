@@ -31,6 +31,9 @@ class AboutPageComponents : public AboutPage
 public:
     explicit AboutPageComponents(QWidget* parent = nullptr);
     ~AboutPageComponents() = default;
+
+private:
+    QString prettyPlatformName() const;
 };
 
 #endif // ABOUTPAGECONTENTS_H
