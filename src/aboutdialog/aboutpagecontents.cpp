@@ -168,3 +168,11 @@ AboutPageCredits::AboutPageCredits(QWidget* parent)
 
     setPageTitle(tr("Credits"));
 }
+
+
+AboutPageLicense::AboutPageLicense(QWidget* parent)
+    : AboutPage{parent}
+{
+
+    setPageTitle(tr("License"));
+}

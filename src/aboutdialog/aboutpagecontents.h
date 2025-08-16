@@ -56,4 +56,14 @@ public:
     ~AboutPageCredits() = default;
 };
 
+
+class AboutPageLicense : public AboutPage
+{
+    Q_OBJECT
+
+public:
+    explicit AboutPageLicense(QWidget* parent = nullptr);
+    ~AboutPageLicense() = default;
+};
+
 #endif // ABOUTPAGECONTENTS_H
