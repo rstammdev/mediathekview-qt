@@ -98,3 +98,11 @@ QString AboutPageComponents::prettyPlatformName() const
 
     return tr("Unknown (%1)").arg(platformName);
 }
+
+
+AboutPageAuthors::AboutPageAuthors(QWidget* parent)
+    : AboutPage{parent}
+{
+
+    setPageTitle(tr("Authors"));
+}

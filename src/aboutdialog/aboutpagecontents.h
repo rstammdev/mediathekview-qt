@@ -36,4 +36,14 @@ private:
     QString prettyPlatformName() const;
 };
 
+
+class AboutPageAuthors : public AboutPage
+{
+    Q_OBJECT
+
+public:
+    explicit AboutPageAuthors(QWidget* parent = nullptr);
+    ~AboutPageAuthors() = default;
+};
+
 #endif // ABOUTPAGECONTENTS_H
