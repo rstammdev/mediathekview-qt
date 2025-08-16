@@ -181,11 +181,22 @@ void MainWindow::setupUi()
 
     // Help menu & toolbar
 
+    QAction* actionCopyComponents = addAction(tr("Copy &Components..."));
+    actionCopyComponents->setObjectName("actionCopyComponents"_L1);
+    actionCopyComponents->setIcon(QIcon::fromTheme("info"_L1, QIcon(":/icons/actions/16/info"_L1)));
+    actionCopyComponents->setIconText(tr("Components"));
+    actionCopyComponents->setStatusTip(tr("Copy application components to clipboard"));
+    actionCopyComponents->setToolTip(tr("Copy application components to clipboard."));
+
     QMenu* menuHelp = menuBar()->addMenu(tr("&Help"));
     menuHelp->setObjectName("menuHelp"_L1);
+    menuHelp->addAction(actionCopyComponents);
 
     QToolBar* toolbarHelp = addToolBar(tr("Help Toolbar"));
     toolbarHelp->setObjectName("toolbarHelp"_L1);
+    toolbarHelp->addAction(actionCopyComponents);
+
+    connect(actionCopyComponents, &QAction::triggered, this, &MainWindow::triggerComponentsDialog);
 
     // Show Toolbars menu
 
@@ -300,6 +311,12 @@ void MainWindow::triggerConfigureToolbarsDialog()
 
 
 void MainWindow::triggerConfigureDialog()
+{
+
+}
+
+
+void MainWindow::triggerComponentsDialog()
 {
 
 }
