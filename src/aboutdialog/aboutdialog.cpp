@@ -9,11 +9,21 @@
 #include "aboutdialog.h"
 
 #include <QApplication>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
 
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog{parent}
 {
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addWidget(buttonBox);
+    setLayout(layout);
+
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &AboutDialog::close);
 
     setWindowTitle(tr("About %1").arg(QApplication::applicationName()));
     setMinimumSize(640, 480);
