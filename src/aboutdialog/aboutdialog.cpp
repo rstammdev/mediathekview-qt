@@ -25,6 +25,7 @@ AboutDialog::AboutDialog(QWidget* parent)
 
     const QList<AboutPage*> pages{
         new AboutPageGeneral,
+        new AboutPageComponents,
     };
 
     for (const auto page : pages)

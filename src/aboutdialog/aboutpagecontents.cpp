@@ -44,3 +44,11 @@ AboutPageGeneral::AboutPageGeneral(QWidget* parent)
 
     setPageTitle(tr("General"));
 }
+
+
+AboutPageComponents::AboutPageComponents(QWidget* parent)
+    : AboutPage{parent}
+{
+
+    setPageTitle(tr("Components"));
+}

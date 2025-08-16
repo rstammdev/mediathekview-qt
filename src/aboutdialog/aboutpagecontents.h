@@ -23,4 +23,14 @@ public:
     ~AboutPageGeneral() = default;
 };
 
+
+class AboutPageComponents : public AboutPage
+{
+    Q_OBJECT
+
+public:
+    explicit AboutPageComponents(QWidget* parent = nullptr);
+    ~AboutPageComponents() = default;
+};
+
 #endif // ABOUTPAGECONTENTS_H
