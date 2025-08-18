@@ -14,15 +14,21 @@
 #include "aboutpage.h"
 
 
-class AboutPageGeneral : public AboutPage
+//
+// Authors
+
+class AboutPageAuthors : public AboutPage
 {
     Q_OBJECT
 
 public:
-    explicit AboutPageGeneral(QWidget* parent = nullptr);
-    ~AboutPageGeneral() = default;
+    explicit AboutPageAuthors(QWidget* parent = nullptr);
+    ~AboutPageAuthors() = default;
 };
 
+
+//
+// Components
 
 class AboutPageComponents : public AboutPage
 {
@@ -37,15 +43,8 @@ private:
 };
 
 
-class AboutPageAuthors : public AboutPage
-{
-    Q_OBJECT
-
-public:
-    explicit AboutPageAuthors(QWidget* parent = nullptr);
-    ~AboutPageAuthors() = default;
-};
-
+//
+// Credits
 
 class AboutPageCredits : public AboutPage
 {
@@ -56,6 +55,22 @@ public:
     ~AboutPageCredits() = default;
 };
 
+
+//
+// General
+
+class AboutPageGeneral : public AboutPage
+{
+    Q_OBJECT
+
+public:
+    explicit AboutPageGeneral(QWidget* parent = nullptr);
+    ~AboutPageGeneral() = default;
+};
+
+
+//
+// License
 
 class AboutPageLicense : public AboutPage
 {
