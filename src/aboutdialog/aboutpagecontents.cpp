@@ -150,11 +150,17 @@ AboutPageCredits::AboutPageCredits(QWidget* parent)
     content->setTextInteractionFlags(Qt::TextBrowserInteraction);
     content->setOpenExternalLinks(true);
     content->setWordWrap(true);
+    content->setFrameShape(QFrame::StyledPanel);
 
-    QVBoxLayout* layout = new QVBoxLayout;
+    QWidget* widget = new QWidget(parent);
+
+    QVBoxLayout* layout = new QVBoxLayout(widget);
     layout->addWidget(content);
     layout->addStretch();
-    setLayout(layout);
+
+    setWidget(widget);
+    setWidgetResizable(true);
+    setFrameShape(QFrame::NoFrame);
 
     setPageTitle(tr("Credits"));
 }
