@@ -10,7 +10,7 @@
 
 
 AboutPage::AboutPage(QWidget* parent)
-    : QWidget{parent}
+    : QScrollArea{parent}
 {}
 
 

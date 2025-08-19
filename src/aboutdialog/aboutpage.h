@@ -9,10 +9,10 @@
 #ifndef ABOUTPAGE_H
 #define ABOUTPAGE_H
 
-#include <QWidget>
+#include <QScrollArea>
 
 
-class AboutPage : public QWidget
+class AboutPage : public QScrollArea
 {
     Q_OBJECT
     Q_PROPERTY(QString pageTitle READ pageTitle WRITE setPageTitle NOTIFY pageTitleChanged)
