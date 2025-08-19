@@ -44,5 +44,5 @@ AboutDialog::AboutDialog(QWidget* parent)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &AboutDialog::close);
 
     setWindowTitle(tr("About %1").arg(QApplication::applicationName()));
-    setMinimumSize(640, 480);
+    setMinimumSize(854, 480);
 }
