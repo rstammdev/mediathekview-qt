@@ -24,7 +24,8 @@ HEADERS += \
     src/aboutdialog/aboutpage.h \
     src/aboutdialog/aboutpagecontents.h \
     src/mainwindow.h \
-    src/settingsdialog/settingsdialog.h
+    src/settingsdialog/settingsdialog.h \
+    src/settingsdialog/settingspage.h
 
 SOURCES += \
     src/aboutdialog/aboutdialog.cpp \
@@ -32,7 +33,8 @@ SOURCES += \
     src/aboutdialog/aboutpagecontents.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/settingsdialog/settingsdialog.cpp
+    src/settingsdialog/settingsdialog.cpp \
+    src/settingsdialog/settingspage.cpp
 
 RESOURCES += \
     res/icons.qrc
