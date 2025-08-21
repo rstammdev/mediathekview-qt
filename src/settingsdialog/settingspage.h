@@ -16,6 +16,7 @@ class SettingsPage : public QScrollArea
 {
     Q_OBJECT
     Q_PROPERTY(PageType pageType READ pageType WRITE setPageType NOTIFY pageTypeChanged)
+    Q_PROPERTY(QString pageTitle READ pageTitle WRITE setPageTitle NOTIFY pageTitleChanged)
 
 public:
     enum PageType {
@@ -30,15 +31,19 @@ public:
     ~SettingsPage() = default;
 
     PageType pageType() const;
+    QString pageTitle() const;
 
 public slots:
     void setPageType(const SettingsPage::PageType type);
+    void setPageTitle(const QString& title);
 
 signals:
     void pageTypeChanged(const SettingsPage::PageType type);
+    void pageTitleChanged(const QString& title);
 
 private:
     PageType m_pageType;
+    QString m_pageTitle;
 };
 
 #endif // SETTINGSPAGE_H

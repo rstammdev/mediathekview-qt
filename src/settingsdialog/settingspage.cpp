@@ -28,3 +28,18 @@ void SettingsPage::setPageType(const PageType type)
     m_pageType = type;
     emit pageTypeChanged(type);
 }
+
+
+QString SettingsPage::pageTitle() const
+{
+    return m_pageTitle;
+}
+
+void SettingsPage::setPageTitle(const QString& title)
+{
+    if (title == m_pageTitle)
+        return;
+
+    m_pageTitle = title;
+    emit pageTitleChanged(title);
+}
