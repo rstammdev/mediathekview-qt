@@ -31,6 +31,8 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     QTreeWidgetItem* treeItemRoot = nullptr;
     QTreeWidgetItem* treeItemBranch = nullptr;
 
+    m_stackedPages = new QStackedWidget;
+
     for (const auto page : pages) {
 
         QTreeWidgetItem* treeItem = nullptr;
@@ -49,11 +51,15 @@ SettingsDialog::SettingsDialog(QWidget* parent)
         if (treeItem) {
             treeItem->setText(0, page->pageTitle());
             treeItem->setToolTip(0, page->pageDescription());
+            treeItem->setData(0, Qt::UserRole, m_stackedPages->addWidget(page));
         }
     }
 
     QHBoxLayout* layoutPages = new QHBoxLayout;
     layoutPages->addWidget(treePages, 1);
+    layoutPages->addWidget(m_stackedPages, 3);
+
+    connect(treePages, &QTreeWidget::currentItemChanged, this, &SettingsDialog::setCurrentPage);
 
     //
 
@@ -65,4 +71,13 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     setMinimumSize(1024, 576);
 
     treePages->setCurrentItem(treePages->topLevelItem(0));
+}
+
+
+void SettingsDialog::setCurrentPage(QTreeWidgetItem* current)
+{
+    if (!current)
+        return;
+
+    m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
 }

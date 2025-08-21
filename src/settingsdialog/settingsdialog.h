@@ -10,6 +10,8 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QStackedWidget>
+#include <QTreeWidgetItem>
 
 
 class SettingsDialog : public QDialog
@@ -19,6 +21,12 @@ class SettingsDialog : public QDialog
 public:
     explicit SettingsDialog(QWidget* parent = nullptr);
     ~SettingsDialog() = default;
+
+private slots:
+    void setCurrentPage(QTreeWidgetItem* current);
+
+private:
+    QStackedWidget* m_stackedPages;
 };
 
 #endif // SETTINGSDIALOG_H
