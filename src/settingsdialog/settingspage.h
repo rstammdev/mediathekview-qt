@@ -41,6 +41,7 @@ public slots:
     void setPageDescription(const QString& description);
 
     virtual void save() {};
+    virtual void restoreDefaults(bool current) { Q_UNUSED(current) };
 
 signals:
     void pageTypeChanged(const SettingsPage::PageType type);
