@@ -17,6 +17,7 @@
 #include <QToolButton>
 
 #include "aboutdialog/aboutdialog.h"
+#include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -327,7 +328,8 @@ void MainWindow::triggerConfigureToolbarsDialog()
 
 void MainWindow::triggerConfigureDialog()
 {
-
+    SettingsDialog dialog(this);
+    dialog.exec();
 }
 
 
