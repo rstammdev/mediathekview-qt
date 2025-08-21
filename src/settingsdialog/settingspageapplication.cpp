@@ -34,3 +34,9 @@ SettingsPageApplication::SettingsPageApplication(QWidget* parent)
     setPageTitle(tr("Application"));
     setPageDescription(tr("Configure the general settings of the application."));
 }
+
+
+void SettingsPageApplication::save()
+{
+
+}
