@@ -43,3 +43,18 @@ void SettingsPage::setPageTitle(const QString& title)
     m_pageTitle = title;
     emit pageTitleChanged(title);
 }
+
+
+QString SettingsPage::pageDescription() const
+{
+    return m_pageDescription;
+}
+
+void SettingsPage::setPageDescription(const QString& description)
+{
+    if (description == m_pageDescription)
+        return;
+
+    m_pageDescription = description;
+    emit pageDescriptionChanged(description);
+}
