@@ -34,3 +34,9 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
     setPageTitle(tr("Appearance"));
     setPageDescription(tr("Configure the appearance of the application."));
 }
+
+
+void SettingsPageApplicationAppearance::save()
+{
+
+}

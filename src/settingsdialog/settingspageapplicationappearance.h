@@ -21,6 +21,9 @@ class SettingsPageApplicationAppearance : public SettingsPage
 public:
     explicit SettingsPageApplicationAppearance(QWidget* parent = nullptr);
     ~SettingsPageApplicationAppearance() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H
