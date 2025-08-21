@@ -67,9 +67,10 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
     // Buttons
 
-    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Close);
 
     connect(buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::close);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::saveAndClose);
 
     //
 
@@ -91,4 +92,12 @@ void SettingsDialog::setCurrentPage(QTreeWidgetItem* current)
         return;
 
     m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
+}
+
+
+void SettingsDialog::saveAndClose()
+{
+    emit saveRequested();
+
+    accept();
 }

@@ -29,6 +29,8 @@ signals:
 private slots:
     void setCurrentPage(QTreeWidgetItem* current);
 
+    void saveAndClose();
+
 private:
     QStackedWidget* m_stackedPages;
 };
