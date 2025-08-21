@@ -40,6 +40,8 @@ public slots:
     void setPageTitle(const QString& title);
     void setPageDescription(const QString& description);
 
+    virtual void save() {};
+
 signals:
     void pageTypeChanged(const SettingsPage::PageType type);
     void pageTitleChanged(const QString& title);
