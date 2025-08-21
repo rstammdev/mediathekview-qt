@@ -11,4 +11,20 @@
 
 SettingsPage::SettingsPage(QWidget* parent)
     : QScrollArea{parent}
+    , m_pageType{NoPageType}
 {}
+
+
+SettingsPage::PageType SettingsPage::pageType() const
+{
+    return m_pageType;
+}
+
+void SettingsPage::setPageType(const PageType type)
+{
+    if (type == m_pageType)
+        return;
+
+    m_pageType = type;
+    emit pageTypeChanged(type);
+}
