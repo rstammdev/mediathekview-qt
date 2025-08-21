@@ -48,6 +48,7 @@ signals:
     void stateChanged();
 
     void saveRequested();
+    void restoreDefaultsRequested(bool current);
 
 private:
     PageType m_pageType;
