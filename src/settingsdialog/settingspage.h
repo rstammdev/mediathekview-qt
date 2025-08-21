@@ -47,6 +47,8 @@ signals:
 
     void stateChanged();
 
+    void saveRequested();
+
 private:
     PageType m_pageType;
     QString m_pageTitle;
