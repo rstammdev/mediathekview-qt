@@ -24,6 +24,7 @@ public:
 
 signals:
     void saveRequested();
+    void restoreDefaultsRequested(bool current);
 
 private slots:
     void setCurrentPage(QTreeWidgetItem* current);
