@@ -9,6 +9,7 @@
         <file alias="configure">icons/actions/16/configure.svg</file>
         <file alias="configure-shortcuts">icons/devices/16/input-keyboard.svg</file>
         <file alias="configure-toolbars">icons/actions/16/configure.svg</file>
+        <file alias="document-revert">icons/actions/16/document-revert.svg</file>
         <file alias="info">icons/actions/16/help-about.svg</file>
         <file alias="language-chooser">icons/actions/16/translate.svg</file>
         <file alias="show-menu">icons/actions/16/show-menu.svg</file>

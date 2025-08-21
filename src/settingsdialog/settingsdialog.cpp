@@ -8,13 +8,17 @@
 
 #include "settingsdialog.h"
 
+#include <QActionGroup>
 #include <QApplication>
 #include <QDialogButtonBox>
 #include <QHBoxLayout>
+#include <QMenu>
 #include <QTreeWidget>
 #include <QVBoxLayout>
 
 #include "settingspage.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 
 SettingsDialog::SettingsDialog(QWidget* parent)
@@ -68,12 +72,35 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
     // Buttons
 
+    m_buttonRestoreDefaults = new QToolButton;
+    m_buttonRestoreDefaults->setText(tr("Defaults"));
+    m_buttonRestoreDefaults->setIcon(QIcon::fromTheme("document-revert"_L1, QIcon(":/icons/actions/16/document-revert"_L1)));
+    m_buttonRestoreDefaults->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+
+    QActionGroup* actionsRestoreDefaults = new QActionGroup(m_buttonRestoreDefaults);
+
+    m_actionRestoreDefaultsCurrent = new QAction(tr("Restore this page only"), actionsRestoreDefaults);
+    m_actionRestoreDefaultsCurrent->setCheckable(true);
+    actionsRestoreDefaults->addAction(m_actionRestoreDefaultsCurrent);
+
+    m_actionRestoreDefaultsAll = new QAction(tr("Restore all settings"), actionsRestoreDefaults);
+    m_actionRestoreDefaultsAll->setCheckable(true);
+    actionsRestoreDefaults->addAction(m_actionRestoreDefaultsAll);
+
+    QMenu* menuRestoreDefaults = new QMenu(m_buttonRestoreDefaults);
+    menuRestoreDefaults->addActions(actionsRestoreDefaults->actions());
+
+    m_buttonRestoreDefaults->setMenu(menuRestoreDefaults);
+    m_buttonRestoreDefaults->setPopupMode(QToolButton::MenuButtonPopup);
+
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Close);
     m_buttonApply = buttonBox->addButton(QDialogButtonBox::Apply);
+    buttonBox->addButton(m_buttonRestoreDefaults, QDialogButtonBox::ResetRole);
 
     connect(buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::close);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::saveAndClose);
     connect(m_buttonApply, &QPushButton::clicked, this, &SettingsDialog::saveAndContinue);
+    connect(m_buttonRestoreDefaults, &QToolButton::clicked, this, &SettingsDialog::restoreDefaults);
 
     //
 
@@ -88,6 +115,8 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     treePages->setCurrentItem(treePages->topLevelItem(0));
 
     m_buttonApply->setEnabled(false);
+
+    m_actionRestoreDefaultsCurrent->setChecked(true);
 }
 
 
@@ -119,4 +148,15 @@ void SettingsDialog::saveAndContinue()
     emit saveRequested();
 
     m_buttonApply->setEnabled(false);
+}
+
+
+void SettingsDialog::restoreDefaults()
+{
+    if (m_actionRestoreDefaultsCurrent->isChecked())
+        qobject_cast<SettingsPage*>(m_stackedPages->currentWidget())->restoreDefaults(true);
+    else
+        emit restoreDefaultsRequested(false);
+
+    m_actionRestoreDefaultsCurrent->setChecked(true);
 }

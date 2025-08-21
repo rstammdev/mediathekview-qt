@@ -9,9 +9,11 @@
 #ifndef SETTINGSDIALOG_H
 #define SETTINGSDIALOG_H
 
+#include <QAction>
 #include <QDialog>
 #include <QPushButton>
 #include <QStackedWidget>
+#include <QToolButton>
 #include <QTreeWidgetItem>
 
 
@@ -34,11 +36,17 @@ private slots:
 
     void saveAndClose();
     void saveAndContinue();
+    void restoreDefaults();
 
 private:
     QStackedWidget* m_stackedPages;
 
     QPushButton* m_buttonApply;
+
+    QAction* m_actionRestoreDefaultsCurrent;
+    QAction* m_actionRestoreDefaultsAll;
+
+    QToolButton* m_buttonRestoreDefaults;
 };
 
 #endif // SETTINGSDIALOG_H
