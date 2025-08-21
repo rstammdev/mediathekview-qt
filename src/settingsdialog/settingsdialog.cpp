@@ -54,6 +54,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
             treeItem->setToolTip(0, page->pageDescription());
             treeItem->setData(0, Qt::UserRole, m_stackedPages->addWidget(page));
 
+            connect(page, &SettingsPage::stateChanged, this, &SettingsDialog::enableButtonApply);
             connect(this, &SettingsDialog::saveRequested, page, &SettingsPage::save);
             connect(this, &SettingsDialog::restoreDefaultsRequested, page, &SettingsPage::restoreDefaults);
         }
@@ -68,9 +69,11 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     // Buttons
 
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Close);
+    m_buttonApply = buttonBox->addButton(QDialogButtonBox::Apply);
 
     connect(buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::close);
     connect(buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::saveAndClose);
+    connect(m_buttonApply, &QPushButton::clicked, this, &SettingsDialog::saveAndContinue);
 
     //
 
@@ -83,6 +86,8 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     setMinimumSize(1024, 576);
 
     treePages->setCurrentItem(treePages->topLevelItem(0));
+
+    m_buttonApply->setEnabled(false);
 }
 
 
@@ -95,9 +100,23 @@ void SettingsDialog::setCurrentPage(QTreeWidgetItem* current)
 }
 
 
+void SettingsDialog::enableButtonApply()
+{
+    m_buttonApply->setEnabled(true);
+}
+
+
 void SettingsDialog::saveAndClose()
 {
     emit saveRequested();
 
     accept();
+}
+
+
+void SettingsDialog::saveAndContinue()
+{
+    emit saveRequested();
+
+    m_buttonApply->setEnabled(false);
 }

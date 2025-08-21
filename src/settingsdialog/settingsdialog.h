@@ -10,6 +10,7 @@
 #define SETTINGSDIALOG_H
 
 #include <QDialog>
+#include <QPushButton>
 #include <QStackedWidget>
 #include <QTreeWidgetItem>
 
@@ -29,10 +30,15 @@ signals:
 private slots:
     void setCurrentPage(QTreeWidgetItem* current);
 
+    void enableButtonApply();
+
     void saveAndClose();
+    void saveAndContinue();
 
 private:
     QStackedWidget* m_stackedPages;
+
+    QPushButton* m_buttonApply;
 };
 
 #endif // SETTINGSDIALOG_H
