@@ -45,6 +45,8 @@ signals:
     void pageTitleChanged(const QString& title);
     void pageDescriptionChanged(const QString& description);
 
+    void stateChanged();
+
 private:
     PageType m_pageType;
     QString m_pageTitle;
