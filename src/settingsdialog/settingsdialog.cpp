@@ -9,13 +9,60 @@
 #include "settingsdialog.h"
 
 #include <QApplication>
+#include <QHBoxLayout>
+#include <QTreeWidget>
+#include <QVBoxLayout>
+
+#include "settingspage.h"
 
 
 SettingsDialog::SettingsDialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Pages
+
+    const QList<SettingsPage*> pages{
+    };
+
+    QTreeWidget* treePages = new QTreeWidget;
+    treePages->setHeaderHidden(true);
+    treePages->setRootIsDecorated(false);
+
+    QTreeWidgetItem* treeItemRoot = nullptr;
+    QTreeWidgetItem* treeItemBranch = nullptr;
+
+    for (const auto page : pages) {
+
+        QTreeWidgetItem* treeItem = nullptr;
+
+        if (page->pageType() == SettingsPage::PageTypeRoot) {
+            treeItem = treeItemRoot = new QTreeWidgetItem(treePages);
+            treePages->expandItem(treeItem);
+        }
+        else if (page->pageType() == SettingsPage::PageTypeBranch) {
+            treeItem = treeItemBranch = new QTreeWidgetItem(treeItemRoot);
+        }
+        else if (page->pageType() == SettingsPage::PageTypeLeaf) {
+            treeItem = new QTreeWidgetItem(treeItemBranch);
+        }
+
+        if (treeItem) {
+            treeItem->setText(0, page->pageTitle());
+            treeItem->setToolTip(0, page->pageDescription());
+        }
+    }
+
+    QHBoxLayout* layoutPages = new QHBoxLayout;
+    layoutPages->addWidget(treePages, 1);
+
+    //
+
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->addLayout(layoutPages);
+    setLayout(layout);
 
     setWindowTitle(tr("Configure %1").arg(QApplication::applicationName()));
     setMinimumSize(1024, 576);
 
+    treePages->setCurrentItem(treePages->topLevelItem(0));
 }
