@@ -17,6 +17,7 @@
 #include <QVBoxLayout>
 
 #include "settingspage.h"
+#include "settingspageapplication.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -27,6 +28,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
     // Pages
 
     const QList<SettingsPage*> pages{
+        new SettingsPageApplication(this),
     };
 
     QTreeWidget* treePages = new QTreeWidget;
