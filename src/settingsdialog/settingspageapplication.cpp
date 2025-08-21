@@ -40,3 +40,9 @@ void SettingsPageApplication::save()
 {
 
 }
+
+
+void SettingsPageApplication::restoreDefaults(bool current)
+{
+
+}
