@@ -9,6 +9,7 @@
 #include "settingsdialog.h"
 
 #include <QApplication>
+#include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QTreeWidget>
 #include <QVBoxLayout>
@@ -64,10 +65,17 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
     connect(treePages, &QTreeWidget::currentItemChanged, this, &SettingsDialog::setCurrentPage);
 
+    // Buttons
+
+    QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::close);
+
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addLayout(layoutPages);
+    layout->addWidget(buttonBox);
     setLayout(layout);
 
     setWindowTitle(tr("Configure %1").arg(QApplication::applicationName()));
