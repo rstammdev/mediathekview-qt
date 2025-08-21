@@ -18,6 +18,7 @@
 
 #include "settingspage.h"
 #include "settingspageapplication.h"
+#include "settingspageapplicationappearance.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -29,6 +30,7 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
     const QList<SettingsPage*> pages{
         new SettingsPageApplication(this),
+        new SettingsPageApplicationAppearance(this),
     };
 
     QTreeWidget* treePages = new QTreeWidget;
