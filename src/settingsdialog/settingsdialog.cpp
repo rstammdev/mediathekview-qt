@@ -52,6 +52,8 @@ SettingsDialog::SettingsDialog(QWidget* parent)
             treeItem->setText(0, page->pageTitle());
             treeItem->setToolTip(0, page->pageDescription());
             treeItem->setData(0, Qt::UserRole, m_stackedPages->addWidget(page));
+
+            connect(this, &SettingsDialog::saveRequested, page, &SettingsPage::save);
         }
     }
 
