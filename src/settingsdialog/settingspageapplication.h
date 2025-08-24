@@ -31,4 +31,17 @@ private:
     QTabWidget* m_tabBox;
 };
 
+
+//
+// Behavior
+
+class SettingsPageApplicationTabBehavior : public SettingsPage
+{
+    Q_OBJECT
+
+public:
+    explicit SettingsPageApplicationTabBehavior(QWidget* parent = nullptr);
+    ~SettingsPageApplicationTabBehavior() = default;
+};
+
 #endif // SETTINGSPAGEAPPLICATION_H

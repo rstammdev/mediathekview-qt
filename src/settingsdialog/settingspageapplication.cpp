@@ -21,6 +21,7 @@ SettingsPageApplication::SettingsPageApplication(QWidget* parent)
     // Tabs
 
     const QList<SettingsPage*> pages{
+        new SettingsPageApplicationTabBehavior(this),
     };
 
     m_tabBox = new QTabWidget;
@@ -60,4 +61,16 @@ void SettingsPageApplication::save()
 void SettingsPageApplication::restoreDefaults(bool current)
 {
 
+}
+
+
+//
+// Behavior
+
+SettingsPageApplicationTabBehavior::SettingsPageApplicationTabBehavior(QWidget* parent)
+    : SettingsPage{parent}
+{
+
+    setPageTitle(tr("Behavior"));
+    setPageDescription(tr("Configure the behavior of the application."));
 }
