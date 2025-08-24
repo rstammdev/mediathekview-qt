@@ -81,3 +81,9 @@ SettingsPageComponentsTabEditor::SettingsPageComponentsTabEditor(QWidget* parent
     setPageTitle(tr("Editor"));
     setPageDescription(tr("Edit the information in the components dialog."));
 }
+
+
+void SettingsPageComponentsTabEditor::save()
+{
+
+}

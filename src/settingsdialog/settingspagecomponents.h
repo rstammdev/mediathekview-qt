@@ -42,6 +42,9 @@ class SettingsPageComponentsTabEditor : public SettingsPage
 public:
     explicit SettingsPageComponentsTabEditor(QWidget* parent = nullptr);
     ~SettingsPageComponentsTabEditor() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGECOMPONENTS_H
