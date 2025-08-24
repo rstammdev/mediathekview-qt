@@ -137,3 +137,9 @@ void SettingsPageApplicationAppearanceTabToolbars::save()
 {
 
 }
+
+
+void SettingsPageApplicationAppearanceTabToolbars::restoreDefaults(bool current)
+{
+
+}
