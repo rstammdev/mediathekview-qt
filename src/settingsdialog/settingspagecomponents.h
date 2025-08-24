@@ -9,6 +9,7 @@
 #ifndef SETTINGSPAGECOMPONENTS_H
 #define SETTINGSPAGECOMPONENTS_H
 
+#include <QTabWidget>
 #include <QWidget>
 
 #include "settingspage.h"
@@ -21,6 +22,9 @@ class SettingsPageComponents : public SettingsPage
 public:
     explicit SettingsPageComponents(QWidget* parent = nullptr);
     ~SettingsPageComponents() = default;
+
+private:
+    QTabWidget* m_tabBox;
 };
 
 #endif // SETTINGSPAGECOMPONENTS_H
