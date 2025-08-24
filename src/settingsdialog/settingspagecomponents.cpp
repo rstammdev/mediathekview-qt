@@ -21,6 +21,7 @@ SettingsPageComponents::SettingsPageComponents(QWidget* parent)
     // Tabs
 
     const QList<SettingsPage*> pages{
+        new SettingsPageComponentsTabEditor(this),
     };
 
     m_tabBox = new QTabWidget;
@@ -67,4 +68,16 @@ void SettingsPageComponents::restoreDefaults(bool current)
         qobject_cast<SettingsPage*>(m_tabBox->currentWidget())->restoreDefaults(current);
     else
         emit restoreDefaultsRequested(current);
+}
+
+
+//
+// Editor
+
+SettingsPageComponentsTabEditor::SettingsPageComponentsTabEditor(QWidget* parent)
+    : SettingsPage{parent}
+{
+
+    setPageTitle(tr("Editor"));
+    setPageDescription(tr("Edit the information in the components dialog."));
 }

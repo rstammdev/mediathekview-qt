@@ -31,4 +31,17 @@ private:
     QTabWidget* m_tabBox;
 };
 
+
+//
+// Editor
+
+class SettingsPageComponentsTabEditor : public SettingsPage
+{
+    Q_OBJECT
+
+public:
+    explicit SettingsPageComponentsTabEditor(QWidget* parent = nullptr);
+    ~SettingsPageComponentsTabEditor() = default;
+};
+
 #endif // SETTINGSPAGECOMPONENTS_H
