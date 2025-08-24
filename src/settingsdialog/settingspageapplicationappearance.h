@@ -45,6 +45,7 @@ public:
 
 public slots:
     void save() override;
+    void restoreDefaults(bool current) override;
 };
 
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H
