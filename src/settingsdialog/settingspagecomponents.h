@@ -59,6 +59,9 @@ class SettingsPageComponentsTabPlaceholders : public SettingsPage
 public:
     explicit SettingsPageComponentsTabPlaceholders(QWidget* parent = nullptr);
     ~SettingsPageComponentsTabPlaceholders() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGECOMPONENTS_H

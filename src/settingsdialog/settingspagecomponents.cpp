@@ -106,3 +106,9 @@ SettingsPageComponentsTabPlaceholders::SettingsPageComponentsTabPlaceholders(QWi
     setPageTitle(tr("Placeholders"));
     setPageDescription(tr("List of all available placeholders."));
 }
+
+
+void SettingsPageComponentsTabPlaceholders::save()
+{
+
+}
