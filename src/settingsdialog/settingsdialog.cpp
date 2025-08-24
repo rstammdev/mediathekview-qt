@@ -157,7 +157,7 @@ void SettingsDialog::saveAndContinue()
 
 void SettingsDialog::restoreDefaults()
 {
-    if (m_actionRestoreDefaultsCurrent->isChecked())
+    if (m_actionRestoreDefaultsCurrent->isChecked() && m_stackedPages->currentWidget())
         qobject_cast<SettingsPage*>(m_stackedPages->currentWidget())->restoreDefaults(true);
     else
         emit restoreDefaultsRequested(false);
