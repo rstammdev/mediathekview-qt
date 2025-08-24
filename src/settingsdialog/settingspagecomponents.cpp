@@ -30,6 +30,7 @@ SettingsPageComponents::SettingsPageComponents(QWidget* parent)
         m_tabBox->addTab(page, page->pageTitle());
 
         connect(page, &SettingsPage::stateChanged, this, &SettingsPage::stateChanged);
+        connect(this, &SettingsPage::saveRequested, page, &SettingsPage::save);
     }
 
     //
@@ -50,4 +51,10 @@ SettingsPageComponents::SettingsPageComponents(QWidget* parent)
     setPageType(SettingsPage::PageTypeRoot);
     setPageTitle(tr("Components"));
     setPageDescription(tr("Specify which information in the Components dialog is shown."));
+}
+
+
+void SettingsPageComponents::save()
+{
+    emit saveRequested();
 }

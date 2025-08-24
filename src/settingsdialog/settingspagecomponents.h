@@ -23,6 +23,9 @@ public:
     explicit SettingsPageComponents(QWidget* parent = nullptr);
     ~SettingsPageComponents() = default;
 
+public slots:
+    void save() override;
+
 private:
     QTabWidget* m_tabBox;
 };
