@@ -23,6 +23,7 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
     const QList<SettingsPage*> pages{
         new SettingsPageApplicationAppearanceTabZoomButton(this),
         new SettingsPageApplicationAppearanceTabSchemeThemeButton(this),
+        new SettingsPageApplicationAppearanceTabToolbars(this),
     };
 
     m_tabBox = new QTabWidget;
@@ -117,4 +118,16 @@ void SettingsPageApplicationAppearanceTabSchemeThemeButton::save()
 void SettingsPageApplicationAppearanceTabSchemeThemeButton::restoreDefaults(bool current)
 {
 
+}
+
+
+//
+// Toolbars
+
+SettingsPageApplicationAppearanceTabToolbars::SettingsPageApplicationAppearanceTabToolbars(QWidget* parent)
+    : SettingsPage{parent}
+{
+
+    setPageTitle(tr("Toolbars"));
+    setPageDescription(tr("Configure the appearance of the toolbars."));
 }

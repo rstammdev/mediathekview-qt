@@ -65,4 +65,17 @@ public slots:
     void restoreDefaults(bool current) override;
 };
 
+
+//
+// Toolbars
+
+class SettingsPageApplicationAppearanceTabToolbars : public SettingsPage
+{
+    Q_OBJECT
+
+public:
+    explicit SettingsPageApplicationAppearanceTabToolbars(QWidget* parent = nullptr);
+    ~SettingsPageApplicationAppearanceTabToolbars() = default;
+};
+
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H
