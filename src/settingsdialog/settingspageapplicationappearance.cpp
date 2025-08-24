@@ -131,3 +131,9 @@ SettingsPageApplicationAppearanceTabToolbars::SettingsPageApplicationAppearanceT
     setPageTitle(tr("Toolbars"));
     setPageDescription(tr("Configure the appearance of the toolbars."));
 }
+
+
+void SettingsPageApplicationAppearanceTabToolbars::save()
+{
+
+}

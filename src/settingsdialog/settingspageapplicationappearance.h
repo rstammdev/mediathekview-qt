@@ -76,6 +76,9 @@ class SettingsPageApplicationAppearanceTabToolbars : public SettingsPage
 public:
     explicit SettingsPageApplicationAppearanceTabToolbars(QWidget* parent = nullptr);
     ~SettingsPageApplicationAppearanceTabToolbars() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H
