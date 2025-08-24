@@ -31,6 +31,7 @@ SettingsPageApplication::SettingsPageApplication(QWidget* parent)
         m_tabBox->addTab(page, page->pageTitle());
 
         connect(page, &SettingsPage::stateChanged, this, &SettingsPage::stateChanged);
+        connect(this, &SettingsPage::saveRequested, page, &SettingsPage::save);
     }
 
     //
@@ -56,7 +57,7 @@ SettingsPageApplication::SettingsPageApplication(QWidget* parent)
 
 void SettingsPageApplication::save()
 {
-
+    emit saveRequested();
 }
 
 
@@ -75,4 +76,10 @@ SettingsPageApplicationTabBehavior::SettingsPageApplicationTabBehavior(QWidget* 
 
     setPageTitle(tr("Behavior"));
     setPageDescription(tr("Configure the behavior of the application."));
+}
+
+
+void SettingsPageApplicationTabBehavior::save()
+{
+
 }

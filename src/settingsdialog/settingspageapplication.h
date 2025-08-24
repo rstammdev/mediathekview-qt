@@ -42,6 +42,9 @@ class SettingsPageApplicationTabBehavior : public SettingsPage
 public:
     explicit SettingsPageApplicationTabBehavior(QWidget* parent = nullptr);
     ~SettingsPageApplicationTabBehavior() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGEAPPLICATION_H
