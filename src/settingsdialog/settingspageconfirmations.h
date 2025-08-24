@@ -21,6 +21,9 @@ class SettingsPageConfirmations : public SettingsPage
 public:
     explicit SettingsPageConfirmations(QWidget* parent = nullptr);
     ~SettingsPageConfirmations() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGECONFIRMATIONS_H
