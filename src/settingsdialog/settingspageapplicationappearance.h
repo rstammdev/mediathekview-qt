@@ -48,4 +48,17 @@ public slots:
     void restoreDefaults(bool current) override;
 };
 
+
+//
+// Scheme & Theme Button
+
+class SettingsPageApplicationAppearanceTabSchemeThemeButton : public SettingsPage
+{
+    Q_OBJECT
+
+public:
+    explicit SettingsPageApplicationAppearanceTabSchemeThemeButton(QWidget* parent = nullptr);
+    ~SettingsPageApplicationAppearanceTabSchemeThemeButton() = default;
+};
+
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H

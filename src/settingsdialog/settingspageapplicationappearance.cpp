@@ -22,6 +22,7 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
 
     const QList<SettingsPage*> pages{
         new SettingsPageApplicationAppearanceTabZoomButton(this),
+        new SettingsPageApplicationAppearanceTabSchemeThemeButton(this),
     };
 
     m_tabBox = new QTabWidget;
@@ -92,4 +93,16 @@ void SettingsPageApplicationAppearanceTabZoomButton::save()
 void SettingsPageApplicationAppearanceTabZoomButton::restoreDefaults(bool current)
 {
 
+}
+
+
+//
+// Scheme & Theme Button
+
+SettingsPageApplicationAppearanceTabSchemeThemeButton::SettingsPageApplicationAppearanceTabSchemeThemeButton(QWidget* parent)
+    : SettingsPage{parent}
+{
+
+    setPageTitle(tr("Scheme && Theme Button"));
+    setPageDescription(tr("Configure the scheme && theme button."));
 }
