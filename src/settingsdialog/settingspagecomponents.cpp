@@ -112,3 +112,9 @@ void SettingsPageComponentsTabPlaceholders::save()
 {
 
 }
+
+
+void SettingsPageComponentsTabPlaceholders::restoreDefaults(bool current)
+{
+
+}

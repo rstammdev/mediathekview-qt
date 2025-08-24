@@ -62,6 +62,7 @@ public:
 
 public slots:
     void save() override;
+    void restoreDefaults(bool current) override;
 };
 
 #endif // SETTINGSPAGECOMPONENTS_H
