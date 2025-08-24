@@ -29,6 +29,8 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
     for (const auto page : pages) {
 
         m_tabBox->addTab(page, page->pageTitle());
+
+        connect(page, &SettingsPage::stateChanged, this, &SettingsPage::stateChanged);
     }
 
     //
