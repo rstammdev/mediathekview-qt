@@ -22,6 +22,7 @@ SettingsPageComponents::SettingsPageComponents(QWidget* parent)
 
     const QList<SettingsPage*> pages{
         new SettingsPageComponentsTabEditor(this),
+        new SettingsPageComponentsTabPlaceholders(this),
     };
 
     m_tabBox = new QTabWidget;
@@ -92,4 +93,16 @@ void SettingsPageComponentsTabEditor::save()
 void SettingsPageComponentsTabEditor::restoreDefaults(bool current)
 {
 
+}
+
+
+//
+// Placeholders
+
+SettingsPageComponentsTabPlaceholders::SettingsPageComponentsTabPlaceholders(QWidget* parent)
+    : SettingsPage{parent}
+{
+
+    setPageTitle(tr("Placeholders"));
+    setPageDescription(tr("List of all available placeholders."));
 }

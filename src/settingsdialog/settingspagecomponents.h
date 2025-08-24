@@ -48,4 +48,17 @@ public slots:
     void restoreDefaults(bool current) override;
 };
 
+
+//
+// Placeholders
+
+class SettingsPageComponentsTabPlaceholders : public SettingsPage
+{
+    Q_OBJECT
+
+public:
+    explicit SettingsPageComponentsTabPlaceholders(QWidget* parent = nullptr);
+    ~SettingsPageComponentsTabPlaceholders() = default;
+};
+
 #endif // SETTINGSPAGECOMPONENTS_H
