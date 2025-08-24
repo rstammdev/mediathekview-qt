@@ -25,6 +25,7 @@ public:
 
 public slots:
     void save() override;
+    void restoreDefaults(bool current) override;
 
 private:
     QTabWidget* m_tabBox;
