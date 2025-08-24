@@ -87,3 +87,9 @@ void SettingsPageComponentsTabEditor::save()
 {
 
 }
+
+
+void SettingsPageComponentsTabEditor::restoreDefaults(bool current)
+{
+
+}
