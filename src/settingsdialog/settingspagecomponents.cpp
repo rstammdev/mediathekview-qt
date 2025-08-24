@@ -28,6 +28,8 @@ SettingsPageComponents::SettingsPageComponents(QWidget* parent)
     for (const auto page : pages) {
 
         m_tabBox->addTab(page, page->pageTitle());
+
+        connect(page, &SettingsPage::stateChanged, this, &SettingsPage::stateChanged);
     }
 
     //
