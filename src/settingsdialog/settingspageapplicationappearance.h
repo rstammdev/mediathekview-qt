@@ -42,6 +42,9 @@ class SettingsPageApplicationAppearanceTabZoomButton : public SettingsPage
 public:
     explicit SettingsPageApplicationAppearanceTabZoomButton(QWidget* parent = nullptr);
     ~SettingsPageApplicationAppearanceTabZoomButton() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H

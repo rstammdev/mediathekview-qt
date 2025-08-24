@@ -31,6 +31,7 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
         m_tabBox->addTab(page, page->pageTitle());
 
         connect(page, &SettingsPage::stateChanged, this, &SettingsPage::stateChanged);
+        connect(this, &SettingsPage::saveRequested, page, &SettingsPage::save);
     }
 
     //
@@ -56,7 +57,7 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
 
 void SettingsPageApplicationAppearance::save()
 {
-
+    emit saveRequested();
 }
 
 
@@ -75,4 +76,10 @@ SettingsPageApplicationAppearanceTabZoomButton::SettingsPageApplicationAppearanc
 
     setPageTitle(tr("Zoom Button"));
     setPageDescription(tr("Configure the zoom button."));
+}
+
+
+void SettingsPageApplicationAppearanceTabZoomButton::save()
+{
+
 }
