@@ -18,12 +18,25 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
     QLabel* title = new QLabel(tr("<strong style=\"font-size: large;\">%1</strong>").arg(tr("Appearance")));
     QLabel* description = new QLabel(tr("Configure the appearance of the application."));
 
+    // Tabs
 
+    const QList<SettingsPage*> pages{
+    };
+
+    m_tabBox = new QTabWidget;
+
+    for (const auto page : pages) {
+
+        m_tabBox->addTab(page, page->pageTitle());
+    }
+
+    //
 
     QVBoxLayout* layout = new QVBoxLayout;
+    layout->setContentsMargins(-1, -1, 0, 0);
     layout->addWidget(title);
     layout->addWidget(description);
-    layout->addStretch();
+    layout->addWidget(m_tabBox);
 
     QWidget* widget = new QWidget(parent);
     widget->setLayout(layout);

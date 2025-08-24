@@ -9,6 +9,7 @@
 #ifndef SETTINGSPAGEAPPLICATIONAPPEARANCE_H
 #define SETTINGSPAGEAPPLICATIONAPPEARANCE_H
 
+#include <QTabWidget>
 #include <QWidget>
 
 #include "settingspage.h"
@@ -25,6 +26,9 @@ public:
 public slots:
     void save() override;
     void restoreDefaults(bool current) override;
+
+private:
+    QTabWidget* m_tabBox;
 };
 
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H
