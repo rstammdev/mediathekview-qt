@@ -43,3 +43,9 @@ void SettingsPageConfirmations::save()
 {
 
 }
+
+
+void SettingsPageConfirmations::restoreDefaults(bool current)
+{
+
+}
