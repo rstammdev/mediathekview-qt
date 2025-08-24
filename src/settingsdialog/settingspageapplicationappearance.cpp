@@ -112,3 +112,9 @@ void SettingsPageApplicationAppearanceTabSchemeThemeButton::save()
 {
 
 }
+
+
+void SettingsPageApplicationAppearanceTabSchemeThemeButton::restoreDefaults(bool current)
+{
+
+}
