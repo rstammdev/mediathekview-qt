@@ -59,6 +59,9 @@ class SettingsPageApplicationAppearanceTabSchemeThemeButton : public SettingsPag
 public:
     explicit SettingsPageApplicationAppearanceTabSchemeThemeButton(QWidget* parent = nullptr);
     ~SettingsPageApplicationAppearanceTabSchemeThemeButton() = default;
+
+public slots:
+    void save() override;
 };
 
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H

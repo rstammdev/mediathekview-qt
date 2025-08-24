@@ -106,3 +106,9 @@ SettingsPageApplicationAppearanceTabSchemeThemeButton::SettingsPageApplicationAp
     setPageTitle(tr("Scheme && Theme Button"));
     setPageDescription(tr("Configure the scheme && theme button."));
 }
+
+
+void SettingsPageApplicationAppearanceTabSchemeThemeButton::save()
+{
+
+}
