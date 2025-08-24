@@ -32,6 +32,7 @@ SettingsPageApplication::SettingsPageApplication(QWidget* parent)
 
         connect(page, &SettingsPage::stateChanged, this, &SettingsPage::stateChanged);
         connect(this, &SettingsPage::saveRequested, page, &SettingsPage::save);
+        connect(this, &SettingsPage::restoreDefaultsRequested, page, &SettingsPage::restoreDefaults);
     }
 
     //
@@ -63,7 +64,10 @@ void SettingsPageApplication::save()
 
 void SettingsPageApplication::restoreDefaults(bool current)
 {
-
+    if (current && m_tabBox->currentWidget())
+        qobject_cast<SettingsPage*>(m_tabBox->currentWidget())->restoreDefaults(current);
+    else
+        emit restoreDefaultsRequested(current);
 }
 
 
@@ -80,6 +84,12 @@ SettingsPageApplicationTabBehavior::SettingsPageApplicationTabBehavior(QWidget* 
 
 
 void SettingsPageApplicationTabBehavior::save()
+{
+
+}
+
+
+void SettingsPageApplicationTabBehavior::restoreDefaults(bool current)
 {
 
 }
