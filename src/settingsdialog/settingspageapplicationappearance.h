@@ -31,4 +31,17 @@ private:
     QTabWidget* m_tabBox;
 };
 
+
+//
+// Zoom Button
+
+class SettingsPageApplicationAppearanceTabZoomButton : public SettingsPage
+{
+    Q_OBJECT
+
+public:
+    explicit SettingsPageApplicationAppearanceTabZoomButton(QWidget* parent = nullptr);
+    ~SettingsPageApplicationAppearanceTabZoomButton() = default;
+};
+
 #endif // SETTINGSPAGEAPPLICATIONAPPEARANCE_H

@@ -21,6 +21,7 @@ SettingsPageApplicationAppearance::SettingsPageApplicationAppearance(QWidget* pa
     // Tabs
 
     const QList<SettingsPage*> pages{
+        new SettingsPageApplicationAppearanceTabZoomButton(this),
     };
 
     m_tabBox = new QTabWidget;
@@ -60,4 +61,16 @@ void SettingsPageApplicationAppearance::save()
 void SettingsPageApplicationAppearance::restoreDefaults(bool current)
 {
 
+}
+
+
+//
+// Zoom Button
+
+SettingsPageApplicationAppearanceTabZoomButton::SettingsPageApplicationAppearanceTabZoomButton(QWidget* parent)
+    : SettingsPage{parent}
+{
+
+    setPageTitle(tr("Zoom Button"));
+    setPageDescription(tr("Configure the zoom button."));
 }
