@@ -126,10 +126,8 @@ SettingsDialog::SettingsDialog(QWidget* parent)
 
 void SettingsDialog::setCurrentPage(QTreeWidgetItem* current)
 {
-    if (!current)
-        return;
-
-    m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
+    if (current)
+        m_stackedPages->setCurrentIndex(current->data(0, Qt::UserRole).toInt());
 }
 
 
