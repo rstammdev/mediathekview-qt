@@ -169,7 +169,7 @@ AboutPageContentTabCredits::AboutPageContentTabCredits(QWidget* parent)
 //
 // General
 
-AboutPageGeneral::AboutPageGeneral(QWidget* parent)
+AboutPageContentTabGeneral::AboutPageContentTabGeneral(QWidget* parent)
     : AboutPage{parent}
 {
     const QStringList paragraphs = {

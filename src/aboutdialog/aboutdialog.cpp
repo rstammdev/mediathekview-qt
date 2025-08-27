@@ -24,7 +24,7 @@ AboutDialog::AboutDialog(QWidget* parent)
     QTabWidget* tabBox = new QTabWidget;
 
     const QList<AboutPage*> pages{
-        new AboutPageGeneral,
+        new AboutPageContentTabGeneral,
         new AboutPageContentTabComponents,
         new AboutPageContentTabAuthors,
         new AboutPageContentTabCredits,

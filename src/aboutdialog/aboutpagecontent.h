@@ -59,13 +59,13 @@ public:
 //
 // General
 
-class AboutPageGeneral : public AboutPage
+class AboutPageContentTabGeneral : public AboutPage
 {
     Q_OBJECT
 
 public:
-    explicit AboutPageGeneral(QWidget* parent = nullptr);
-    ~AboutPageGeneral() = default;
+    explicit AboutPageContentTabGeneral(QWidget* parent = nullptr);
+    ~AboutPageContentTabGeneral() = default;
 };
 
 
