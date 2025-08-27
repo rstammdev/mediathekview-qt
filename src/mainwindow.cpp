@@ -60,10 +60,13 @@ void MainWindow::setupUi()
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
-    // View menu
+    // View menu & toolbar
 
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
+
+    QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
+    toolbarView->setObjectName("toolbarView"_L1);
 
     // Settings menu & toolbar
 
@@ -223,6 +226,7 @@ void MainWindow::setupUi()
 
     menuShowToolbars->addSection(tr("Toolbars"));
     menuShowToolbars->addAction(toolbarFile->toggleViewAction());
+    menuShowToolbars->addAction(toolbarView->toggleViewAction());
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
     menuShowToolbars->addAction(toolbarHelp->toggleViewAction());
 
