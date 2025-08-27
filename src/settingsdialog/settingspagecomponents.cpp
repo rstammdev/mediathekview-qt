@@ -53,7 +53,7 @@ SettingsPageComponents::SettingsPageComponents(QWidget* parent)
 
     setPageType(SettingsPage::PageTypeRoot);
     setPageTitle(tr("Components"));
-    setPageDescription(tr("Specify which information in the Components dialog is shown."));
+    setPageDescription(tr("Specify which information in the components dialog is shown."));
 }
 
 
