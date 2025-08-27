@@ -17,13 +17,13 @@
 //
 // Authors
 
-class AboutPageAuthors : public AboutPage
+class AboutPageContentTabAuthors : public AboutPage
 {
     Q_OBJECT
 
 public:
-    explicit AboutPageAuthors(QWidget* parent = nullptr);
-    ~AboutPageAuthors() = default;
+    explicit AboutPageContentTabAuthors(QWidget* parent = nullptr);
+    ~AboutPageContentTabAuthors() = default;
 };
 
 

@@ -18,7 +18,7 @@ using namespace Qt::Literals::StringLiterals;
 //
 // Authors
 
-AboutPageAuthors::AboutPageAuthors(QWidget* parent)
+AboutPageContentTabAuthors::AboutPageContentTabAuthors(QWidget* parent)
     : AboutPage{parent}
 {
     const QList<QStringList> items = {
