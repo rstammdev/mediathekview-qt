@@ -117,6 +117,14 @@ void MainWindow::setupUi()
 
     // Settings menu & toolbar
 
+    m_actionSchemeTheme = addAction(tr("&Scheme && Theme"));
+    m_actionSchemeTheme->setObjectName("actionSchemeTheme"_L1);
+    m_actionSchemeTheme->setIcon(QIcon::fromTheme("color-mode-black-white"_L1, QIcon(":/icons/actions/16/color-mode-black-white"_L1)));
+    m_actionSchemeTheme->setIconText(tr("Scheme && Theme"));
+    m_actionSchemeTheme->setStatusTip(tr("Enable the theme & scheme"));
+    m_actionSchemeTheme->setToolTip(tr("Enable the theme & scheme."));
+    m_actionSchemeTheme->setCheckable(true);
+
     m_actionShowMenubar = addAction(tr("Show &Menubar"));
     m_actionShowMenubar->setObjectName("actionShowMenubar"_L1);
     m_actionShowMenubar->setIcon(QIcon::fromTheme("show-menu"_L1, QIcon(":/icons/actions/16/show-menu"_L1)));
@@ -182,6 +190,7 @@ void MainWindow::setupUi()
     QMenu* menuShowToolbars = new QMenu(tr("Toolbars Shown"), menuSettings);
     menuShowToolbars->setObjectName("menuShowToolbars"_L1);
 
+    menuSettings->addAction(m_actionSchemeTheme);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
     menuSettings->addMenu(menuShowPanels);
@@ -208,6 +217,7 @@ void MainWindow::setupUi()
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
+    toolbarSettings->addAction(m_actionSchemeTheme);
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(m_actionShowMenubar);
     toolbarSettings->addWidget(buttonConfigurePanels);

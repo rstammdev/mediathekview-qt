@@ -45,6 +45,7 @@ private:
     QAction* m_actionResetFontSize;
     QAction* m_actionFullScreen;
 
+    QAction* m_actionSchemeTheme;
     QAction* m_actionShowMenubar;
     QAction* m_actionShowStatusbar;
 
