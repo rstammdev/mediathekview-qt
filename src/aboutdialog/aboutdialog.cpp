@@ -20,8 +20,7 @@
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog{parent}
 {
-
-    QTabWidget* tabBox = new QTabWidget;
+    // Pages
 
     const QList<AboutPage*> pages{
         new AboutPageContentTabGeneral,
@@ -31,17 +30,23 @@ AboutDialog::AboutDialog(QWidget* parent)
         new AboutPageContentTabLicense
     };
 
+    QTabWidget* tabBox = new QTabWidget;
+
     for (const auto page : pages)
         tabBox->addTab(page, page->pageTitle());
 
+    // Button
+
     QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Close);
+
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &AboutDialog::close);
+
+    //
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(tabBox);
     layout->addWidget(buttonBox);
     setLayout(layout);
-
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &AboutDialog::close);
 
     setWindowTitle(tr("About %1").arg(QApplication::applicationName()));
     setMinimumSize(854, 480);

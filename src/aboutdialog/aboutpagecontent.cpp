@@ -43,11 +43,14 @@ AboutPageContentTabAuthors::AboutPageContentTabAuthors(QWidget* parent)
     content->setWordWrap(true);
     content->setFrameShape(QFrame::StyledPanel);
 
-    QWidget* widget = new QWidget(parent);
+    //
 
-    QVBoxLayout* layout = new QVBoxLayout(widget);
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(content);
     layout->addStretch();
+
+    QWidget* widget = new QWidget(parent);
+    widget->setLayout(layout);
 
     setWidget(widget);
     setWidgetResizable(true);
@@ -93,11 +96,14 @@ AboutPageContentTabComponents::AboutPageContentTabComponents(QWidget* parent)
     content->setWordWrap(true);
     content->setFrameShape(QFrame::StyledPanel);
 
-    QWidget* widget = new QWidget(parent);
+    //
 
-    QVBoxLayout* layout = new QVBoxLayout(widget);
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(content);
     layout->addStretch();
+
+    QWidget* widget = new QWidget(parent);
+    widget->setLayout(layout);
 
     setWidget(widget);
     setWidgetResizable(true);
@@ -152,11 +158,14 @@ AboutPageContentTabCredits::AboutPageContentTabCredits(QWidget* parent)
     content->setWordWrap(true);
     content->setFrameShape(QFrame::StyledPanel);
 
-    QWidget* widget = new QWidget(parent);
+    //
 
-    QVBoxLayout* layout = new QVBoxLayout(widget);
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(content);
     layout->addStretch();
+
+    QWidget* widget = new QWidget(parent);
+    widget->setLayout(layout);
 
     setWidget(widget);
     setWidgetResizable(true);
@@ -192,11 +201,14 @@ AboutPageContentTabGeneral::AboutPageContentTabGeneral(QWidget* parent)
     content->setWordWrap(true);
     content->setFrameShape(QFrame::StyledPanel);
 
-    QWidget* widget = new QWidget(parent);
+    //
 
-    QVBoxLayout* layout = new QVBoxLayout(widget);
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(content);
     layout->addStretch();
+
+    QWidget* widget = new QWidget(parent);
+    widget->setLayout(layout);
 
     setWidget(widget);
     setWidgetResizable(true);
@@ -231,11 +243,14 @@ AboutPageContentTabLicense::AboutPageContentTabLicense(QWidget* parent)
     content->setWordWrap(true);
     content->setFrameShape(QFrame::StyledPanel);
 
-    QWidget* widget = new QWidget(parent);
+    //
 
-    QVBoxLayout* layout = new QVBoxLayout(widget);
+    QVBoxLayout* layout = new QVBoxLayout;
     layout->addWidget(content);
     layout->addStretch();
+
+    QWidget* widget = new QWidget(parent);
+    widget->setLayout(layout);
 
     setWidget(widget);
     setWidgetResizable(true);
