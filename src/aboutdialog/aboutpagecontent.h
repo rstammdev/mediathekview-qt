@@ -72,13 +72,13 @@ public:
 //
 // License
 
-class AboutPageLicense : public AboutPage
+class AboutPageContentTabLicense : public AboutPage
 {
     Q_OBJECT
 
 public:
-    explicit AboutPageLicense(QWidget* parent = nullptr);
-    ~AboutPageLicense() = default;
+    explicit AboutPageContentTabLicense(QWidget* parent = nullptr);
+    ~AboutPageContentTabLicense() = default;
 };
 
 #endif // ABOUTPAGECONTENT_H

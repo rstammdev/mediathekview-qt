@@ -209,7 +209,7 @@ AboutPageContentTabGeneral::AboutPageContentTabGeneral(QWidget* parent)
 //
 // License
 
-AboutPageLicense::AboutPageLicense(QWidget* parent)
+AboutPageContentTabLicense::AboutPageContentTabLicense(QWidget* parent)
     : AboutPage{parent}
 {
     const QStringList paragraphs = {
