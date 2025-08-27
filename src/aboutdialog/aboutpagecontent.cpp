@@ -123,7 +123,7 @@ QString AboutPageContentTabComponents::prettyPlatformName() const
 //
 // Credits
 
-AboutPageCredits::AboutPageCredits(QWidget* parent)
+AboutPageContentTabCredits::AboutPageContentTabCredits(QWidget* parent)
     : AboutPage{parent}
 {
     const QList<QStringList> items = {

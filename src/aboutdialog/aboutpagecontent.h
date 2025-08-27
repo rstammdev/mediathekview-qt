@@ -46,13 +46,13 @@ private:
 //
 // Credits
 
-class AboutPageCredits : public AboutPage
+class AboutPageContentTabCredits : public AboutPage
 {
     Q_OBJECT
 
 public:
-    explicit AboutPageCredits(QWidget* parent = nullptr);
-    ~AboutPageCredits() = default;
+    explicit AboutPageContentTabCredits(QWidget* parent = nullptr);
+    ~AboutPageContentTabCredits() = default;
 };
 
 

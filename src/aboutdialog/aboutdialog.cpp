@@ -27,7 +27,7 @@ AboutDialog::AboutDialog(QWidget* parent)
         new AboutPageGeneral,
         new AboutPageContentTabComponents,
         new AboutPageContentTabAuthors,
-        new AboutPageCredits,
+        new AboutPageContentTabCredits,
         new AboutPageLicense
     };
 
