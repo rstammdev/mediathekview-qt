@@ -322,6 +322,9 @@ void MainWindow::loadSettings()
     if (!state.isEmpty())
         restoreState(state);
 
+    const bool schemeTheme = settings.value("Application/SchemeTheme"_L1, false).toBool();
+    m_actionSchemeTheme->setChecked(schemeTheme);
+
     const bool menubar = settings.value("Application/Menubar"_L1, true).toBool();
     m_actionShowMenubar->setChecked(menubar);
 
@@ -339,6 +342,9 @@ void MainWindow::saveSettings()
 
     const QByteArray state = saveState();
     settings.setValue("Application/State"_L1, state);
+
+    const bool schemeTheme = m_actionSchemeTheme->isChecked();
+    settings.setValue("Application/SchemeTheme"_L1, schemeTheme);
 
     const bool menubar = m_actionShowMenubar->isChecked();
     settings.setValue("Application/Menubar"_L1, menubar);
