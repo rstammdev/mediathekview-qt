@@ -25,7 +25,7 @@ AboutDialog::AboutDialog(QWidget* parent)
 
     const QList<AboutPage*> pages{
         new AboutPageGeneral,
-        new AboutPageComponents,
+        new AboutPageContentTabComponents,
         new AboutPageContentTabAuthors,
         new AboutPageCredits,
         new AboutPageLicense

@@ -60,7 +60,7 @@ AboutPageContentTabAuthors::AboutPageContentTabAuthors(QWidget* parent)
 //
 // Components
 
-AboutPageComponents::AboutPageComponents(QWidget* parent)
+AboutPageContentTabComponents::AboutPageContentTabComponents(QWidget* parent)
     : AboutPage{parent}
 {
     const QList<QStringList> items = {
@@ -107,7 +107,7 @@ AboutPageComponents::AboutPageComponents(QWidget* parent)
 }
 
 
-QString AboutPageComponents::prettyPlatformName() const
+QString AboutPageContentTabComponents::prettyPlatformName() const
 {
     const QString& platformName = QApplication::platformName();
     if (platformName == "wayland"_L1) {

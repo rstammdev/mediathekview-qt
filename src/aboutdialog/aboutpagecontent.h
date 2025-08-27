@@ -30,13 +30,13 @@ public:
 //
 // Components
 
-class AboutPageComponents : public AboutPage
+class AboutPageContentTabComponents : public AboutPage
 {
     Q_OBJECT
 
 public:
-    explicit AboutPageComponents(QWidget* parent = nullptr);
-    ~AboutPageComponents() = default;
+    explicit AboutPageContentTabComponents(QWidget* parent = nullptr);
+    ~AboutPageContentTabComponents() = default;
 
 private:
     QString prettyPlatformName() const;
