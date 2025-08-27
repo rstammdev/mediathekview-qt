@@ -6,8 +6,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef ABOUTPAGECONTENTS_H
-#define ABOUTPAGECONTENTS_H
+#ifndef ABOUTPAGECONTENT_H
+#define ABOUTPAGECONTENT_H
 
 #include <QWidget>
 
@@ -81,4 +81,4 @@ public:
     ~AboutPageLicense() = default;
 };
 
-#endif // ABOUTPAGECONTENTS_H
+#endif // ABOUTPAGECONTENT_H

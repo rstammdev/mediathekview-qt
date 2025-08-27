@@ -6,7 +6,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "aboutpagecontents.h"
+#include "aboutpagecontent.h"
 
 #include <QApplication>
 #include <QLabel>

@@ -22,7 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 HEADERS += \
     src/aboutdialog/aboutdialog.h \
     src/aboutdialog/aboutpage.h \
-    src/aboutdialog/aboutpagecontents.h \
+    src/aboutdialog/aboutpagecontent.h \
     src/mainwindow.h \
     src/settingsdialog/settingsdialog.h \
     src/settingsdialog/settingspage.h \
@@ -34,7 +34,7 @@ HEADERS += \
 SOURCES += \
     src/aboutdialog/aboutdialog.cpp \
     src/aboutdialog/aboutpage.cpp \
-    src/aboutdialog/aboutpagecontents.cpp \
+    src/aboutdialog/aboutpagecontent.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/settingsdialog/settingsdialog.cpp \

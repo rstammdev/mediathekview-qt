@@ -14,7 +14,7 @@
 #include <QVBoxLayout>
 
 #include "aboutpage.h"
-#include "aboutpagecontents.h"
+#include "aboutpagecontent.h"
 
 
 AboutDialog::AboutDialog(QWidget* parent)
