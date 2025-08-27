@@ -62,13 +62,7 @@ void MainWindow::setupUi()
 
     // View menu & toolbar
 
-    QMenu* menuView = menuBar()->addMenu(tr("&View"));
-    menuView->setObjectName("menuView"_L1);
 
-    QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
-    toolbarView->setObjectName("toolbarView"_L1);
-
-    // Settings menu & toolbar
 
     m_actionFullScreen = addAction(tr("F&ull Screen Mode"));
     m_actionFullScreen->setObjectName("actionFullScreen"_L1);
@@ -78,6 +72,18 @@ void MainWindow::setupUi()
     m_actionFullScreen->setStatusTip(tr("Display the window in full screen"));
     m_actionFullScreen->setToolTip(tr("Display the window in full screen."));
     m_actionFullScreen->setCheckable(true);
+
+    QMenu* menuView = menuBar()->addMenu(tr("&View"));
+    menuView->setObjectName("menuView"_L1);
+    menuView->addAction(m_actionFullScreen);
+
+    QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
+    toolbarView->setObjectName("toolbarView"_L1);
+    toolbarView->addAction(m_actionFullScreen);
+
+    connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
+
+    // Settings menu & toolbar
 
     m_actionShowMenubar = addAction(tr("Show &Menubar"));
     m_actionShowMenubar->setObjectName("actionShowMenubar"_L1);
@@ -144,7 +150,6 @@ void MainWindow::setupUi()
     QMenu* menuShowToolbars = new QMenu(tr("Toolbars Shown"), menuSettings);
     menuShowToolbars->setObjectName("menuShowToolbars"_L1);
 
-    menuSettings->addAction(m_actionFullScreen);
     menuSettings->addSeparator();
     menuSettings->addAction(m_actionShowMenubar);
     menuSettings->addMenu(menuShowPanels);
@@ -171,7 +176,6 @@ void MainWindow::setupUi()
 
     QToolBar* toolbarSettings = addToolBar(tr("Settings Toolbar"));
     toolbarSettings->setObjectName("toolbarSettings"_L1);
-    toolbarSettings->addAction(m_actionFullScreen);
     toolbarSettings->addSeparator();
     toolbarSettings->addAction(m_actionShowMenubar);
     toolbarSettings->addWidget(buttonConfigurePanels);
@@ -182,7 +186,6 @@ void MainWindow::setupUi()
     toolbarSettings->addAction(actionConfigureKeyboardShortcuts);
     toolbarSettings->addAction(actionConfigure);
 
-    connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
     connect(m_actionShowMenubar, &QAction::toggled, menuBar(), &QMenuBar::setVisible);
     connect(m_actionShowStatusbar, &QAction::toggled, statusBar(), &QStatusBar::setVisible);
     connect(actionConfigureLanguage, &QAction::triggered, this, &MainWindow::triggerConfigureLanguageDialog);

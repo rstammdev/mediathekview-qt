@@ -27,6 +27,7 @@ protected:
 
 private slots:
     void toggleFullScreen(bool checked);
+
     void triggerConfigureLanguageDialog();
     void triggerConfigureShortcutsDialog();
     void triggerConfigurePanelsDialog();
@@ -40,6 +41,7 @@ private:
     void setupUi();
 
     QAction* m_actionFullScreen;
+
     QAction* m_actionShowMenubar;
     QAction* m_actionShowStatusbar;
 
