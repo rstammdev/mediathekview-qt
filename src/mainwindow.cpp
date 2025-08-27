@@ -60,6 +60,11 @@ void MainWindow::setupUi()
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    // View menu
+
+    QMenu* menuView = menuBar()->addMenu(tr("&View"));
+    menuView->setObjectName("menuView"_L1);
+
     // Settings menu & toolbar
 
     m_actionFullScreen = addAction(tr("F&ull Screen Mode"));
