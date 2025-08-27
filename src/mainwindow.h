@@ -40,6 +40,7 @@ private slots:
 private:
     void setupUi();
 
+    QAction* m_actionEnlargeFont;
     QAction* m_actionFullScreen;
 
     QAction* m_actionShowMenubar;
