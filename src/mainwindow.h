@@ -42,6 +42,7 @@ private:
 
     QAction* m_actionEnlargeFont;
     QAction* m_actionShrinkFont;
+    QAction* m_actionResetFontSize;
     QAction* m_actionFullScreen;
 
     QAction* m_actionShowMenubar;

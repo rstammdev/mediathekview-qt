@@ -80,6 +80,14 @@ void MainWindow::setupUi()
     m_actionShrinkFont->setStatusTip(tr("This decreases the display font size"));
     m_actionShrinkFont->setToolTip(tr("This decreases the display font size."));
 
+    m_actionResetFontSize = addAction(tr("&Reset Font Size"));
+    m_actionResetFontSize->setObjectName("actionShrinkFont"_L1);
+    m_actionResetFontSize->setIcon(QIcon::fromTheme("zoom-original"_L1, QIcon(":/icons/actions/16/zoom-original"_L1)));
+    m_actionResetFontSize->setIconText(tr("Zoom Original"));
+    m_actionResetFontSize->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0));
+    m_actionResetFontSize->setStatusTip(tr("This resets the display font size"));
+    m_actionResetFontSize->setToolTip(tr("This resets the display font size."));
+
     m_actionFullScreen = addAction(tr("F&ull Screen Mode"));
     m_actionFullScreen->setObjectName("actionFullScreen"_L1);
     m_actionFullScreen->setIcon(QIcon::fromTheme("view-fullscreen"_L1, QIcon(":/icons/actions/16/view-fullscreen"_L1)));
@@ -93,12 +101,14 @@ void MainWindow::setupUi()
     menuView->setObjectName("menuView"_L1);
     menuView->addAction(m_actionEnlargeFont);
     menuView->addAction(m_actionShrinkFont);
+    menuView->addAction(m_actionResetFontSize);
     menuView->addSeparator();
     menuView->addAction(m_actionFullScreen);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
     toolbarView->addAction(m_actionShrinkFont);
+    toolbarView->addAction(m_actionResetFontSize);
     toolbarView->addAction(m_actionEnlargeFont);
     toolbarView->addSeparator();
     toolbarView->addAction(m_actionFullScreen);
