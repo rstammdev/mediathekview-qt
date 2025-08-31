@@ -13,13 +13,25 @@
 #include <QTabWidget>
 #include <QVBoxLayout>
 
+#include <qxdialogheaderbox.h>
+
 #include "aboutpage.h"
 #include "aboutpagecontent.h"
+
+using namespace Qt::Literals::StringLiterals;
 
 
 AboutDialog::AboutDialog(QWidget* parent)
     : QDialog{parent}
 {
+    // Header
+
+    QxDialogHeaderBox* headerBox = new QxDialogHeaderBox(this);
+    headerBox->setTitle(QApplication::applicationName());
+    headerBox->setSubTitle(tr("v%1").arg(QApplication::applicationVersion()));
+    headerBox->setDescription(tr("Frontend tool for the MediathekView database."));
+    headerBox->setIcon(QIcon::fromTheme("mediathekview-qt"_L1, QIcon(":/icons/apps/16/mediathekview-qt"_L1)));
+
     // Pages
 
     const QList<AboutPage*> pages{
@@ -44,6 +56,7 @@ AboutDialog::AboutDialog(QWidget* parent)
     //
 
     QVBoxLayout* layout = new QVBoxLayout;
+    layout->addWidget(headerBox);
     layout->addWidget(tabBox);
     layout->addWidget(buttonBox);
     setLayout(layout);
