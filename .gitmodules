@@ -1,0 +1,4 @@
+[submodule "3rdparty/qtxt"]
+	path = 3rdparty/qtxt
+	url = https://github.com/rstammdev/qtxt.git
+	branch = main

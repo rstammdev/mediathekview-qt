@@ -19,6 +19,8 @@ CONFIG += embed_translations
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
+include(3rdparty/qtxt/qtxt.pri)
+
 HEADERS += \
     src/aboutdialog/aboutdialog.h \
     src/aboutdialog/aboutpage.h \
