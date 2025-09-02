@@ -16,6 +16,8 @@
 #include <QToolBar>
 #include <QToolButton>
 
+#include <qxconfirmationbox.h>
+
 #include "aboutdialog/aboutdialog.h"
 #include "settingsdialog/settingsdialog.h"
 
@@ -301,10 +303,20 @@ void MainWindow::updateActionFullScreen()
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
+    const QMessageBox::StandardButton clicked = QxConfirmationBox::continueCancelWarning(this,
+        tr("Quit the application"),
+        tr("This will quit the application.\n"
+           "Are you sure you want to continue?"),
+        QString(),
+        "Confirmations/Application/ApplicationQuit"_L1);
+
+    if (clicked == QMessageBox::Cancel) {
+        event->ignore();
+        return;
+    }
 
     saveSettings();
     event->accept();
-
 }
 
 
