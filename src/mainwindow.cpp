@@ -16,6 +16,7 @@
 #include <QToolBar>
 #include <QToolButton>
 
+#include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
 
 #include "aboutdialog/aboutdialog.h"
@@ -407,7 +408,8 @@ void MainWindow::triggerConfigureDialog()
 
 void MainWindow::triggerComponentsDialog()
 {
-
+    QxComponentsDialog dialog(this);
+    dialog.exec();
 }
 
 
