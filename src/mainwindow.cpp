@@ -18,6 +18,7 @@
 
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
+#include <qxtoolbarsdialog.h>
 
 #include "aboutdialog/aboutdialog.h"
 #include "settingsdialog/settingsdialog.h"
@@ -395,7 +396,8 @@ void MainWindow::triggerConfigurePanelsDialog()
 
 void MainWindow::triggerConfigureToolbarsDialog()
 {
-
+    QxToolbarsDialog dialog(this);
+    dialog.exec();
 }
 
 
