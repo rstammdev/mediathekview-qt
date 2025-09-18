@@ -26,6 +26,7 @@ protected:
     void closeEvent(QCloseEvent* event) override;
 
 private slots:
+    void applyZoomFactor(const qreal factor);
     void toggleFullScreen(bool checked);
 
     void triggerConfigureLanguageDialog();

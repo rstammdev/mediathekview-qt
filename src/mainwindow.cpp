@@ -19,6 +19,7 @@
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
 #include <qxtoolbarsdialog.h>
+#include <qxzoombutton.h>
 
 #include "aboutdialog/aboutdialog.h"
 #include "settingsdialog/settingsdialog.h"
@@ -109,14 +110,24 @@ void MainWindow::setupUi()
     menuView->addSeparator();
     menuView->addAction(m_actionFullScreen);
 
+    QxZoomButton* buttonZoomControl = new QxZoomButton;
+    buttonZoomControl->setObjectName("buttonZoomControl"_L1);
+    buttonZoomControl->setDefaultAction(m_actionResetFontSize);
+    buttonZoomControl->setText(tr("%1%"));
+    buttonZoomControl->setToolButtonStyle(Qt::ToolButtonTextOnly);
+
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
     toolbarView->addAction(m_actionShrinkFont);
-    toolbarView->addAction(m_actionResetFontSize);
+    toolbarView->addWidget(buttonZoomControl);
     toolbarView->addAction(m_actionEnlargeFont);
     toolbarView->addSeparator();
     toolbarView->addAction(m_actionFullScreen);
 
+    connect(m_actionEnlargeFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomIn);
+    connect(m_actionShrinkFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomOut);
+    connect(m_actionResetFontSize, &QAction::triggered, buttonZoomControl, &QxZoomButton::resetZoom);
+    connect(buttonZoomControl, &QxZoomButton::zoomFactorChanged, this, &MainWindow::applyZoomFactor);
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
 
     // Settings menu & toolbar
@@ -365,6 +376,12 @@ void MainWindow::saveSettings()
 
     const bool statusbar = m_actionShowStatusbar->isChecked();
     settings.setValue("Application/Statusbar"_L1, statusbar);
+}
+
+
+void MainWindow::applyZoomFactor(const qreal factor)
+{
+
 }
 
 
