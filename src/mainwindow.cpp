@@ -325,6 +325,10 @@ void MainWindow::closeEvent(QCloseEvent* event)
         return;
     }
 
+    // TODO
+    if (isFullScreen())
+        toggleFullScreen(false);
+
     saveSettings();
     event->accept();
 }
@@ -384,7 +388,16 @@ void MainWindow::applyZoomFactor(const qreal factor)
 
 void MainWindow::toggleFullScreen(const bool checked)
 {
-
+    if (checked)
+        if (QApplication::platformName() == "xcb"_L1)
+            setWindowState(windowState() | Qt::WindowFullScreen);
+        else
+            showFullScreen();
+    else
+        if (QApplication::platformName() == "xcb"_L1)
+            setWindowState(windowState() & ~Qt::WindowFullScreen);
+        else
+            showNormal();
 }
 
 
