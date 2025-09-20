@@ -93,14 +93,28 @@ void MainWindow::setupUi()
     actionResetFontSize->setStatusTip(tr("This resets the display font size"));
     actionResetFontSize->setToolTip(tr("This resets the display font size."));
 
-    m_actionFullScreen = addAction(tr("F&ull Screen Mode"));
-    m_actionFullScreen->setObjectName("actionFullScreen"_L1);
-    m_actionFullScreen->setIcon(QIcon::fromTheme("view-fullscreen"_L1, QIcon(":/icons/actions/16/view-fullscreen"_L1)));
-    m_actionFullScreen->setIconText(tr("Full Screen"));
-    m_actionFullScreen->setShortcuts(QList<QKeySequence>() << QKeySequence(Qt::Key_F11) << QKeySequence::FullScreen);
-    m_actionFullScreen->setStatusTip(tr("Display the window in full screen"));
-    m_actionFullScreen->setToolTip(tr("Display the window in full screen."));
-    m_actionFullScreen->setCheckable(true);
+    QAction* actionFullScreen = addAction(tr("F&ull Screen"));
+    actionFullScreen->setObjectName("actionFullScreen"_L1);
+    actionFullScreen->setIconText(tr("Full Screen"));
+    actionFullScreen->setShortcuts({ QKeySequence(Qt::Key_F11), QKeySequence::FullScreen });
+    actionFullScreen->setCheckable(true);
+
+    actionFullScreen->toggle();
+    connect(actionFullScreen, &QAction::toggled, [=](){
+        if (!actionFullScreen->isChecked()) {
+            actionFullScreen->setText(tr("F&ull Screen Mode"));
+            actionFullScreen->setIcon(QIcon::fromTheme("view-fullscreen"_L1, QIcon(":/icons/actions/16/view-fullscreen"_L1)));
+            actionFullScreen->setStatusTip(tr("Display the window in full screen"));
+            actionFullScreen->setToolTip(tr("Display the window in full screen."));
+        }
+        else {
+            actionFullScreen->setText(tr("Exit F&ull Screen Mode"));
+            actionFullScreen->setIcon(QIcon::fromTheme("view-restore"_L1, QIcon(":/icons/actions/16/view-restore"_L1)));
+            actionFullScreen->setStatusTip(tr("Exit the full screen mode"));
+            actionFullScreen->setToolTip(tr("Exit the full screen mode."));
+        }
+    });
+    actionFullScreen->toggle();
 
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
@@ -108,7 +122,7 @@ void MainWindow::setupUi()
     menuView->addAction(actionShrinkFont);
     menuView->addAction(actionResetFontSize);
     menuView->addSeparator();
-    menuView->addAction(m_actionFullScreen);
+    menuView->addAction(actionFullScreen);
 
     QxZoomButton* buttonZoomControl = new QxZoomButton;
     buttonZoomControl->setObjectName("buttonZoomControl"_L1);
@@ -122,13 +136,13 @@ void MainWindow::setupUi()
     toolbarView->addWidget(buttonZoomControl);
     toolbarView->addAction(actionEnlargeFont);
     toolbarView->addSeparator();
-    toolbarView->addAction(m_actionFullScreen);
+    toolbarView->addAction(actionFullScreen);
 
     connect(actionEnlargeFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomIn);
     connect(actionShrinkFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomOut);
     connect(actionResetFontSize, &QAction::triggered, buttonZoomControl, &QxZoomButton::resetZoom);
     connect(buttonZoomControl, &QxZoomButton::zoomFactorChanged, this, &MainWindow::applyZoomFactor);
-    connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
+    connect(actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
 
     // Settings menu & toolbar
 
@@ -297,23 +311,6 @@ void MainWindow::setupUi()
 }
 
 
-void MainWindow::updateActionFullScreen()
-{
-    if (m_actionFullScreen->isChecked()) {
-        m_actionFullScreen->setText(tr("Exit F&ull Screen Mode"));
-        m_actionFullScreen->setIcon(QIcon::fromTheme("view-restore"_L1, QIcon(":/icons/actions/16/view-restore"_L1)));
-        m_actionFullScreen->setStatusTip(tr("Exit the full screen mode"));
-        m_actionFullScreen->setToolTip(tr("Exit the full screen mode."));
-    }
-    else {
-        m_actionFullScreen->setText(tr("F&ull Screen Mode"));
-        m_actionFullScreen->setIcon(QIcon::fromTheme("view-fullscreen"_L1, QIcon(":/icons/actions/16/view-fullscreen"_L1)));
-        m_actionFullScreen->setStatusTip(tr("Display the window in full screen"));
-        m_actionFullScreen->setToolTip(tr("Display the window in full screen."));
-    }
-}
-
-
 void MainWindow::closeEvent(QCloseEvent* event)
 {
     const QMessageBox::StandardButton clicked = QxConfirmationBox::continueCancelWarning(this,
@@ -385,10 +382,8 @@ void MainWindow::applyZoomFactor(const qreal factor)
 }
 
 
-void MainWindow::toggleFullScreen(bool checked)
+void MainWindow::toggleFullScreen(const bool checked)
 {
-
-    updateActionFullScreen();
 
 }
 

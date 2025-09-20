@@ -27,7 +27,7 @@ protected:
 
 private slots:
     void applyZoomFactor(const qreal factor);
-    void toggleFullScreen(bool checked);
+    void toggleFullScreen(const bool checked);
 
     void triggerConfigureLanguageDialog();
     void triggerConfigureShortcutsDialog();
@@ -41,13 +41,9 @@ private slots:
 private:
     void setupUi();
 
-    QAction* m_actionFullScreen;
-
     QAction* m_actionSchemeTheme;
     QAction* m_actionShowMenubar;
     QAction* m_actionShowStatusbar;
-
-    void updateActionFullScreen();
 
     void loadSettings();
     void saveSettings();
