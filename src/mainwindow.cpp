@@ -69,29 +69,29 @@ void MainWindow::setupUi()
 
 
 
-    m_actionEnlargeFont = addAction(tr("&Enlarge Font"));
-    m_actionEnlargeFont->setObjectName("actionEnlargeFont"_L1);
-    m_actionEnlargeFont->setIcon(QIcon::fromTheme("zoom-in"_L1, QIcon(":/icons/actions/16/zoom-in"_L1)));
-    m_actionEnlargeFont->setIconText(tr("Zoom In"));
-    m_actionEnlargeFont->setShortcut(QKeySequence::ZoomIn);
-    m_actionEnlargeFont->setStatusTip(tr("This increases the display font size"));
-    m_actionEnlargeFont->setToolTip(tr("This increases the display font size."));
+    QAction* actionEnlargeFont = addAction(tr("&Enlarge Font"));
+    actionEnlargeFont->setObjectName("actionEnlargeFont"_L1);
+    actionEnlargeFont->setIcon(QIcon::fromTheme("zoom-in"_L1, QIcon(":/icons/actions/16/zoom-in"_L1)));
+    actionEnlargeFont->setIconText(tr("Zoom In"));
+    actionEnlargeFont->setShortcut(QKeySequence::ZoomIn);
+    actionEnlargeFont->setStatusTip(tr("This increases the display font size"));
+    actionEnlargeFont->setToolTip(tr("This increases the display font size."));
 
-    m_actionShrinkFont = addAction(tr("S&hrink Font"));
-    m_actionShrinkFont->setObjectName("actionShrinkFont"_L1);
-    m_actionShrinkFont->setIcon(QIcon::fromTheme("zoom-out"_L1, QIcon(":/icons/actions/16/zoom-out"_L1)));
-    m_actionShrinkFont->setIconText(tr("Zoom Out"));
-    m_actionShrinkFont->setShortcut(QKeySequence::ZoomOut);
-    m_actionShrinkFont->setStatusTip(tr("This decreases the display font size"));
-    m_actionShrinkFont->setToolTip(tr("This decreases the display font size."));
+    QAction* actionShrinkFont = addAction(tr("S&hrink Font"));
+    actionShrinkFont->setObjectName("actionShrinkFont"_L1);
+    actionShrinkFont->setIcon(QIcon::fromTheme("zoom-out"_L1, QIcon(":/icons/actions/16/zoom-out"_L1)));
+    actionShrinkFont->setIconText(tr("Zoom Out"));
+    actionShrinkFont->setShortcut(QKeySequence::ZoomOut);
+    actionShrinkFont->setStatusTip(tr("This decreases the display font size"));
+    actionShrinkFont->setToolTip(tr("This decreases the display font size."));
 
-    m_actionResetFontSize = addAction(tr("&Reset Font Size"));
-    m_actionResetFontSize->setObjectName("actionShrinkFont"_L1);
-    m_actionResetFontSize->setIcon(QIcon::fromTheme("zoom-original"_L1, QIcon(":/icons/actions/16/zoom-original"_L1)));
-    m_actionResetFontSize->setIconText(tr("Zoom Original"));
-    m_actionResetFontSize->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0));
-    m_actionResetFontSize->setStatusTip(tr("This resets the display font size"));
-    m_actionResetFontSize->setToolTip(tr("This resets the display font size."));
+    QAction* actionResetFontSize = addAction(tr("&Reset Font Size"));
+    actionResetFontSize->setObjectName("actionResetFontSize"_L1);
+    actionResetFontSize->setIcon(QIcon::fromTheme("zoom-original"_L1, QIcon(":/icons/actions/16/zoom-original"_L1)));
+    actionResetFontSize->setIconText(tr("Zoom Original"));
+    actionResetFontSize->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_0));
+    actionResetFontSize->setStatusTip(tr("This resets the display font size"));
+    actionResetFontSize->setToolTip(tr("This resets the display font size."));
 
     m_actionFullScreen = addAction(tr("F&ull Screen Mode"));
     m_actionFullScreen->setObjectName("actionFullScreen"_L1);
@@ -104,29 +104,29 @@ void MainWindow::setupUi()
 
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
-    menuView->addAction(m_actionEnlargeFont);
-    menuView->addAction(m_actionShrinkFont);
-    menuView->addAction(m_actionResetFontSize);
+    menuView->addAction(actionEnlargeFont);
+    menuView->addAction(actionShrinkFont);
+    menuView->addAction(actionResetFontSize);
     menuView->addSeparator();
     menuView->addAction(m_actionFullScreen);
 
     QxZoomButton* buttonZoomControl = new QxZoomButton;
     buttonZoomControl->setObjectName("buttonZoomControl"_L1);
-    buttonZoomControl->setDefaultAction(m_actionResetFontSize);
+    buttonZoomControl->setDefaultAction(actionResetFontSize);
     buttonZoomControl->setText(tr("%1%"));
     buttonZoomControl->setToolButtonStyle(Qt::ToolButtonTextOnly);
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
-    toolbarView->addAction(m_actionShrinkFont);
+    toolbarView->addAction(actionShrinkFont);
     toolbarView->addWidget(buttonZoomControl);
-    toolbarView->addAction(m_actionEnlargeFont);
+    toolbarView->addAction(actionEnlargeFont);
     toolbarView->addSeparator();
     toolbarView->addAction(m_actionFullScreen);
 
-    connect(m_actionEnlargeFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomIn);
-    connect(m_actionShrinkFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomOut);
-    connect(m_actionResetFontSize, &QAction::triggered, buttonZoomControl, &QxZoomButton::resetZoom);
+    connect(actionEnlargeFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomIn);
+    connect(actionShrinkFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomOut);
+    connect(actionResetFontSize, &QAction::triggered, buttonZoomControl, &QxZoomButton::resetZoom);
     connect(buttonZoomControl, &QxZoomButton::zoomFactorChanged, this, &MainWindow::applyZoomFactor);
     connect(m_actionFullScreen, &QAction::toggled, this, &MainWindow::toggleFullScreen);
 
