@@ -24,6 +24,7 @@
 
 #include "aboutdialog/aboutdialog.h"
 #include "aboutdialogpageauthors.h"
+#include "aboutdialogpagecomponents.h"
 #include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;
@@ -446,6 +447,7 @@ void MainWindow::triggerAboutDialog()
 {
     QxAboutDialog dialog(this);
     dialog.header()->setDescription(tr("Frontend tool for the MediathekView database."));
+    dialog.addPage(new AboutDialogPageComponents, tr("Components"));
     dialog.addPage(new AboutDialogPageAuthors, tr("Authors"));
     dialog.exec();
 }
