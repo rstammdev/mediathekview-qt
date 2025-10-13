@@ -16,6 +16,7 @@
 #include <QToolBar>
 #include <QToolButton>
 
+#include <qxaboutdialog.h>
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
 #include <qxtoolbarsdialog.h>
@@ -442,6 +443,7 @@ void MainWindow::triggerComponentsDialog()
 
 void MainWindow::triggerAboutDialog()
 {
-    AboutDialog dialog(this);
+    QxAboutDialog dialog(this);
+    dialog.header()->setDescription(tr("Frontend tool for the MediathekView database."));
     dialog.exec();
 }
