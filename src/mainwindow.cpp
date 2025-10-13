@@ -27,6 +27,7 @@
 #include "aboutdialogpagecomponents.h"
 #include "aboutdialogpagecredits.h"
 #include "aboutdialogpagegeneral.h"
+#include "aboutdialogpagelicense.h"
 #include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;
@@ -453,5 +454,6 @@ void MainWindow::triggerAboutDialog()
     dialog.addPage(new AboutDialogPageComponents, tr("Components"));
     dialog.addPage(new AboutDialogPageAuthors, tr("Authors"));
     dialog.addPage(new AboutDialogPageCredits, tr("Credits"));
+    dialog.addPage(new AboutDialogPageLicense, tr("License"));
     dialog.exec();
 }
