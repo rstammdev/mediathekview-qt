@@ -22,7 +22,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 include(3rdparty/qtxt/qtxt.pri)
 
 HEADERS += \
-    src/aboutdialog/aboutdialog.h \
     src/aboutdialogpageauthors.h \
     src/aboutdialogpagecomponents.h \
     src/aboutdialogpagecredits.h \
@@ -37,7 +36,6 @@ HEADERS += \
     src/settingsdialog/settingspageconfirmations.h
 
 SOURCES += \
-    src/aboutdialog/aboutdialog.cpp \
     src/aboutdialogpageauthors.cpp \
     src/aboutdialogpagecomponents.cpp \
     src/aboutdialogpagecredits.cpp \

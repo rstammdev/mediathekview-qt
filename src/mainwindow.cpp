@@ -22,7 +22,6 @@
 #include <qxtoolbarsdialog.h>
 #include <qxzoombutton.h>
 
-#include "aboutdialog/aboutdialog.h"
 #include "aboutdialogpageauthors.h"
 #include "aboutdialogpagecomponents.h"
 #include "aboutdialogpagecredits.h"
