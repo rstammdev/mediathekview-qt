@@ -16,7 +16,6 @@
 #include <qxdialogheaderbox.h>
 
 #include "aboutpage.h"
-#include "aboutpagecontent.h"
 
 using namespace Qt::Literals::StringLiterals;
 
@@ -35,11 +34,6 @@ AboutDialog::AboutDialog(QWidget* parent)
     // Pages
 
     const QList<AboutPage*> pages{
-        new AboutPageContentTabGeneral,
-        new AboutPageContentTabComponents,
-        new AboutPageContentTabAuthors,
-        new AboutPageContentTabCredits,
-        new AboutPageContentTabLicense
     };
 
     QTabWidget* tabBox = new QTabWidget;
