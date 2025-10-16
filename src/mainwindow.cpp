@@ -26,7 +26,7 @@
 #include "aboutdialog/aboutdialogpagecomponents.h"
 #include "aboutdialog/aboutdialogpagecredits.h"
 #include "aboutdialog/aboutdialogpagegeneral.h"
-#include "aboutdialogpagelicense.h"
+#include "aboutdialog/aboutdialogpagelicense.h"
 #include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;

@@ -26,7 +26,7 @@ HEADERS += \
     src/aboutdialog/aboutdialogpagecomponents.h \
     src/aboutdialog/aboutdialogpagecredits.h \
     src/aboutdialog/aboutdialogpagegeneral.h \
-    src/aboutdialogpagelicense.h \
+    src/aboutdialog/aboutdialogpagelicense.h \
     src/mainwindow.h \
     src/settingsdialog/settingsdialog.h \
     src/settingsdialog/settingspage.h \
@@ -40,7 +40,7 @@ SOURCES += \
     src/aboutdialog/aboutdialogpagecomponents.cpp \
     src/aboutdialog/aboutdialogpagecredits.cpp \
     src/aboutdialog/aboutdialogpagegeneral.cpp \
-    src/aboutdialogpagelicense.cpp \
+    src/aboutdialog/aboutdialogpagelicense.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
     src/settingsdialog/settingsdialog.cpp \
