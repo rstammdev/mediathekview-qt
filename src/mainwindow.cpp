@@ -448,11 +448,12 @@ void MainWindow::triggerComponentsDialog()
 void MainWindow::triggerAboutDialog()
 {
     QxAboutDialog dialog(this);
-    dialog.header()->setDescription(tr("Frontend tool for the MediathekView database."));
+    dialog.setDescription(tr("Frontend tool for the MediathekView database."));
     dialog.addPage(new AboutDialogPageGeneral, tr("General"));
     dialog.addPage(new AboutDialogPageComponents, tr("Components"));
     dialog.addPage(new AboutDialogPageAuthors, tr("Authors"));
     dialog.addPage(new AboutDialogPageCredits, tr("Credits"));
     dialog.addPage(new AboutDialogPageLicense, tr("License"));
+    dialog.setMinimumSize(854, 480);
     dialog.exec();
 }
