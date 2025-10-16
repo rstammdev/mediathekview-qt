@@ -12,23 +12,26 @@
 #include <QLabel>
 #include <QVBoxLayout>
 
+#include <qxsysinfo.h>
+
 using namespace Qt::Literals::StringLiterals;
 
 
 AboutDialogPageComponents::AboutDialogPageComponents(QWidget* parent)
     : QWidget{parent}
-{    const QList<QStringList> items = {
+{
+    const QList<QStringList> items = {
         {
             tr("Application"),
             tr("%1").arg(QApplication::applicationVersion())
         },
         {
             tr("Qt for C++"),
-            tr("Using %1 and built against %2").arg(qVersion(), QT_VERSION_STR)
+            tr("Using %1 and built against %2").arg(QxSysInfo::currentQtVersion(), QxSysInfo::buildQtVersion())
         },
         {
             tr("Operation System"),
-            tr("%4 (%5)<br>Running on %6 and compiled for %7<br>Kernel %8 %9").arg(QSysInfo::prettyProductName(), prettyPlatformName(), QSysInfo::currentCpuArchitecture(), QSysInfo::buildAbi(), QSysInfo::kernelType(), QSysInfo::kernelVersion())
+            tr("%1 (%2)<br>Running on %3 and compiled for %4<br>Kernel %5 %6").arg(QxSysInfo::prettyProductName(), QxSysInfo::prettyPlatformName(), QxSysInfo::currentCpuArchitecture(), QxSysInfo::buildAbi(), QxSysInfo::kernelType(), QxSysInfo::kernelVersion())
         }
     };
 
@@ -53,17 +56,4 @@ AboutDialogPageComponents::AboutDialogPageComponents(QWidget* parent)
     layout->addWidget(content);
     layout->addStretch();
     setLayout(layout);
-}
-
-
-QString AboutDialogPageComponents::prettyPlatformName() const
-{
-    const QString& platformName = QApplication::platformName();
-    if (platformName == "wayland"_L1) {
-        return tr("Wayland");
-    } else if (platformName == "xcb"_L1) {
-        return tr("X11");
-    }
-
-    return tr("Unknown (%1)").arg(platformName);
 }

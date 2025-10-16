@@ -18,9 +18,6 @@ class AboutDialogPageComponents : public QWidget
 
 public:
     explicit AboutDialogPageComponents(QWidget* parent = nullptr);
-
-private:
-    QString prettyPlatformName() const;
 };
 
 #endif // ABOUTDIALOGPAGECOMPONENTS_H
