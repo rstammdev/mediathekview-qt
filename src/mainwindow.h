@@ -29,14 +29,14 @@ private slots:
     void applyZoomFactor(const qreal factor);
     void toggleFullScreen(const bool checked);
 
-    void triggerConfigureLanguageDialog();
-    void triggerConfigureShortcutsDialog();
-    void triggerConfigurePanelsDialog();
-    void triggerConfigureToolbarsDialog();
-    void triggerConfigureDialog();
+    void showLanguageSettingsDialog();
+    void showShortcutSettingsDialog();
+    void showPanelSettingsDialog();
+    void showToolbarSettingsDialog();
+    void showSettingsDialog();
 
-    void triggerComponentsDialog();
-    void triggerAboutDialog();
+    void showComponentsDialog();
+    void showAboutDialog();
 
 private:
     void setupUi();
