@@ -23,7 +23,7 @@
 #include <qxzoombutton.h>
 
 #include "aboutdialogpageauthors.h"
-#include "aboutdialogpagecomponents.h"
+#include "aboutdialog/aboutdialogpagecomponents.h"
 #include "aboutdialogpagecredits.h"
 #include "aboutdialog/aboutdialogpagegeneral.h"
 #include "aboutdialogpagelicense.h"
