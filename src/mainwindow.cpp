@@ -25,7 +25,7 @@
 #include "aboutdialogpageauthors.h"
 #include "aboutdialogpagecomponents.h"
 #include "aboutdialogpagecredits.h"
-#include "aboutdialogpagegeneral.h"
+#include "aboutdialog/aboutdialogpagegeneral.h"
 #include "aboutdialogpagelicense.h"
 #include "settingsdialog/settingsdialog.h"
 
