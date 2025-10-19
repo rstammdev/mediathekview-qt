@@ -13,7 +13,7 @@ using namespace Qt::Literals::StringLiterals;
 
 const QList<QStringList> Channels::channels()
 {
-    // Channel: Id, Name, Short Name, Long Name, Brief Description
+    // Channel: [0] Id, [1] Name, [2] Short Name, [3] Long Name, [4] Brief Description
 
     return QList<QStringList> {
         { "channel_3sat"_L1, tr("3sat"), tr("3sat"), tr("3sat"), tr("German-language european television channel dedicated to culture") },
