@@ -9,13 +9,17 @@
 #ifndef CHANNELS_H
 #define CHANNELS_H
 
+#include <QList>
 #include <QObject>
+#include <QStringList>
 
 
 class Channels : public QObject
 {
     Q_OBJECT
 
+public:
+    static const QList<QStringList> channels();
 };
 
 #endif // CHANNELS_H
