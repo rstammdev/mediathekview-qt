@@ -34,7 +34,7 @@ const QList<QStringList> Channels::channels()
         { "channel_ndr"_L1, tr("NDR"), tr("NDR"), tr("Norddeutscher Rundfunk"), tr("German-language regional German television channel serving Hamburg, Lower Saxony, Mecklenburg-Vorpommern and Schleswig-Holstein") },
         { "channel_one"_L1, tr("one"), tr("one"), tr("one"), tr("German-language German television channel dedicated to entertainment") },
         { "channel_orf"_L1, tr("ORF"), tr("ORF"), tr("Österreichischer Rundfunk"), tr("German-language national Austrian television channel") },
-        { "channel_phoenix"_L1, tr("phoenix"), tr("phoenix"), tr("Mitteldeutscher Rundfunk"), tr("German-language German television channel dedicated to news and documentary") },
+        { "channel_phoenix"_L1, tr("phoenix"), tr("phoenix"), tr("phoenix"), tr("German-language German television channel dedicated to news and documentary") },
         { "channel_rb"_L1, tr("RB-TV"), tr("RB"), tr("Radio Bremen TV"), tr("German-language regional German television channel serving Bremen") },
         { "channel_rbb"_L1, tr("RBB"), tr("RBB"), tr("Rundfunk Berlin-Brandenburg"), tr("German-language regional German television channel serving Berlin and Brandenburg") },
         { "channel_sr"_L1, tr("SR"), tr("SR"), tr("Saarländischer Rundfunk"), tr("German-language regional German television channel serving Saarland") },
