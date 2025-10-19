@@ -70,6 +70,11 @@ void MainWindow::setupUi()
 
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
+    // Channels menu
+
+    QMenu* menuChannels = menuBar()->addMenu(tr("&Channels"));
+    menuChannels->setObjectName("menuChannels"_L1);
+
     // View menu & toolbar
 
 
