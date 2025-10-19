@@ -27,6 +27,7 @@
 #include "aboutdialog/aboutdialogpagecredits.h"
 #include "aboutdialog/aboutdialogpagegeneral.h"
 #include "aboutdialog/aboutdialogpagelicense.h"
+#include "channels.h"
 #include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;
@@ -72,11 +73,32 @@ void MainWindow::setupUi()
 
     // Channels menu & toolbar
 
+    m_actionsChannels = new QActionGroup(this);
+    m_actionsChannels->setObjectName("actionsChannels"_L1);
+    m_actionsChannels->setExclusionPolicy(QActionGroup::ExclusionPolicy::None);
+
+    for (const QStringList& channel : Channels::channels()) {
+        // Channel: [0] Id, [1] Name, [2] Short Name, [3] Long Name, [4] Brief Description
+
+        const QString& text = channel[3] != channel[2] ? tr("%1 (%2)").arg(channel[3], channel[2]) : channel[3];
+
+        QAction* action = addAction(text);
+        action->setObjectName("action_%1"_L1.arg(channel[0]));
+        action->setIconText(channel[2]);
+        action->setToolTip(tr("%1<br><strong>%2</strong><br>%3.").arg(channel[2], channel[3], channel[4]));
+        action->setCheckable(true);
+        action->setData(channel[0]);
+
+        m_actionsChannels->addAction(action);
+    }
+
     QMenu* menuChannels = menuBar()->addMenu(tr("&Channels"));
     menuChannels->setObjectName("menuChannels"_L1);
+    menuChannels->addActions(m_actionsChannels->actions());
 
     QToolBar* toolbarChannels = addToolBar(tr("Channels Toolbar"));
     toolbarChannels->setObjectName("toolbarChannels"_L1);
+    toolbarChannels->addActions(m_actionsChannels->actions());
 
     // View menu & toolbar
 

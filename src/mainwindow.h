@@ -10,6 +10,7 @@
 #define MAINWINDOW_H
 
 #include <QAction>
+#include <QActionGroup>
 #include <QCloseEvent>
 #include <QMainWindow>
 
@@ -40,6 +41,8 @@ private slots:
 
 private:
     void setupUi();
+
+    QActionGroup* m_actionsChannels;
 
     QAction* m_actionSchemeTheme;
     QAction* m_actionShowMenubar;
