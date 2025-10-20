@@ -35,6 +35,7 @@ using namespace Qt::Literals::StringLiterals;
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow{parent}
+    , m_channelItemStyles{ChannelItemStyle::StrikeOut}
 {
 
     setupUi();

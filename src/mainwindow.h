@@ -20,6 +20,16 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    enum ChannelItemStyle {
+        NoStyles = 0x00,
+        Bold = 0x01,
+        Italic = 0x02,
+        StrikeOut = 0x04,
+    };
+    Q_ENUM(ChannelItemStyle)
+    Q_DECLARE_FLAGS(ChannelItemStyles, ChannelItemStyle)
+    Q_FLAG(ChannelItemStyles)
+
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
@@ -40,6 +50,8 @@ private slots:
     void showAboutDialog();
 
 private:
+    ChannelItemStyles m_channelItemStyles;
+
     void setupUi();
 
     QActionGroup* m_actionsChannels;
@@ -51,5 +63,7 @@ private:
     void loadSettings();
     void saveSettings();
 };
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(MainWindow::ChannelItemStyles)
 
 #endif // MAINWINDOW_H
