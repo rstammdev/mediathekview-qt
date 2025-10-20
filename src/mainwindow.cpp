@@ -102,11 +102,22 @@ void MainWindow::setupUi()
 
     // Filters menu & toolbar
 
+    QAction* actionAudioDescription = addAction(tr("&Audio Description"));
+    actionAudioDescription->setObjectName("actionAudioDescription"_L1);
+    actionAudioDescription->setIcon(QIcon::fromTheme("new-audio-alarm"_L1, QIcon(":/icons/actions/16/new-audio-alarm"_L1)));
+    actionAudioDescription->setIconText(tr("AD"));
+    actionAudioDescription->setStatusTip(tr("Only media with audio description track"));
+    actionAudioDescription->setToolTip(tr("Only media with audio description track."));
+    actionAudioDescription->setCheckable(true);
+
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
+    menuFilters->addSection(tr("Media Types"));
+    menuFilters->addAction(actionAudioDescription);
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
+    toolbarFilters->addAction(actionAudioDescription);
 
     // View menu & toolbar
 
