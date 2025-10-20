@@ -74,9 +74,9 @@ void MainWindow::setupUi()
 
     // Channels menu & toolbar
 
-    m_actionsChannels = new QActionGroup(this);
-    m_actionsChannels->setObjectName("actionsChannels"_L1);
-    m_actionsChannels->setExclusionPolicy(QActionGroup::ExclusionPolicy::None);
+    QActionGroup* actionsChannels = new QActionGroup(this);
+    actionsChannels->setObjectName("actionsChannels"_L1);
+    actionsChannels->setExclusionPolicy(QActionGroup::ExclusionPolicy::None);
 
     for (const QStringList& channel : Channels::channels()) {
         // Channel: [0] Id, [1] Name, [2] Short Name, [3] Long Name, [4] Brief Description
@@ -90,16 +90,16 @@ void MainWindow::setupUi()
         action->setCheckable(true);
         action->setData(channel[0]);
 
-        m_actionsChannels->addAction(action);
+        actionsChannels->addAction(action);
     }
 
     QMenu* menuChannels = menuBar()->addMenu(tr("&Channels"));
     menuChannels->setObjectName("menuChannels"_L1);
-    menuChannels->addActions(m_actionsChannels->actions());
+    menuChannels->addActions(actionsChannels->actions());
 
     QToolBar* toolbarChannels = addToolBar(tr("Channels Toolbar"));
     toolbarChannels->setObjectName("toolbarChannels"_L1);
-    toolbarChannels->addActions(m_actionsChannels->actions());
+    toolbarChannels->addActions(actionsChannels->actions());
 
     // Filters menu & toolbar
 
@@ -171,6 +171,23 @@ void MainWindow::setupUi()
     toolbarFilters->addAction(actionLiveStreaming);
     toolbarFilters->addSeparator();
     toolbarFilters->addAction(actionInvertChannels);
+
+    actionInvertChannels->toggle();
+    connect(actionInvertChannels, &QAction::toggled, [=, this](const bool checked){
+
+        for (QAction* action : actionsChannels->actions()) {
+
+            QFont font = action->font();
+            font.setBold(checked && m_channelItemStyles.testFlag(ChannelItemStyle::Bold));
+            font.setItalic(checked && m_channelItemStyles.testFlag(ChannelItemStyle::Italic));
+            font.setStrikeOut(checked && m_channelItemStyles.testFlag(ChannelItemStyle::StrikeOut));
+            action->setFont(font);
+
+            const QString& statusTip = checked ? tr("None media of channel %1").arg(action->text()) : tr("All media of channel %1").arg(action->text());
+            action->setStatusTip(statusTip);
+        }
+    });
+    actionInvertChannels->toggle();
 
     // View menu & toolbar
 

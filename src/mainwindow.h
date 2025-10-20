@@ -54,8 +54,6 @@ private:
 
     void setupUi();
 
-    QActionGroup* m_actionsChannels;
-
     QAction* m_actionSchemeTheme;
     QAction* m_actionShowMenubar;
     QAction* m_actionShowStatusbar;
