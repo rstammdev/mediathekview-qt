@@ -100,10 +100,13 @@ void MainWindow::setupUi()
     toolbarChannels->setObjectName("toolbarChannels"_L1);
     toolbarChannels->addActions(m_actionsChannels->actions());
 
-    // Filters menu
+    // Filters menu & toolbar
 
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
+
+    QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
+    toolbarFilters->setObjectName("toolbarFilters"_L1);
 
     // View menu & toolbar
 
