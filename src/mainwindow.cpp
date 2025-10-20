@@ -142,6 +142,14 @@ void MainWindow::setupUi()
     actionLiveStreaming->setToolTip(tr("Only live streamings."));
     actionLiveStreaming->setCheckable(true);
 
+    QAction* actionInvertChannels = addAction(tr("&Invert Channels"));
+    actionInvertChannels->setObjectName("actionInvertChannels"_L1);
+    actionInvertChannels->setIcon(QIcon::fromTheme("edit-select-invert"_L1, QIcon(":/icons/actions/16/edit-select-invert"_L1)));
+    actionInvertChannels->setIconText(tr("Invert"));
+    actionInvertChannels->setStatusTip(tr("Invert list of selected channels"));
+    actionInvertChannels->setToolTip(tr("Invert list of selected channels."));
+    actionInvertChannels->setCheckable(true);
+
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
     menuFilters->addSection(tr("Media Types"));
@@ -150,6 +158,8 @@ void MainWindow::setupUi()
     menuFilters->addAction(actionTrailer);
     menuFilters->addAction(actionOriginalVersion);
     menuFilters->addAction(actionLiveStreaming);
+    menuFilters->addSection(tr("Channels"));
+    menuFilters->addAction(actionInvertChannels);
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
@@ -158,6 +168,8 @@ void MainWindow::setupUi()
     toolbarFilters->addAction(actionTrailer);
     toolbarFilters->addAction(actionOriginalVersion);
     toolbarFilters->addAction(actionLiveStreaming);
+    toolbarFilters->addSeparator();
+    toolbarFilters->addAction(actionInvertChannels);
 
     // View menu & toolbar
 
