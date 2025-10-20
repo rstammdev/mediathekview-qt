@@ -134,6 +134,14 @@ void MainWindow::setupUi()
     actionOriginalVersion->setToolTip(tr("Only original versions."));
     actionOriginalVersion->setCheckable(true);
 
+    QAction* actionLiveStreaming = addAction(tr("&Live Streaming"));
+    actionLiveStreaming->setObjectName("actionLiveStreaming"_L1);
+    actionLiveStreaming->setIcon(QIcon::fromTheme("network-wireless-hotspot"_L1, QIcon(":/icons/actions/16/network-wireless-hotspot"_L1)));
+    actionLiveStreaming->setIconText(tr("Live"));
+    actionLiveStreaming->setStatusTip(tr("Only live streamings"));
+    actionLiveStreaming->setToolTip(tr("Only live streamings."));
+    actionLiveStreaming->setCheckable(true);
+
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
     menuFilters->addSection(tr("Media Types"));
@@ -141,6 +149,7 @@ void MainWindow::setupUi()
     menuFilters->addAction(actionSignLanguage);
     menuFilters->addAction(actionTrailer);
     menuFilters->addAction(actionOriginalVersion);
+    menuFilters->addAction(actionLiveStreaming);
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
@@ -148,6 +157,7 @@ void MainWindow::setupUi()
     toolbarFilters->addAction(actionSignLanguage);
     toolbarFilters->addAction(actionTrailer);
     toolbarFilters->addAction(actionOriginalVersion);
+    toolbarFilters->addAction(actionLiveStreaming);
 
     // View menu & toolbar
 

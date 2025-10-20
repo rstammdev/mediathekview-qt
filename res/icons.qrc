@@ -15,6 +15,7 @@
         <file alias="info">icons/actions/16/help-about.svg</file>
         <file alias="language-chooser">icons/actions/16/translate.svg</file>
         <file alias="languages">icons/actions/16/amarok_change_language.svg</file>
+        <file alias="network-wireless-hotspot">icons/devices/16/network-wireless-hotspot.svg</file>
         <file alias="new-audio-alarm">icons/actions/16/new-audio-alarm.svg</file>
         <file alias="show-menu">icons/actions/16/show-menu.svg</file>
         <file alias="view-fullscreen">icons/actions/16/view-fullscreen.svg</file>
