@@ -424,6 +424,8 @@ void MainWindow::setupUi()
 
     menuShowToolbars->addSection(tr("Toolbars"));
     menuShowToolbars->addAction(toolbarFile->toggleViewAction());
+    menuShowToolbars->addAction(toolbarChannels->toggleViewAction());
+    menuShowToolbars->addAction(toolbarFilters->toggleViewAction());
     menuShowToolbars->addAction(toolbarView->toggleViewAction());
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
     menuShowToolbars->addAction(toolbarHelp->toggleViewAction());
