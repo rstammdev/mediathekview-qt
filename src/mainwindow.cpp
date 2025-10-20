@@ -110,14 +110,24 @@ void MainWindow::setupUi()
     actionAudioDescription->setToolTip(tr("Only media with audio description track."));
     actionAudioDescription->setCheckable(true);
 
+    QAction* actionSignLanguage = addAction(tr("&Sign Language"));
+    actionSignLanguage->setObjectName("actionSignLanguage"_L1);
+    actionSignLanguage->setIcon(QIcon::fromTheme("languages"_L1, QIcon(":/icons/actions/16/languages"_L1)));
+    actionSignLanguage->setIconText(tr("Sign"));
+    actionSignLanguage->setStatusTip(tr("Only media with sign language"));
+    actionSignLanguage->setToolTip(tr("Only media with sign language."));
+    actionSignLanguage->setCheckable(true);
+
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
     menuFilters->addSection(tr("Media Types"));
     menuFilters->addAction(actionAudioDescription);
+    menuFilters->addAction(actionSignLanguage);
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
     toolbarFilters->addAction(actionAudioDescription);
+    toolbarFilters->addAction(actionSignLanguage);
 
     // View menu & toolbar
 
