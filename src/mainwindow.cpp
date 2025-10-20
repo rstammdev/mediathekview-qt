@@ -118,16 +118,26 @@ void MainWindow::setupUi()
     actionSignLanguage->setToolTip(tr("Only media with sign language."));
     actionSignLanguage->setCheckable(true);
 
+    QAction* actionTrailer = addAction(tr("&Trailer"));
+    actionTrailer->setObjectName("actionTrailer"_L1);
+    actionTrailer->setIcon(QIcon::fromTheme("folder-video"_L1, QIcon(":/icons/actions/16/folder-video"_L1)));
+    actionTrailer->setIconText(tr("Trailer"));
+    actionTrailer->setStatusTip(tr("Only trailer media"));
+    actionTrailer->setToolTip(tr("Only trailer media."));
+    actionTrailer->setCheckable(true);
+
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
     menuFilters->addSection(tr("Media Types"));
     menuFilters->addAction(actionAudioDescription);
     menuFilters->addAction(actionSignLanguage);
+    menuFilters->addAction(actionTrailer);
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
     toolbarFilters->addAction(actionAudioDescription);
     toolbarFilters->addAction(actionSignLanguage);
+    toolbarFilters->addAction(actionTrailer);
 
     // View menu & toolbar
 
