@@ -126,18 +126,28 @@ void MainWindow::setupUi()
     actionTrailer->setToolTip(tr("Only trailer media."));
     actionTrailer->setCheckable(true);
 
+    QAction* actionOriginalVersion = addAction(tr("&Original Version"));
+    actionOriginalVersion->setObjectName("actionOriginalVersion"_L1);
+    actionOriginalVersion->setIcon(QIcon::fromTheme("folder-video"_L1, QIcon(":/icons/actions/16/folder-video"_L1)));
+    actionOriginalVersion->setIconText(tr("Original"));
+    actionOriginalVersion->setStatusTip(tr("Only original versions"));
+    actionOriginalVersion->setToolTip(tr("Only original versions."));
+    actionOriginalVersion->setCheckable(true);
+
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
     menuFilters->addSection(tr("Media Types"));
     menuFilters->addAction(actionAudioDescription);
     menuFilters->addAction(actionSignLanguage);
     menuFilters->addAction(actionTrailer);
+    menuFilters->addAction(actionOriginalVersion);
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
     toolbarFilters->addAction(actionAudioDescription);
     toolbarFilters->addAction(actionSignLanguage);
     toolbarFilters->addAction(actionTrailer);
+    toolbarFilters->addAction(actionOriginalVersion);
 
     // View menu & toolbar
 
