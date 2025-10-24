@@ -74,9 +74,9 @@ void MainWindow::setupUi()
 
     // Channels menu & toolbar
 
-    QActionGroup* actionsChannels = new QActionGroup(this);
-    actionsChannels->setObjectName("actionsChannels"_L1);
-    actionsChannels->setExclusionPolicy(QActionGroup::ExclusionPolicy::None);
+    m_actionsChannels = new QActionGroup(this);
+    m_actionsChannels->setObjectName("actionsChannels"_L1);
+    m_actionsChannels->setExclusionPolicy(QActionGroup::ExclusionPolicy::None);
 
     for (const QStringList& channel : Channels::channels()) {
         // Channel: [0] Id, [1] Name, [2] Short Name, [3] Long Name, [4] Brief Description
@@ -90,16 +90,16 @@ void MainWindow::setupUi()
         action->setCheckable(true);
         action->setData(channel[0]);
 
-        actionsChannels->addAction(action);
+        m_actionsChannels->addAction(action);
     }
 
     QMenu* menuChannels = menuBar()->addMenu(tr("&Channels"));
     menuChannels->setObjectName("menuChannels"_L1);
-    menuChannels->addActions(actionsChannels->actions());
+    menuChannels->addActions(m_actionsChannels->actions());
 
     QToolBar* toolbarChannels = addToolBar(tr("Channels Toolbar"));
     toolbarChannels->setObjectName("toolbarChannels"_L1);
-    toolbarChannels->addActions(actionsChannels->actions());
+    toolbarChannels->addActions(m_actionsChannels->actions());
 
     // Filters menu & toolbar
 
@@ -143,13 +143,13 @@ void MainWindow::setupUi()
     actionLiveStreaming->setToolTip(tr("Only live streamings."));
     actionLiveStreaming->setCheckable(true);
 
-    QAction* actionInvertChannels = addAction(tr("&Invert Channels"));
-    actionInvertChannels->setObjectName("actionInvertChannels"_L1);
-    actionInvertChannels->setIcon(QIcon::fromTheme("edit-select-invert"_L1, QIcon(":/icons/actions/16/edit-select-invert"_L1)));
-    actionInvertChannels->setIconText(tr("Invert"));
-    actionInvertChannels->setStatusTip(tr("Invert list of selected channels"));
-    actionInvertChannels->setToolTip(tr("Invert list of selected channels."));
-    actionInvertChannels->setCheckable(true);
+    m_actionInvertChannels = addAction(tr("&Invert Channels"));
+    m_actionInvertChannels->setObjectName("actionInvertChannels"_L1);
+    m_actionInvertChannels->setIcon(QIcon::fromTheme("edit-select-invert"_L1, QIcon(":/icons/actions/16/edit-select-invert"_L1)));
+    m_actionInvertChannels->setIconText(tr("Invert"));
+    m_actionInvertChannels->setStatusTip(tr("Invert list of selected channels"));
+    m_actionInvertChannels->setToolTip(tr("Invert list of selected channels."));
+    m_actionInvertChannels->setCheckable(true);
 
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
@@ -160,7 +160,7 @@ void MainWindow::setupUi()
     menuFilters->addAction(actionOriginalVersion);
     menuFilters->addAction(actionLiveStreaming);
     menuFilters->addSection(tr("Channels"));
-    menuFilters->addAction(actionInvertChannels);
+    menuFilters->addAction(m_actionInvertChannels);
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
@@ -170,24 +170,11 @@ void MainWindow::setupUi()
     toolbarFilters->addAction(actionOriginalVersion);
     toolbarFilters->addAction(actionLiveStreaming);
     toolbarFilters->addSeparator();
-    toolbarFilters->addAction(actionInvertChannels);
+    toolbarFilters->addAction(m_actionInvertChannels);
 
-    actionInvertChannels->toggle();
-    connect(actionInvertChannels, &QAction::toggled, [=, this](const bool checked){
-
-        for (QAction* action : actionsChannels->actions()) {
-
-            QFont font = action->font();
-            font.setBold(checked && m_channelItemStyles.testFlag(ChannelItemStyle::Bold));
-            font.setItalic(checked && m_channelItemStyles.testFlag(ChannelItemStyle::Italic));
-            font.setStrikeOut(checked && m_channelItemStyles.testFlag(ChannelItemStyle::StrikeOut));
-            action->setFont(font);
-
-            const QString& statusTip = checked ? tr("None media of channel %1").arg(action->text()) : tr("All media of channel %1").arg(action->text());
-            action->setStatusTip(statusTip);
-        }
-    });
-    actionInvertChannels->toggle();
+    m_actionInvertChannels->toggle();
+    connect(m_actionInvertChannels, &QAction::toggled, this, &MainWindow::updateActionsChannels);
+    m_actionInvertChannels->toggle();
 
     // View menu & toolbar
 
@@ -434,6 +421,24 @@ void MainWindow::setupUi()
 
     menuShowPanels->addSection(tr("Panels"));
 
+}
+
+
+void MainWindow::updateActionsChannels()
+{
+    const bool checked = m_actionInvertChannels->isChecked();
+
+    for (QAction* action : m_actionsChannels->actions()) {
+
+        QFont font = action->font();
+        font.setBold(checked && m_channelItemStyles.testFlag(ChannelItemStyle::Bold));
+        font.setItalic(checked && m_channelItemStyles.testFlag(ChannelItemStyle::Italic));
+        font.setStrikeOut(checked && m_channelItemStyles.testFlag(ChannelItemStyle::StrikeOut));
+        action->setFont(font);
+
+        const QString& statusTip = checked ? tr("None media of channel %1").arg(action->text()) : tr("All media of channel %1").arg(action->text());
+        action->setStatusTip(statusTip);
+    }
 }
 
 

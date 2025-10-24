@@ -37,6 +37,8 @@ protected:
     void closeEvent(QCloseEvent* event) override;
 
 private slots:
+    void updateActionsChannels();
+
     void applyZoomFactor(const qreal factor);
     void toggleFullScreen(const bool checked);
 
@@ -53,6 +55,10 @@ private:
     ChannelItemStyles m_channelItemStyles;
 
     void setupUi();
+
+    QActionGroup* m_actionsChannels;
+
+    QAction* m_actionInvertChannels;
 
     QAction* m_actionSchemeTheme;
     QAction* m_actionShowMenubar;
