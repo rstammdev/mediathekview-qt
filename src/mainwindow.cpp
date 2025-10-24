@@ -20,6 +20,7 @@
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
 #include <qxtoolbarsdialog.h>
+#include <qxtoolpalette.h>
 #include <qxzoombutton.h>
 
 #include "aboutdialog/aboutdialogpageauthors.h"
@@ -430,9 +431,16 @@ void MainWindow::setupUi()
     menuShowToolbars->addAction(toolbarSettings->toggleViewAction());
     menuShowToolbars->addAction(toolbarHelp->toggleViewAction());
 
+    // Channels panel
+
+    QxToolPalette* panelChannels = new QxToolPalette(tr("Channels Panel"), this);
+    panelChannels->setObjectName("panelChannels"_L1);
+    addDockWidget(Qt::RightDockWidgetArea, panelChannels);
+
     // Show Panels menu
 
     menuShowPanels->addSection(tr("Panels"));
+    menuShowPanels->addAction(panelChannels->toggleViewAction());
 
 }
 
