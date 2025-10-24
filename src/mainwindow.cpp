@@ -460,10 +460,17 @@ void MainWindow::setupUi()
     panelChannels->setColumnCount(1);
     addDockWidget(Qt::RightDockWidgetArea, panelChannels);
 
+    // Filters panel
+
+    QxToolPalette* panelFilters = new QxToolPalette(tr("Filters Panel"), this);
+    panelFilters->setObjectName("panelFilters"_L1);
+    addDockWidget(Qt::RightDockWidgetArea, panelFilters);
+
     // Show Panels menu
 
     menuShowPanels->addSection(tr("Panels"));
     menuShowPanels->addAction(panelChannels->toggleViewAction());
+    menuShowPanels->addAction(panelFilters->toggleViewAction());
 
 }
 
