@@ -41,6 +41,8 @@ MainWindow::MainWindow(QWidget* parent)
     setupUi();
     loadSettings();
 
+    setCentralWidget(new QWidget);
+
     setWindowIcon(QIcon::fromTheme("mediathekview-qt"_L1, QIcon(":/icons/apps/16/mediathekview-qt"_L1)));
     setMinimumSize(854, 480);
 
