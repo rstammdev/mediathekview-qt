@@ -467,9 +467,15 @@ void MainWindow::setupUi()
     panelFiltersGroupDuration->setTitle(tr("Duration"));
     panelFiltersGroupDuration->setType(QxToolGroup::GroupBox);
 
+    QxToolGroup* panelFiltersGroupPeriod = new QxToolGroup;
+    panelFiltersGroupPeriod->setObjectName("panelFiltersGroupPeriod"_L1);
+    panelFiltersGroupPeriod->setTitle(tr("Period"));
+    panelFiltersGroupPeriod->setType(QxToolGroup::GroupBox);
+
     QxToolPalette* panelFilters = new QxToolPalette(tr("Filters Panel"), this);
     panelFilters->setObjectName("panelFilters"_L1);
     panelFilters->addGroup(panelFiltersGroupDuration);
+    panelFilters->addGroup(panelFiltersGroupPeriod);
     addDockWidget(Qt::RightDockWidgetArea, panelFilters);
 
     // Show Panels menu
