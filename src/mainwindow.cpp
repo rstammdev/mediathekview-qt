@@ -434,12 +434,25 @@ void MainWindow::setupUi()
 
     // Channels panel
 
+    QMenu* menuButtonPanelChannelsMore = new QMenu(this);
+    menuButtonPanelChannelsMore->setObjectName("menuButtonPanelChannelsMore"_L1);
+    menuButtonPanelChannelsMore->addActions(m_actionsChannels->actions());
+
+    QToolButton* buttonPanelChannelsMore = new QToolButton;
+    buttonPanelChannelsMore->setObjectName("buttonPanelChannelsMore"_L1);
+    buttonPanelChannelsMore->setText(tr("more"));
+    buttonPanelChannelsMore->setMenu(menuButtonPanelChannelsMore);
+    buttonPanelChannelsMore->setPopupMode(QToolButton::InstantPopup);
+    buttonPanelChannelsMore->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
     QxToolGroup* panelChannelsGroupChannels = new QxToolGroup;
     panelChannelsGroupChannels->setObjectName("panelChannelsGroupChannels"_L1);
     panelChannelsGroupChannels->setTitle(tr("Channels"));
     panelChannelsGroupChannels->setType(QxToolGroup::NoBox);
     panelChannelsGroupChannels->addActions(m_actionsChannels->actions());
+    panelChannelsGroupChannels->addWidget(buttonPanelChannelsMore);
     panelChannelsGroupChannels->setColumnCount(4);
+    panelChannelsGroupChannels->setSpanning(true);
 
     QxToolPalette* panelChannels = new QxToolPalette(tr("Channels Panel"), this);
     panelChannels->setObjectName("panelChannels"_L1);
