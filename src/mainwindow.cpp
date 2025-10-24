@@ -97,9 +97,20 @@ void MainWindow::setupUi()
     menuChannels->setObjectName("menuChannels"_L1);
     menuChannels->addActions(m_actionsChannels->actions());
 
+    QMenu* menuButtonToolbarChannelsMore = new QMenu(this);
+    menuButtonToolbarChannelsMore->setObjectName("menuButtonToolbarChannelsMore"_L1);
+    menuButtonToolbarChannelsMore->addActions(m_actionsChannels->actions());
+
+    QToolButton* buttonToolbarChannelsMore = new QToolButton;
+    buttonToolbarChannelsMore->setObjectName("buttonToolbarChannelsMore"_L1);
+    buttonToolbarChannelsMore->setText(tr("more"));
+    buttonToolbarChannelsMore->setMenu(menuButtonToolbarChannelsMore);
+    buttonToolbarChannelsMore->setPopupMode(QToolButton::InstantPopup);
+
     QToolBar* toolbarChannels = addToolBar(tr("Channels Toolbar"));
     toolbarChannels->setObjectName("toolbarChannels"_L1);
     toolbarChannels->addActions(m_actionsChannels->actions());
+    toolbarChannels->addWidget(buttonToolbarChannelsMore);
 
     // Filters menu & toolbar
 
