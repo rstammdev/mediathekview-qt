@@ -20,6 +20,7 @@
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
 #include <qxtoolbarsdialog.h>
+#include <qxtoolgroup.h>
 #include <qxtoolpalette.h>
 #include <qxzoombutton.h>
 
@@ -433,8 +434,17 @@ void MainWindow::setupUi()
 
     // Channels panel
 
+    QxToolGroup* panelChannelsGroupChannels = new QxToolGroup;
+    panelChannelsGroupChannels->setObjectName("panelChannelsGroupChannels"_L1);
+    panelChannelsGroupChannels->setTitle(tr("Channels"));
+    panelChannelsGroupChannels->setType(QxToolGroup::NoBox);
+    panelChannelsGroupChannels->addActions(m_actionsChannels->actions());
+    panelChannelsGroupChannels->setColumnCount(4);
+
     QxToolPalette* panelChannels = new QxToolPalette(tr("Channels Panel"), this);
     panelChannels->setObjectName("panelChannels"_L1);
+    panelChannels->addGroup(panelChannelsGroupChannels);
+    panelChannels->setColumnCount(1);
     addDockWidget(Qt::RightDockWidgetArea, panelChannels);
 
     // Show Panels menu
