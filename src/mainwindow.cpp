@@ -472,10 +472,29 @@ void MainWindow::setupUi()
     panelFiltersGroupPeriod->setTitle(tr("Period"));
     panelFiltersGroupPeriod->setType(QxToolGroup::GroupBox);
 
+    QFrame* frameVLine = new QFrame;
+    frameVLine->setFrameShape(QFrame::VLine);
+    frameVLine->setFrameShadow(QFrame::Sunken);
+
+    QxToolGroup* panelFiltersGroupTypes = new QxToolGroup;
+    panelFiltersGroupTypes->setObjectName("panelFiltersGroupTypes"_L1);
+    panelFiltersGroupTypes->setTitle(tr("Types"));
+    panelFiltersGroupTypes->setType(QxToolGroup::FrameBox);
+    panelFiltersGroupTypes->addAction(actionAudioDescription);
+    panelFiltersGroupTypes->addAction(actionSignLanguage);
+    panelFiltersGroupTypes->addAction(actionTrailer);
+    panelFiltersGroupTypes->addAction(actionOriginalVersion);
+    panelFiltersGroupTypes->addAction(actionLiveStreaming);
+    panelFiltersGroupTypes->addWidget(frameVLine);
+    panelFiltersGroupTypes->addAction(m_actionInvertChannels);
+
     QxToolPalette* panelFilters = new QxToolPalette(tr("Filters Panel"), this);
     panelFilters->setObjectName("panelFilters"_L1);
     panelFilters->addGroup(panelFiltersGroupDuration);
     panelFilters->addGroup(panelFiltersGroupPeriod);
+    panelFilters->addGroup(panelFiltersGroupTypes);
+    panelFilters->setColumnCount(2);
+    panelFilters->setSpanning(true);
     addDockWidget(Qt::RightDockWidgetArea, panelFilters);
 
     // Show Panels menu
