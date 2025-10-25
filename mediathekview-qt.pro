@@ -27,8 +27,8 @@ HEADERS += \
     src/aboutdialog/aboutdialogpagecredits.h \
     src/aboutdialog/aboutdialogpagegeneral.h \
     src/aboutdialog/aboutdialogpagelicense.h \
-    src/channels.h \
     src/mainwindow.h \
+    src/mediathekview.h \
     src/mediathekviewmodel.h \
     src/mediathekviewview.h \
     src/settingsdialog/settingsdialog.h \
@@ -44,9 +44,9 @@ SOURCES += \
     src/aboutdialog/aboutdialogpagecredits.cpp \
     src/aboutdialog/aboutdialogpagegeneral.cpp \
     src/aboutdialog/aboutdialogpagelicense.cpp \
-    src/channels.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/mediathekview.cpp \
     src/mediathekviewmodel.cpp \
     src/mediathekviewview.cpp \
     src/settingsdialog/settingsdialog.cpp \

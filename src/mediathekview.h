@@ -6,15 +6,15 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CHANNELS_H
-#define CHANNELS_H
+#ifndef MEDIATHEKVIEW_H
+#define MEDIATHEKVIEW_H
 
 #include <QList>
 #include <QObject>
 #include <QStringList>
 
 
-class Channels : public QObject
+class MediathekView : public QObject
 {
     Q_OBJECT
 
@@ -22,4 +22,4 @@ public:
     static const QList<QStringList> channels();
 };
 
-#endif // CHANNELS_H
+#endif // MEDIATHEKVIEW_H

@@ -29,7 +29,7 @@
 #include "aboutdialog/aboutdialogpagecredits.h"
 #include "aboutdialog/aboutdialogpagegeneral.h"
 #include "aboutdialog/aboutdialogpagelicense.h"
-#include "channels.h"
+#include "mediathekview.h"
 #include "settingsdialog/settingsdialog.h"
 
 using namespace Qt::Literals::StringLiterals;
@@ -85,7 +85,7 @@ void MainWindow::setupUi()
     m_actionsChannels->setObjectName("actionsChannels"_L1);
     m_actionsChannels->setExclusionPolicy(QActionGroup::ExclusionPolicy::None);
 
-    for (const QStringList& channel : Channels::channels()) {
+    for (const QStringList& channel : MediathekView::channels()) {
         // Channel: [0] Id, [1] Name, [2] Short Name, [3] Long Name, [4] Brief Description
 
         const QString& text = channel[3] != channel[2] ? tr("%1 (%2)").arg(channel[3], channel[2]) : channel[3];

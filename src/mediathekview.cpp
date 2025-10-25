@@ -6,12 +6,12 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#include "channels.h"
+#include "mediathekview.h"
 
 using namespace Qt::Literals::StringLiterals;
 
 
-const QList<QStringList> Channels::channels()
+const QList<QStringList> MediathekView::channels()
 {
     // Channel: [0] Id, [1] Name, [2] Short Name, [3] Long Name, [4] Brief Description
 
