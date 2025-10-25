@@ -196,7 +196,14 @@ void MainWindow::setupUi()
 
     // View menu & toolbar
 
-
+    QAction* actionShowGrid = addAction(tr("Show &Grid"));
+    actionShowGrid->setObjectName("actionShowGrid"_L1);
+    actionShowGrid->setIcon(QIcon::fromTheme("show-grid"_L1, QIcon(":/icons/actions/16/show-grid"_L1)));
+    actionShowGrid->setIconText(tr("Grid"));
+    actionShowGrid->setStatusTip(tr("Show the grid"));
+    actionShowGrid->setToolTip(tr("Show the grid."));
+    actionShowGrid->setCheckable(true);
+    actionShowGrid->setChecked(true);
 
     QAction* actionEnlargeFont = addAction(tr("&Enlarge Font"));
     actionEnlargeFont->setObjectName("actionEnlargeFont"_L1);
@@ -247,6 +254,8 @@ void MainWindow::setupUi()
 
     QMenu* menuView = menuBar()->addMenu(tr("&View"));
     menuView->setObjectName("menuView"_L1);
+    menuView->addAction(actionShowGrid);
+    menuView->addSeparator();
     menuView->addAction(actionEnlargeFont);
     menuView->addAction(actionShrinkFont);
     menuView->addAction(actionResetFontSize);
@@ -261,12 +270,15 @@ void MainWindow::setupUi()
 
     QToolBar* toolbarView = addToolBar(tr("View Toolbar"));
     toolbarView->setObjectName("toolbarView"_L1);
+    toolbarView->addAction(actionShowGrid);
+    toolbarView->addSeparator();
     toolbarView->addAction(actionShrinkFont);
     toolbarView->addWidget(buttonZoomControl);
     toolbarView->addAction(actionEnlargeFont);
     toolbarView->addSeparator();
     toolbarView->addAction(actionFullScreen);
 
+    connect(actionShowGrid, &QAction::toggled, m_mediathekViewView, &MediathekViewView::setShowGrid);
     connect(actionEnlargeFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomIn);
     connect(actionShrinkFont, &QAction::triggered, buttonZoomControl, &QxZoomButton::zoomOut);
     connect(actionResetFontSize, &QAction::triggered, buttonZoomControl, &QxZoomButton::resetZoom);
