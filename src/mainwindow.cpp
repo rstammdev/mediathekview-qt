@@ -472,10 +472,6 @@ void MainWindow::setupUi()
     panelFiltersGroupPeriod->setTitle(tr("Period"));
     panelFiltersGroupPeriod->setType(QxToolGroup::GroupBox);
 
-    QFrame* frameVLine = new QFrame;
-    frameVLine->setFrameShape(QFrame::VLine);
-    frameVLine->setFrameShadow(QFrame::Sunken);
-
     QxToolGroup* panelFiltersGroupTypes = new QxToolGroup;
     panelFiltersGroupTypes->setObjectName("panelFiltersGroupTypes"_L1);
     panelFiltersGroupTypes->setTitle(tr("Types"));
@@ -485,7 +481,7 @@ void MainWindow::setupUi()
     panelFiltersGroupTypes->addAction(actionTrailer);
     panelFiltersGroupTypes->addAction(actionOriginalVersion);
     panelFiltersGroupTypes->addAction(actionLiveStreaming);
-    panelFiltersGroupTypes->addWidget(frameVLine);
+    panelFiltersGroupTypes->addSeparator();
     panelFiltersGroupTypes->addAction(m_actionInvertChannels);
 
     QxToolPalette* panelFilters = new QxToolPalette(tr("Filters Panel"), this);
