@@ -14,6 +14,9 @@
 #include <QCloseEvent>
 #include <QMainWindow>
 
+#include "mediathekviewmodel.h"
+#include "mediathekviewview.h"
+
 
 class MainWindow : public QMainWindow
 {
@@ -52,6 +55,9 @@ private slots:
     void showAboutDialog();
 
 private:
+    MediathekViewModel* m_mediathekViewModel;
+    MediathekViewView* m_mediathekViewView;
+
     ChannelItemStyles m_channelItemStyles;
 
     void setupUi();

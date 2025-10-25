@@ -37,13 +37,16 @@ using namespace Qt::Literals::StringLiterals;
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow{parent}
+    , m_mediathekViewModel{new MediathekViewModel(this)}
+    , m_mediathekViewView{new MediathekViewView(this)}
     , m_channelItemStyles{ChannelItemStyle::StrikeOut}
 {
 
     setupUi();
     loadSettings();
 
-    setCentralWidget(new QWidget);
+    m_mediathekViewView->setModel(m_mediathekViewModel);
+    setCentralWidget(m_mediathekViewView);
 
     setWindowIcon(QIcon::fromTheme("mediathekview-qt"_L1, QIcon(":/icons/apps/16/mediathekview-qt"_L1)));
     setMinimumSize(854, 480);
