@@ -30,6 +30,7 @@ HEADERS += \
     src/channels.h \
     src/mainwindow.h \
     src/mediathekviewmodel.h \
+    src/mediathekviewview.h \
     src/settingsdialog/settingsdialog.h \
     src/settingsdialog/settingspage.h \
     src/settingsdialog/settingspageapplication.h \
@@ -47,6 +48,7 @@ SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
     src/mediathekviewmodel.cpp \
+    src/mediathekviewview.cpp \
     src/settingsdialog/settingsdialog.cpp \
     src/settingsdialog/settingspage.cpp \
     src/settingsdialog/settingspageapplication.cpp \
