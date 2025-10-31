@@ -128,6 +128,8 @@ void MainWindow::setupUi()
     sliderDurationMenu->setObjectName("sliderDurationMenu"_L1);
     sliderDurationMenu->setRange(0, 100);
     sliderDurationMenu->setValue(0);
+    sliderDurationMenu->setStatusTip(tr("Select the duration of a media"));
+    sliderDurationMenu->setToolTip(tr("Select the duration of a media."));
 
     QVBoxLayout* layoutSliderDurationMenu = new QVBoxLayout;
     layoutSliderDurationMenu->setObjectName("layoutSliderDurationMenu"_L1);
@@ -137,8 +139,6 @@ void MainWindow::setupUi()
     widgetSliderDurationMenu->setObjectName("widgetSliderDurationMenu"_L1);
     widgetSliderDurationMenu->setLayout(layoutSliderDurationMenu);
     widgetSliderDurationMenu->setMinimumWidth(200);
-    widgetSliderDurationMenu->setStatusTip(tr("Select the duration of a media"));
-    widgetSliderDurationMenu->setToolTip(tr("Select the duration of a media."));
 
     QWidgetAction* actionSliderDurationMenu = new QWidgetAction(this);
     actionSliderDurationMenu->setObjectName("actionSliderDurationMenu"_L1);
@@ -210,6 +210,8 @@ void MainWindow::setupUi()
     sliderDurationToolbar->setObjectName("sliderDurationToolbar"_L1);
     sliderDurationToolbar->setRange(0, 100);
     sliderDurationToolbar->setValue(0);
+    sliderDurationToolbar->setStatusTip(tr("Select the duration of a media"));
+    sliderDurationToolbar->setToolTip(tr("Select the duration of a media."));
 
     QVBoxLayout* layoutSliderDurationToolbar = new QVBoxLayout;
     layoutSliderDurationToolbar->setObjectName("layoutSliderDurationToolbar"_L1);
@@ -220,8 +222,6 @@ void MainWindow::setupUi()
     widgetSliderDurationToolbar->setLayout(layoutSliderDurationToolbar);
     widgetSliderDurationToolbar->setMaximumHeight(200);
     widgetSliderDurationToolbar->setMaximumWidth(200);
-    widgetSliderDurationToolbar->setStatusTip(tr("Select the duration of a media"));
-    widgetSliderDurationToolbar->setToolTip(tr("Select the duration of a media."));
 
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
