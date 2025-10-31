@@ -526,10 +526,18 @@ void MainWindow::setupUi()
 
     // Filters panel
 
+    QxRangeSlider* sliderDurationPanel = new QxRangeSlider(Qt::Horizontal);
+    sliderDurationPanel->setObjectName("sliderDurationPanel"_L1);
+    sliderDurationPanel->setRange(0, 100);
+    sliderDurationPanel->setValue(0);
+    sliderDurationPanel->setStatusTip(tr("Select the duration of a media"));
+    sliderDurationPanel->setToolTip(tr("Select the duration of a media."));
+
     QxToolGroup* panelFiltersGroupDuration = new QxToolGroup;
     panelFiltersGroupDuration->setObjectName("panelFiltersGroupDuration"_L1);
     panelFiltersGroupDuration->setTitle(tr("Duration"));
     panelFiltersGroupDuration->setType(QxToolGroup::GroupBox);
+    panelFiltersGroupDuration->addWidget(sliderDurationPanel);
 
     QxToolGroup* panelFiltersGroupPeriod = new QxToolGroup;
     panelFiltersGroupPeriod->setObjectName("panelFiltersGroupPeriod"_L1);
@@ -556,6 +564,9 @@ void MainWindow::setupUi()
     panelFilters->setColumnCount(2);
     panelFilters->setSpanning(true);
     addDockWidget(Qt::RightDockWidgetArea, panelFilters);
+
+    connect(sliderDurationMenu, &QxRangeSlider::valueChanged, sliderDurationPanel, &QxRangeSlider::setValue);
+    connect(sliderDurationPanel, &QxRangeSlider::valueChanged, sliderDurationMenu, &QxRangeSlider::setValue);
 
     // Show Panels menu
 
