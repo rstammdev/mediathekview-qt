@@ -15,10 +15,13 @@
 #include <QStatusBar>
 #include <QToolBar>
 #include <QToolButton>
+#include <QVBoxLayout>
+#include <QWidgetAction>
 
 #include <qxaboutdialog.h>
 #include <qxcomponentsdialog.h>
 #include <qxconfirmationbox.h>
+#include <qxrangeslider.h>
 #include <qxtoolbarsdialog.h>
 #include <qxtoolgroup.h>
 #include <qxtoolpalette.h>
@@ -121,6 +124,27 @@ void MainWindow::setupUi()
 
     // Filters menu & toolbar
 
+    QxRangeSlider* sliderDurationMenu = new QxRangeSlider(Qt::Horizontal);
+    sliderDurationMenu->setObjectName("sliderDurationMenu"_L1);
+    sliderDurationMenu->setRange(0, 100);
+    sliderDurationMenu->setValue(0);
+
+    QVBoxLayout* layoutSliderDurationMenu = new QVBoxLayout;
+    layoutSliderDurationMenu->setObjectName("layoutSliderDurationMenu"_L1);
+    layoutSliderDurationMenu->addWidget(sliderDurationMenu);
+
+    QWidget* widgetSliderDurationMenu = new QWidget;
+    widgetSliderDurationMenu->setObjectName("widgetSliderDurationMenu"_L1);
+    widgetSliderDurationMenu->setLayout(layoutSliderDurationMenu);
+    widgetSliderDurationMenu->setMinimumWidth(200);
+    widgetSliderDurationMenu->setStatusTip(tr("Select the duration of a media"));
+    widgetSliderDurationMenu->setToolTip(tr("Select the duration of a media."));
+
+    QWidgetAction* actionSliderDurationMenu = new QWidgetAction(this);
+    actionSliderDurationMenu->setObjectName("actionSliderDurationMenu"_L1);
+    actionSliderDurationMenu->setDefaultWidget(widgetSliderDurationMenu);
+    addAction(actionSliderDurationMenu);
+
     QAction* actionAudioDescription = addAction(tr("&Audio Description"));
     actionAudioDescription->setObjectName("actionAudioDescription"_L1);
     actionAudioDescription->setIcon(QIcon::fromTheme("new-audio-alarm"_L1, QIcon(":/icons/actions/16/new-audio-alarm"_L1)));
@@ -171,6 +195,8 @@ void MainWindow::setupUi()
 
     QMenu* menuFilters = menuBar()->addMenu(tr("&Filters"));
     menuFilters->setObjectName("menuFilters"_L1);
+    menuFilters->addSection(tr("Duration"));
+    menuFilters->addAction(actionSliderDurationMenu);
     menuFilters->addSection(tr("Media Types"));
     menuFilters->addAction(actionAudioDescription);
     menuFilters->addAction(actionSignLanguage);
