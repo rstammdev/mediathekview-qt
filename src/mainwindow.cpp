@@ -584,10 +584,18 @@ void MainWindow::setupUi()
     panelFiltersGroupDuration->setType(QxToolGroup::GroupBox);
     panelFiltersGroupDuration->addWidget(sliderDurationPanel);
 
+    QxRangeSlider* sliderPeriodPanel = new QxRangeSlider(Qt::Horizontal);
+    sliderPeriodPanel->setObjectName("sliderPeriodPanel"_L1);
+    sliderPeriodPanel->setRange(0, 100);
+    sliderPeriodPanel->setValue(0);
+    sliderPeriodPanel->setStatusTip(tr("Select the period of a media"));
+    sliderPeriodPanel->setToolTip(tr("Select the period of a media."));
+
     QxToolGroup* panelFiltersGroupPeriod = new QxToolGroup;
     panelFiltersGroupPeriod->setObjectName("panelFiltersGroupPeriod"_L1);
     panelFiltersGroupPeriod->setTitle(tr("Period"));
     panelFiltersGroupPeriod->setType(QxToolGroup::GroupBox);
+    panelFiltersGroupPeriod->addWidget(sliderPeriodPanel);
 
     QxToolGroup* panelFiltersGroupTypes = new QxToolGroup;
     panelFiltersGroupTypes->setObjectName("panelFiltersGroupTypes"_L1);
@@ -612,6 +620,8 @@ void MainWindow::setupUi()
 
     connect(sliderDurationMenu, &QxRangeSlider::valueChanged, sliderDurationPanel, &QxRangeSlider::setValue);
     connect(sliderDurationPanel, &QxRangeSlider::valueChanged, sliderDurationMenu, &QxRangeSlider::setValue);
+    connect(sliderPeriodMenu, &QxRangeSlider::valueChanged, sliderPeriodPanel, &QxRangeSlider::setValue);
+    connect(sliderPeriodPanel, &QxRangeSlider::valueChanged, sliderPeriodMenu, &QxRangeSlider::setValue);
 
     // Show Panels menu
 
