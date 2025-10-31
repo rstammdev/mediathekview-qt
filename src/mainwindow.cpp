@@ -145,6 +145,27 @@ void MainWindow::setupUi()
     actionSliderDurationMenu->setDefaultWidget(widgetSliderDurationMenu);
     addAction(actionSliderDurationMenu);
 
+    QxRangeSlider* sliderPeriodMenu = new QxRangeSlider(Qt::Horizontal);
+    sliderPeriodMenu->setObjectName("sliderPeriodMenu"_L1);
+    sliderPeriodMenu->setRange(0, 100);
+    sliderPeriodMenu->setValue(0);
+    sliderPeriodMenu->setStatusTip(tr("Select the period of a media"));
+    sliderPeriodMenu->setToolTip(tr("Select the period of a media."));
+
+    QVBoxLayout* layoutSliderPeriodMenu = new QVBoxLayout;
+    layoutSliderPeriodMenu->setObjectName("layoutSliderPeriodMenu"_L1);
+    layoutSliderPeriodMenu->addWidget(sliderPeriodMenu);
+
+    QWidget* widgetSliderPeriodMenu = new QWidget;
+    widgetSliderPeriodMenu->setObjectName("widgetSliderPeriodMenu"_L1);
+    widgetSliderPeriodMenu->setLayout(layoutSliderPeriodMenu);
+    widgetSliderPeriodMenu->setMinimumWidth(200);
+
+    QWidgetAction* actionSliderPeriodMenu = new QWidgetAction(this);
+    actionSliderPeriodMenu->setObjectName("actionSliderPeriodMenu"_L1);
+    actionSliderPeriodMenu->setDefaultWidget(widgetSliderPeriodMenu);
+    addAction(actionSliderPeriodMenu);
+
     QAction* actionAudioDescription = addAction(tr("&Audio Description"));
     actionAudioDescription->setObjectName("actionAudioDescription"_L1);
     actionAudioDescription->setIcon(QIcon::fromTheme("new-audio-alarm"_L1, QIcon(":/icons/actions/16/new-audio-alarm"_L1)));
@@ -197,6 +218,8 @@ void MainWindow::setupUi()
     menuFilters->setObjectName("menuFilters"_L1);
     menuFilters->addSection(tr("Duration"));
     menuFilters->addAction(actionSliderDurationMenu);
+    menuFilters->addSection(tr("Period"));
+    menuFilters->addAction(actionSliderPeriodMenu);
     menuFilters->addSection(tr("Media Types"));
     menuFilters->addAction(actionAudioDescription);
     menuFilters->addAction(actionSignLanguage);
