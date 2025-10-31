@@ -206,8 +206,27 @@ void MainWindow::setupUi()
     menuFilters->addSection(tr("Channels"));
     menuFilters->addAction(m_actionInvertChannels);
 
+    QxRangeSlider* sliderDurationToolbar = new QxRangeSlider(Qt::Horizontal);
+    sliderDurationToolbar->setObjectName("sliderDurationToolbar"_L1);
+    sliderDurationToolbar->setRange(0, 100);
+    sliderDurationToolbar->setValue(0);
+
+    QVBoxLayout* layoutSliderDurationToolbar = new QVBoxLayout;
+    layoutSliderDurationToolbar->setObjectName("layoutSliderDurationToolbar"_L1);
+    layoutSliderDurationToolbar->addWidget(sliderDurationToolbar);
+
+    QWidget* widgetSliderDurationToolbar = new QWidget;
+    widgetSliderDurationToolbar->setObjectName("widgetSliderDurationToolbar"_L1);
+    widgetSliderDurationToolbar->setLayout(layoutSliderDurationToolbar);
+    widgetSliderDurationToolbar->setMaximumHeight(200);
+    widgetSliderDurationToolbar->setMaximumWidth(200);
+    widgetSliderDurationToolbar->setStatusTip(tr("Select the duration of a media"));
+    widgetSliderDurationToolbar->setToolTip(tr("Select the duration of a media."));
+
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
+    toolbarFilters->addWidget(widgetSliderDurationToolbar);
+    toolbarFilters->addSeparator();
     toolbarFilters->addAction(actionAudioDescription);
     toolbarFilters->addAction(actionSignLanguage);
     toolbarFilters->addAction(actionTrailer);
@@ -219,6 +238,10 @@ void MainWindow::setupUi()
     m_actionInvertChannels->toggle();
     connect(m_actionInvertChannels, &QAction::toggled, this, &MainWindow::updateActionsChannels);
     m_actionInvertChannels->toggle();
+
+    connect(sliderDurationMenu, &QxRangeSlider::valueChanged, sliderDurationToolbar, &QxRangeSlider::setValue);
+    connect(sliderDurationToolbar, &QxRangeSlider::valueChanged, sliderDurationMenu, &QxRangeSlider::setValue);
+    connect(toolbarFilters, &QToolBar::orientationChanged, sliderDurationToolbar, &QSlider::setOrientation);
 
     // View menu & toolbar
 
