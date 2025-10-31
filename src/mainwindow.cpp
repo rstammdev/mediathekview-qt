@@ -246,9 +246,28 @@ void MainWindow::setupUi()
     widgetSliderDurationToolbar->setMaximumHeight(200);
     widgetSliderDurationToolbar->setMaximumWidth(200);
 
+    QxRangeSlider* sliderPeriodToolbar = new QxRangeSlider(Qt::Horizontal);
+    sliderPeriodToolbar->setObjectName("sliderPeriodToolbar"_L1);
+    sliderPeriodToolbar->setRange(0, 100);
+    sliderPeriodToolbar->setValue(0);
+    sliderPeriodToolbar->setStatusTip(tr("Select the period of a media"));
+    sliderPeriodToolbar->setToolTip(tr("Select the period of a media."));
+
+    QVBoxLayout* layoutSliderPeriodToolbar = new QVBoxLayout;
+    layoutSliderPeriodToolbar->setObjectName("layoutSliderPeriodToolbar"_L1);
+    layoutSliderPeriodToolbar->addWidget(sliderPeriodToolbar);
+
+    QWidget* widgetSliderPeriodToolbar = new QWidget;
+    widgetSliderPeriodToolbar->setObjectName("widgetSliderPeriodToolbar"_L1);
+    widgetSliderPeriodToolbar->setLayout(layoutSliderPeriodToolbar);
+    widgetSliderPeriodToolbar->setMaximumHeight(200);
+    widgetSliderPeriodToolbar->setMaximumWidth(200);
+
     QToolBar* toolbarFilters = addToolBar(tr("Filters Toolbar"));
     toolbarFilters->setObjectName("toolbarFilters"_L1);
     toolbarFilters->addWidget(widgetSliderDurationToolbar);
+    toolbarFilters->addSeparator();
+    toolbarFilters->addWidget(widgetSliderPeriodToolbar);
     toolbarFilters->addSeparator();
     toolbarFilters->addAction(actionAudioDescription);
     toolbarFilters->addAction(actionSignLanguage);
@@ -265,6 +284,9 @@ void MainWindow::setupUi()
     connect(sliderDurationMenu, &QxRangeSlider::valueChanged, sliderDurationToolbar, &QxRangeSlider::setValue);
     connect(sliderDurationToolbar, &QxRangeSlider::valueChanged, sliderDurationMenu, &QxRangeSlider::setValue);
     connect(toolbarFilters, &QToolBar::orientationChanged, sliderDurationToolbar, &QSlider::setOrientation);
+    connect(sliderPeriodMenu, &QxRangeSlider::valueChanged, sliderPeriodToolbar, &QxRangeSlider::setValue);
+    connect(sliderPeriodToolbar, &QxRangeSlider::valueChanged, sliderPeriodMenu, &QxRangeSlider::setValue);
+    connect(toolbarFilters, &QToolBar::orientationChanged, sliderPeriodToolbar, &QSlider::setOrientation);
 
     // View menu & toolbar
 
