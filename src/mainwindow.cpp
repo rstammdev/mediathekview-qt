@@ -704,11 +704,18 @@ void MainWindow::setupUi()
     connect(sliderPeriodMenu, &QxRangeSlider::valueChanged, sliderPeriodPanel, &QxRangeSlider::setValue);
     connect(sliderPeriodPanel, &QxRangeSlider::valueChanged, sliderPeriodMenu, &QxRangeSlider::setValue);
 
+    // Database Update panel
+
+    QxToolPalette* panelDatabaseUpdate = new QxToolPalette(tr("Database Update Panel"), this);
+    panelDatabaseUpdate->setObjectName("panelDatabaseUpdate"_L1);
+    addDockWidget(Qt::BottomDockWidgetArea, panelDatabaseUpdate);
+
     // Show Panels menu
 
     menuShowPanels->addSection(tr("Panels"));
     menuShowPanels->addAction(panelChannels->toggleViewAction());
     menuShowPanels->addAction(panelFilters->toggleViewAction());
+    menuShowPanels->addAction(panelDatabaseUpdate->toggleViewAction());
 
 }
 
