@@ -716,12 +716,28 @@ void MainWindow::setupUi()
     labelDownloadInfoPanel->setObjectName("labelDownloadInfoPanel"_L1);
     labelDownloadInfoPanel->setEnabled(false);
 
+    QToolButton* buttonUpdatePanel = new QToolButton;
+    buttonUpdatePanel->setObjectName("buttonUpdatePanel"_L1);
+    buttonUpdatePanel->setDefaultAction(actionUpdate);
+    buttonUpdatePanel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    buttonUpdatePanel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    QHBoxLayout* layoutButtonsPanel = new QHBoxLayout;
+    layoutButtonsPanel->setObjectName("layoutButtonsPanel"_L1);
+    layoutButtonsPanel->addWidget(buttonUpdatePanel);
+    layoutButtonsPanel->setContentsMargins(0, 0, 0, 0);
+
+    QWidget* widgetButtonsPanel = new QWidget;
+    widgetButtonsPanel->setObjectName("widgetButtonsPanel"_L1);
+    widgetButtonsPanel->setLayout(layoutButtonsPanel);
+
     QxToolGroup* panelDatabaseUpdateGroupMediathekView = new QxToolGroup;
     panelDatabaseUpdateGroupMediathekView->setObjectName("panelDatabaseUpdateGroupMediathekView"_L1);
     panelDatabaseUpdateGroupMediathekView->setTitle(tr("MediathekView Database"));
     panelDatabaseUpdateGroupMediathekView->setType(QxToolGroup::NoBox);
     panelDatabaseUpdateGroupMediathekView->addWidget(progressbarDownloadPanel);
     panelDatabaseUpdateGroupMediathekView->addWidget(labelDownloadInfoPanel);
+    panelDatabaseUpdateGroupMediathekView->addWidget(widgetButtonsPanel);
     panelDatabaseUpdateGroupMediathekView->setColumnCount(1);
 
     QxToolPalette* panelDatabaseUpdate = new QxToolPalette(tr("Database Update Panel"), this);
