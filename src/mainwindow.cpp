@@ -12,6 +12,7 @@
 #include <QGridLayout>
 #include <QMenu>
 #include <QMenuBar>
+#include <QProgressBar>
 #include <QSettings>
 #include <QStatusBar>
 #include <QToolBar>
@@ -64,8 +65,15 @@ void MainWindow::setupUi()
 {
     // File menu & toolbar
 
+    QProgressBar* progressbarDownload = new QProgressBar;
+    progressbarDownload->setObjectName("progressbarDownload"_L1);
+    progressbarDownload->setRange(0, 100);
+    progressbarDownload->setValue(0);
+    progressbarDownload->setEnabled(false);
+
     QGridLayout* layoutDatabaseUpdate = new QGridLayout;
     layoutDatabaseUpdate->setObjectName("layoutDatabaseUpdate"_L1);
+    layoutDatabaseUpdate->addWidget(progressbarDownload, 0, 0, 1, 0);
 
     QWidget* widgetDatabaseUpdate = new QWidget;
     widgetDatabaseUpdate->setObjectName("widgetDatabaseUpdate"_L1);
