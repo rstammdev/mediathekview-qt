@@ -712,11 +712,16 @@ void MainWindow::setupUi()
     progressbarDownloadPanel->setValue(0);
     progressbarDownloadPanel->setEnabled(false);
 
+    QLabel* labelDownloadInfoPanel = new QLabel(tr("0/1000"));
+    labelDownloadInfoPanel->setObjectName("labelDownloadInfoPanel"_L1);
+    labelDownloadInfoPanel->setEnabled(false);
+
     QxToolGroup* panelDatabaseUpdateGroupMediathekView = new QxToolGroup;
     panelDatabaseUpdateGroupMediathekView->setObjectName("panelDatabaseUpdateGroupMediathekView"_L1);
     panelDatabaseUpdateGroupMediathekView->setTitle(tr("MediathekView Database"));
     panelDatabaseUpdateGroupMediathekView->setType(QxToolGroup::NoBox);
     panelDatabaseUpdateGroupMediathekView->addWidget(progressbarDownloadPanel);
+    panelDatabaseUpdateGroupMediathekView->addWidget(labelDownloadInfoPanel);
     panelDatabaseUpdateGroupMediathekView->setColumnCount(1);
 
     QxToolPalette* panelDatabaseUpdate = new QxToolPalette(tr("Database Update Panel"), this);
@@ -725,6 +730,7 @@ void MainWindow::setupUi()
     addDockWidget(Qt::BottomDockWidgetArea, panelDatabaseUpdate);
 
     connect(actionUpdate, &QAction::toggled, progressbarDownloadPanel, &QProgressBar::setEnabled);
+    connect(actionUpdate, &QAction::toggled, labelDownloadInfoPanel, &QProgressBar::setEnabled);
     connect(progressbarDownload, &QProgressBar::valueChanged, progressbarDownloadPanel, &QProgressBar::setValue);
 
     // Show Panels menu
