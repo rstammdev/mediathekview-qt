@@ -10,6 +10,7 @@
 
 #include <QApplication>
 #include <QGridLayout>
+#include <QLabel>
 #include <QMenu>
 #include <QMenuBar>
 #include <QProgressBar>
@@ -71,9 +72,14 @@ void MainWindow::setupUi()
     progressbarDownload->setValue(0);
     progressbarDownload->setEnabled(false);
 
+    QLabel* labelDownloadInfo = new QLabel(tr("0/1000"));
+    labelDownloadInfo->setObjectName("labelDownloadInfo"_L1);
+    labelDownloadInfo->setEnabled(false);
+
     QGridLayout* layoutDatabaseUpdate = new QGridLayout;
     layoutDatabaseUpdate->setObjectName("layoutDatabaseUpdate"_L1);
     layoutDatabaseUpdate->addWidget(progressbarDownload, 0, 0, 1, 0);
+    layoutDatabaseUpdate->addWidget(labelDownloadInfo, 1, 0, 1, 0);
 
     QWidget* widgetDatabaseUpdate = new QWidget;
     widgetDatabaseUpdate->setObjectName("widgetDatabaseUpdate"_L1);
