@@ -722,9 +722,16 @@ void MainWindow::setupUi()
     buttonUpdatePanel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     buttonUpdatePanel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
+    QToolButton* buttonCancelPanel = new QToolButton;
+    buttonCancelPanel->setObjectName("buttonCancelPanel"_L1);
+    buttonCancelPanel->setDefaultAction(actionCancel);
+    buttonCancelPanel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    buttonCancelPanel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
     QHBoxLayout* layoutButtonsPanel = new QHBoxLayout;
     layoutButtonsPanel->setObjectName("layoutButtonsPanel"_L1);
     layoutButtonsPanel->addWidget(buttonUpdatePanel);
+    layoutButtonsPanel->addWidget(buttonCancelPanel);
     layoutButtonsPanel->setContentsMargins(0, 0, 0, 0);
 
     QWidget* widgetButtonsPanel = new QWidget;
