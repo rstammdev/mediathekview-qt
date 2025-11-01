@@ -91,11 +91,27 @@ void MainWindow::setupUi()
     buttonUpdate->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     buttonUpdate->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
+    QAction* actionCancel = addAction(tr("&Cancel"));
+    actionCancel->setObjectName("actionCancel"_L1);
+    actionCancel->setIcon(QIcon::fromTheme("remove"_L1, QIcon(":/icons/actions/16/remove"_L1)));
+    actionCancel->setIconText(tr("Cancel"));
+    actionCancel->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_U);
+    actionCancel->setStatusTip(tr("Cancel the update of the MediathekView database"));
+    actionCancel->setToolTip(tr("Cancel the update of the MediathekView database."));
+    actionCancel->setEnabled(false);
+
+    QToolButton* buttonCancel = new QToolButton;
+    buttonCancel->setObjectName("buttonCancel"_L1);
+    buttonCancel->setDefaultAction(actionCancel);
+    buttonCancel->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    buttonCancel->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
     QGridLayout* layoutDatabaseUpdate = new QGridLayout;
     layoutDatabaseUpdate->setObjectName("layoutDatabaseUpdate"_L1);
     layoutDatabaseUpdate->addWidget(progressbarDownload, 0, 0, 1, 0);
     layoutDatabaseUpdate->addWidget(labelDownloadInfo, 1, 0, 1, 0);
     layoutDatabaseUpdate->addWidget(buttonUpdate, 2, 0);
+    layoutDatabaseUpdate->addWidget(buttonCancel, 2, 1);
 
     QWidget* widgetDatabaseUpdate = new QWidget;
     widgetDatabaseUpdate->setObjectName("widgetDatabaseUpdate"_L1);
@@ -132,6 +148,8 @@ void MainWindow::setupUi()
 
     connect(actionUpdate, &QAction::toggled, progressbarDownload, &QProgressBar::setEnabled);
     connect(actionUpdate, &QAction::toggled, labelDownloadInfo, &QLabel::setEnabled);
+    connect(actionUpdate, &QAction::toggled, actionCancel, &QAction::setEnabled);
+    connect(actionCancel, &QAction::triggered, actionUpdate, &QAction::toggle);
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
     // Channels menu & toolbar
