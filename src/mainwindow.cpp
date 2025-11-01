@@ -706,8 +706,15 @@ void MainWindow::setupUi()
 
     // Database Update panel
 
+    QxToolGroup* panelDatabaseUpdateGroupMediathekView = new QxToolGroup;
+    panelDatabaseUpdateGroupMediathekView->setObjectName("panelDatabaseUpdateGroupMediathekView"_L1);
+    panelDatabaseUpdateGroupMediathekView->setTitle(tr("MediathekView Database"));
+    panelDatabaseUpdateGroupMediathekView->setType(QxToolGroup::NoBox);
+    panelDatabaseUpdateGroupMediathekView->setColumnCount(1);
+
     QxToolPalette* panelDatabaseUpdate = new QxToolPalette(tr("Database Update Panel"), this);
     panelDatabaseUpdate->setObjectName("panelDatabaseUpdate"_L1);
+    panelDatabaseUpdate->addGroup(panelDatabaseUpdateGroupMediathekView);
     addDockWidget(Qt::BottomDockWidgetArea, panelDatabaseUpdate);
 
     // Show Panels menu
