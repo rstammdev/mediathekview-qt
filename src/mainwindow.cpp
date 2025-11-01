@@ -142,8 +142,19 @@ void MainWindow::setupUi()
     menuFile->addSeparator();
     menuFile->addAction(actionQuit);
 
+    QToolButton* buttonDatabaseUpdate = new QToolButton;
+    buttonDatabaseUpdate->setObjectName("buttonDatabaseUpdate"_L1);
+    buttonDatabaseUpdate->setText(tr("Update"));
+    buttonDatabaseUpdate->setIcon(QIcon::fromTheme("download"_L1, QIcon(":/icons/actions/16/download"_L1)));
+    buttonDatabaseUpdate->setMenu(menuDatabaseUpdate);
+    buttonDatabaseUpdate->setPopupMode(QToolButton::InstantPopup);
+    buttonDatabaseUpdate->setStatusTip(tr("Show the Database Update widget"));
+    buttonDatabaseUpdate->setToolTip(tr("Show the Database Update widget."));
+
     QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
     toolbarFile->setObjectName("toolbarFile"_L1);
+    toolbarFile->addWidget(buttonDatabaseUpdate);
+    toolbarFile->addSeparator();
     toolbarFile->addAction(actionQuit);
 
     connect(actionUpdate, &QAction::toggled, progressbarDownload, &QProgressBar::setEnabled);
