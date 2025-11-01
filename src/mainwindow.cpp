@@ -76,10 +76,26 @@ void MainWindow::setupUi()
     labelDownloadInfo->setObjectName("labelDownloadInfo"_L1);
     labelDownloadInfo->setEnabled(false);
 
+    QAction* actionUpdate = addAction(tr("&Update"));
+    actionUpdate->setObjectName("actionUpdate"_L1);
+    actionUpdate->setIcon(QIcon::fromTheme("download"_L1, QIcon(":/icons/actions/16/download"_L1)));
+    actionUpdate->setIconText(tr("Update"));
+    actionUpdate->setShortcut(Qt::CTRL | Qt::Key_U);
+    actionUpdate->setStatusTip(tr("Update the MediathekView database"));
+    actionUpdate->setToolTip(tr("Update the MediathekView database."));
+    actionUpdate->setCheckable(true);
+
+    QToolButton* buttonUpdate = new QToolButton;
+    buttonUpdate->setObjectName("buttonUpdate"_L1);
+    buttonUpdate->setDefaultAction(actionUpdate);
+    buttonUpdate->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    buttonUpdate->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
     QGridLayout* layoutDatabaseUpdate = new QGridLayout;
     layoutDatabaseUpdate->setObjectName("layoutDatabaseUpdate"_L1);
     layoutDatabaseUpdate->addWidget(progressbarDownload, 0, 0, 1, 0);
     layoutDatabaseUpdate->addWidget(labelDownloadInfo, 1, 0, 1, 0);
+    layoutDatabaseUpdate->addWidget(buttonUpdate, 2, 0);
 
     QWidget* widgetDatabaseUpdate = new QWidget;
     widgetDatabaseUpdate->setObjectName("widgetDatabaseUpdate"_L1);
@@ -114,6 +130,8 @@ void MainWindow::setupUi()
     toolbarFile->setObjectName("toolbarFile"_L1);
     toolbarFile->addAction(actionQuit);
 
+    connect(actionUpdate, &QAction::toggled, progressbarDownload, &QProgressBar::setEnabled);
+    connect(actionUpdate, &QAction::toggled, labelDownloadInfo, &QLabel::setEnabled);
     connect(actionQuit, &QAction::triggered, this, &MainWindow::close);
 
     // Channels menu & toolbar
