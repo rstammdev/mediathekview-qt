@@ -9,6 +9,7 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+#include <QGridLayout>
 #include <QMenu>
 #include <QMenuBar>
 #include <QSettings>
@@ -63,6 +64,18 @@ void MainWindow::setupUi()
 {
     // File menu & toolbar
 
+    QGridLayout* layoutDatabaseUpdate = new QGridLayout;
+    layoutDatabaseUpdate->setObjectName("layoutDatabaseUpdate"_L1);
+
+    QWidget* widgetDatabaseUpdate = new QWidget;
+    widgetDatabaseUpdate->setObjectName("widgetDatabaseUpdate"_L1);
+    widgetDatabaseUpdate->setLayout(layoutDatabaseUpdate);
+    widgetDatabaseUpdate->setMinimumWidth(200);
+
+    QWidgetAction* actionDatabaseUpdate  = new QWidgetAction(this);
+    actionDatabaseUpdate->setObjectName("actionDatabaseUpdate"_L1);
+    actionDatabaseUpdate->setDefaultWidget(widgetDatabaseUpdate);
+
     QAction* actionQuit = addAction(tr("&Quit"));
     actionQuit->setObjectName("actionQuit"_L1);
     actionQuit->setIcon(QIcon::fromTheme("application-exit"_L1, QIcon(":/icons/actions/16/application-exit"_L1)));
@@ -72,8 +85,15 @@ void MainWindow::setupUi()
     actionQuit->setToolTip(tr("Quit the application."));
     actionQuit->setMenuRole(QAction::QuitRole);
 
+    QMenu* menuDatabaseUpdate = new QMenu(tr("Database Update"));
+    menuDatabaseUpdate->setObjectName("menuDatabaseUpdate"_L1);
+    menuDatabaseUpdate->addSection(tr("MediathekView Database"));
+    menuDatabaseUpdate->addAction(actionDatabaseUpdate);
+
     QMenu* menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->setObjectName("menuFile"_L1);
+    menuFile->addMenu(menuDatabaseUpdate);
+    menuFile->addSeparator();
     menuFile->addAction(actionQuit);
 
     QToolBar* toolbarFile = addToolBar(tr("File Toolbar"));
