@@ -624,7 +624,7 @@ void MainWindow::setupUi()
 
     // Channels panel
 
-    QMenu* menuButtonPanelChannelsMore = new QMenu(this);
+    QMenu* menuButtonPanelChannelsMore = new QMenu;
     menuButtonPanelChannelsMore->setObjectName("menuButtonPanelChannelsMore"_L1);
     menuButtonPanelChannelsMore->addActions(m_actionsChannels->actions());
 
