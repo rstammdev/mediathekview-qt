@@ -11,6 +11,12 @@
 using namespace Qt::Literals::StringLiterals;
 
 
+const QString MediathekView::mediaFullListUrl()
+{
+    return "https://liste.mediathekview.de/Filmliste-akt.xz"_L1;
+}
+
+
 const QList<QStringList> MediathekView::channels()
 {
     // Channel: [0] Id, [1] Name, [2] Short Name, [3] Long Name, [4] Brief Description
