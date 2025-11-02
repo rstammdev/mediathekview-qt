@@ -20,6 +20,7 @@ class MediathekView : public QObject
 
 public:
     static const QString mediaFullListUrl();
+    static const QString mediaPartialListUrl();
 
     static const QList<QStringList> channels();
 };
